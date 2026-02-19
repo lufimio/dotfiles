@@ -67,6 +67,7 @@
       "firefox",
       "chrome"
     ],
+    "max-length": 30,
     "format": "",
     "format-playing": " {dynamic}",
     "format-paused": "",
@@ -94,8 +95,8 @@
     "separate-outputs": true,
     "icon": true,
     "icon-size": 20,
-    "on-scroll-up": "niri msg action focus-workspace-up",
-    "on-scroll-down": "niri msg action focus-workspace-down",
+    "on-scroll-up": "niri msg action focus-column-left",
+    "on-scroll-down": "niri msg action focus-column-right",
     "on-click": "walker"
   },
 

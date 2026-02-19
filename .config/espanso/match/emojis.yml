@@ -1,0 +1,8 @@
+matches:
+- trigger: ':eskull:'
+  replace: 💀
+- trigger: ':esob:'
+  replace: 😭
+- trigger: ':efire:'
+  replace: 🔥
+

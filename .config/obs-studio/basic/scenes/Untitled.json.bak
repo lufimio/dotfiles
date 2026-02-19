@@ -1,6 +1,6 @@
 {
     "DesktopAudioDevice1": {
-        "prev_ver": 536870914,
+        "prev_ver": 536870916,
         "name": "Desktop Audio",
         "uuid": "c5934800-3037-4017-8072-9c261da3deed",
         "id": "pulse_output_capture",
@@ -14,7 +14,7 @@
         "volume": 0.17520153522491455,
         "balance": 0.5,
         "enabled": true,
-        "muted": false,
+        "muted": true,
         "push-to-mute": false,
         "push-to-mute-delay": 0,
         "push-to-talk": false,
@@ -31,7 +31,7 @@
         "private_settings": {}
     },
     "AuxAudioDevice1": {
-        "prev_ver": 536870914,
+        "prev_ver": 536870916,
         "name": "Mic/Aux",
         "uuid": "86efa205-60aa-4c14-8bff-d14c4f1a3f69",
         "id": "pulse_input_capture",
@@ -42,7 +42,7 @@
         "mixers": 255,
         "sync": 0,
         "flags": 0,
-        "volume": 0.2406037300825119,
+        "volume": 0.032758597284555435,
         "balance": 0.5,
         "enabled": true,
         "muted": true,
@@ -79,26 +79,23 @@
         },
         {
             "name": "Vtuber"
-        },
-        {
-            "name": "External Monitor"
         }
     ],
     "name": "Untitled",
     "sources": [
         {
-            "prev_ver": 536870914,
+            "prev_ver": 536870916,
             "name": "Main Monitor",
             "uuid": "272c60b5-3e46-40b6-9511-3d229404b54b",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 18,
+                "id_counter": 45,
                 "custom_size": false,
                 "items": [
                     {
-                        "name": "Chat External",
-                        "source_uuid": "37907bf0-6d12-47a8-a5db-5a0555c86b6e",
+                        "name": "Screen Capture (PipeWire)",
+                        "source_uuid": "ff99a1f4-ee3c-4223-aef7-38488a9bc072",
                         "visible": false,
                         "locked": false,
                         "rot": 0.0,
@@ -107,14 +104,14 @@
                             "y": 1080.0
                         },
                         "align": 5,
-                        "bounds_type": 0,
+                        "bounds_type": 2,
                         "bounds_align": 0,
                         "bounds_crop": false,
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 6,
+                        "crop_left": 276,
+                        "crop_top": 78,
+                        "crop_right": 268,
+                        "crop_bottom": 82,
+                        "id": 18,
                         "group_item_backup": false,
                         "pos": {
                             "x": 0.0,
@@ -125,20 +122,75 @@
                             "y": -1.0
                         },
                         "scale": {
-                            "x": 1.0,
-                            "y": 1.0
+                            "x": 1.5041782855987549,
+                            "y": 1.5041782855987549
                         },
                         "scale_rel": {
-                            "x": 1.0,
-                            "y": 1.0
+                            "x": 1.5041782855987549,
+                            "y": 1.5041782855987549
                         },
                         "bounds": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "bounds_rel": {
+                            "x": 3.555555582046509,
+                            "y": 2.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Game Capture",
+                        "source_uuid": "0ee7b319-8e36-43cd-b7b5-83342f25cecb",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 6,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 38,
+                        "group_item_backup": false,
+                        "pos": {
                             "x": 0.0,
                             "y": 0.0
                         },
+                        "pos_rel": {
+                            "x": -1.7777777910232544,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.4611872434616089,
+                            "y": 1.5104894638061523
+                        },
+                        "scale_rel": {
+                            "x": 1.4611872434616089,
+                            "y": 1.5104894638061523
+                        },
+                        "bounds": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
                         "bounds_rel": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": 3.555555582046509,
+                            "y": 2.0
                         },
                         "scale_filter": "disable",
                         "blend_method": "default",
@@ -166,73 +218,18 @@
                         "bounds_align": 0,
                         "bounds_crop": false,
                         "crop_left": 0,
-                        "crop_top": 0,
+                        "crop_top": 43,
                         "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 13,
+                        "crop_bottom": 23,
+                        "id": 43,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 1418.0,
-                            "y": 670.0
+                            "x": 1000.0,
+                            "y": 431.0
                         },
                         "pos_rel": {
-                            "x": 0.8481481671333313,
-                            "y": 0.24074077606201172
-                        },
-                        "scale": {
-                            "x": 0.5790081024169922,
-                            "y": 0.5799151062965393
-                        },
-                        "scale_rel": {
-                            "x": 0.5790081024169922,
-                            "y": 0.5799151062965393
-                        },
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_rel": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    },
-                    {
-                        "name": "brb",
-                        "source_uuid": "44d65c11-cff0-440b-a575-9d54acebabfa",
-                        "visible": false,
-                        "locked": false,
-                        "rot": 0.0,
-                        "scale_ref": {
-                            "x": 1920.0,
-                            "y": 1080.0
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 14,
-                        "group_item_backup": false,
-                        "pos": {
-                            "x": 729.0,
-                            "y": 406.0
-                        },
-                        "pos_rel": {
-                            "x": -0.4277777671813965,
-                            "y": -0.2481481432914734
+                            "x": 0.07407407462596893,
+                            "y": -0.20185184478759766
                         },
                         "scale": {
                             "x": 1.0,
@@ -241,213 +238,6 @@
                         "scale_rel": {
                             "x": 1.0,
                             "y": 1.0
-                        },
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_rel": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    },
-                    {
-                        "name": "Live Split One Druid",
-                        "source_uuid": "fc691af2-11f8-44f0-9bd0-8ac5bdd7a6ad",
-                        "visible": false,
-                        "locked": false,
-                        "rot": 0.0,
-                        "scale_ref": {
-                            "x": 1920.0,
-                            "y": 1080.0
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 17,
-                        "group_item_backup": false,
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "pos_rel": {
-                            "x": -1.7777777910232544,
-                            "y": -1.0
-                        },
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_rel": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_rel": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    },
-                    {
-                        "name": "Screen Capture (PipeWire)",
-                        "source_uuid": "ff99a1f4-ee3c-4223-aef7-38488a9bc072",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "scale_ref": {
-                            "x": 1920.0,
-                            "y": 1080.0
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 18,
-                        "group_item_backup": false,
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "pos_rel": {
-                            "x": -1.7777777910232544,
-                            "y": -1.0
-                        },
-                        "scale": {
-                            "x": 1.4055637121200562,
-                            "y": 1.4049478769302368
-                        },
-                        "scale_rel": {
-                            "x": 1.4055637121200562,
-                            "y": 1.4049478769302368
-                        },
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_rel": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    }
-                ]
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.6": [],
-                "libobs.hide_scene_item.6": [],
-                "libobs.show_scene_item.13": [],
-                "libobs.hide_scene_item.13": [],
-                "libobs.show_scene_item.14": [],
-                "libobs.hide_scene_item.14": [],
-                "libobs.show_scene_item.17": [],
-                "libobs.hide_scene_item.17": [],
-                "libobs.show_scene_item.18": [],
-                "libobs.hide_scene_item.18": []
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870914,
-            "name": "External Monitor",
-            "uuid": "d0884708-3c1b-4fee-97dd-516d1b19f16b",
-            "id": "scene",
-            "versioned_id": "scene",
-            "settings": {
-                "id_counter": 4,
-                "custom_size": false,
-                "items": [
-                    {
-                        "name": "Screen Capture (PipeWire) 2",
-                        "source_uuid": "70afd9ce-2578-4752-8e89-ff9a40a7d732",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "scale_ref": {
-                            "x": 1366.0,
-                            "y": 768.0
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 1,
-                        "group_item_backup": false,
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "pos_rel": {
-                            "x": -1.7777777910232544,
-                            "y": -1.0
-                        },
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_rel": {
-                            "x": 0.7111111283302307,
-                            "y": 0.7111111283302307
                         },
                         "bounds": {
                             "x": 0.0,
@@ -479,6 +269,61 @@
                             "y": 1080.0
                         },
                         "align": 5,
+                        "bounds_type": 2,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 434,
+                        "crop_bottom": 0,
+                        "id": 6,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": -1.7777777910232544,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_rel": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "bounds": {
+                            "x": 1535.0,
+                            "y": 1080.0
+                        },
+                        "bounds_rel": {
+                            "x": 2.842592477798462,
+                            "y": 2.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "LiveSplit One",
+                        "source_uuid": "3bbfc46c-0a0c-4eb3-9c90-cef754ec8038",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
                         "bounds_type": 0,
                         "bounds_align": 0,
                         "bounds_crop": false,
@@ -486,7 +331,614 @@
                         "crop_top": 0,
                         "crop_right": 0,
                         "crop_bottom": 0,
-                        "id": 4,
+                        "id": 45,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 1586.0,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": 1.1592592000961304,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.1133333444595337,
+                            "y": 1.1139999628067017
+                        },
+                        "scale_rel": {
+                            "x": 1.1133333444595337,
+                            "y": 1.1139999628067017
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Color Source",
+                        "source_uuid": "74f33f6d-50d1-4dba-8217-7bb65dbc5a49",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 36,
+                        "group_item_backup": true,
+                        "pos": {
+                            "x": 1473.13330078125,
+                            "y": 959.02099609375
+                        },
+                        "pos_rel": {
+                            "x": 0.9502468705177307,
+                            "y": 0.7759648561477661
+                        },
+                        "scale": {
+                            "x": 1.3109759092330933,
+                            "y": 1.3108254671096802
+                        },
+                        "scale_rel": {
+                            "x": 0.17185452580451965,
+                            "y": 0.17170557379722595
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Progress",
+                        "source_uuid": "f6a98f54-b3e4-4c54-8a3b-03eb4c29efbd",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 35,
+                        "group_item_backup": true,
+                        "pos": {
+                            "x": 1849.583984375,
+                            "y": 1063.49951171875
+                        },
+                        "pos_rel": {
+                            "x": 1.6473777294158936,
+                            "y": 0.9694435596466064
+                        },
+                        "scale": {
+                            "x": 0.24156053364276886,
+                            "y": 0.24245692789554596
+                        },
+                        "scale_rel": {
+                            "x": 0.03166592866182327,
+                            "y": 0.031759534031152725
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Tuna progress bar",
+                        "source_uuid": "6802c92a-7f36-4a7c-889c-431138255e43",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 34,
+                        "group_item_backup": true,
+                        "pos": {
+                            "x": 1599.28271484375,
+                            "y": 1065.67578125
+                        },
+                        "pos_rel": {
+                            "x": 1.1838568449020386,
+                            "y": 0.9734736680984497
+                        },
+                        "scale": {
+                            "x": 6.201560020446777,
+                            "y": 6.1171875
+                        },
+                        "scale_rel": {
+                            "x": 0.8129563331604004,
+                            "y": 0.8012929558753967
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Album",
+                        "source_uuid": "6f1ea687-68c1-4d9d-bb96-80a5cbee3232",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 32,
+                        "group_item_backup": true,
+                        "pos": {
+                            "x": 1599.2252197265625,
+                            "y": 1035.7813720703125
+                        },
+                        "pos_rel": {
+                            "x": 1.1837503910064697,
+                            "y": 0.9181137084960938
+                        },
+                        "scale": {
+                            "x": 0.5817992091178894,
+                            "y": 0.5830721259117126
+                        },
+                        "scale_rel": {
+                            "x": 0.07626747339963913,
+                            "y": 0.07637685537338257
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Artist",
+                        "source_uuid": "29dadb0f-eed8-4028-82e0-b2758b0ab530",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 31,
+                        "group_item_backup": true,
+                        "pos": {
+                            "x": 1599.28271484375,
+                            "y": 1003.3616943359375
+                        },
+                        "pos_rel": {
+                            "x": 1.1838568449020386,
+                            "y": 0.8580771684646606
+                        },
+                        "scale": {
+                            "x": 0.7807426452636719,
+                            "y": 0.7797300815582275
+                        },
+                        "scale_rel": {
+                            "x": 0.10234677046537399,
+                            "y": 0.10213716328144073
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Title",
+                        "source_uuid": "e78af5b7-7687-4da8-9b07-0b60ec9d8989",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 30,
+                        "group_item_backup": true,
+                        "pos": {
+                            "x": 1598.946044921875,
+                            "y": 957.0
+                        },
+                        "pos_rel": {
+                            "x": 1.183233380317688,
+                            "y": 0.7722222805023193
+                        },
+                        "scale": {
+                            "x": 0.9871809482574463,
+                            "y": 0.989783525466919
+                        },
+                        "scale_rel": {
+                            "x": 0.1294085681438446,
+                            "y": 0.12965215742588043
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Seperator",
+                        "source_uuid": "1b3e7c37-bea2-4a6a-a6d0-d3046e35952e",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 37,
+                        "group_item_backup": true,
+                        "pos": {
+                            "x": 1468.731689453125,
+                            "y": 1004.0255126953125
+                        },
+                        "pos_rel": {
+                            "x": 0.9420956969261169,
+                            "y": 0.8593064546585083
+                        },
+                        "scale": {
+                            "x": 13.607999801635742,
+                            "y": 14.0
+                        },
+                        "scale_rel": {
+                            "x": 1.783859133720398,
+                            "y": 1.833865761756897
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Cover",
+                        "source_uuid": "2b369c4f-db36-40d4-859a-7cf3335d3ae0",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 0,
+                        "bounds_type": 2,
+                        "bounds_align": 2,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 33,
+                        "group_item_backup": true,
+                        "pos": {
+                            "x": 1495.1405029296875,
+                            "y": 1019.53857421875
+                        },
+                        "pos_rel": {
+                            "x": 0.9910009503364563,
+                            "y": 0.8880343437194824
+                        },
+                        "scale": {
+                            "x": 2.109375,
+                            "y": 2.109375
+                        },
+                        "scale_rel": {
+                            "x": 0.2765158712863922,
+                            "y": 0.2763079106807709
+                        },
+                        "bounds": {
+                            "x": 1360.86669921875,
+                            "y": 921.2857055664062
+                        },
+                        "bounds_rel": {
+                            "x": 2.5201234817504883,
+                            "y": 1.7060846090316772
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Music",
+                        "source_uuid": "fc5c5b6e-1aa1-4b06-8c31-20817e3cf942",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 29,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 1406.0,
+                            "y": 957.0
+                        },
+                        "pos_rel": {
+                            "x": 0.8259259462356567,
+                            "y": 0.7722222805023193
+                        },
+                        "scale": {
+                            "x": 0.1310890018939972,
+                            "y": 0.1309904158115387
+                        },
+                        "scale_rel": {
+                            "x": 0.1310890018939972,
+                            "y": 0.1309904158115387
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {
+                            "collapsed": true
+                        }
+                    },
+                    {
+                        "name": "MPD",
+                        "source_uuid": "2fd66bad-3e41-44d5-9e38-99c329328ee3",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 39,
+                        "group_item_backup": true,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": -1.7777777910232544,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_rel": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Audio Capture",
+                        "source_uuid": "7644469e-e64b-4424-a41d-b5e55d3891a0",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 40,
                         "group_item_backup": false,
                         "pos": {
                             "x": 0.0,
@@ -538,10 +990,20 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": [],
-                "libobs.show_scene_item.4": [],
-                "libobs.hide_scene_item.4": []
+                "libobs.show_scene_item.18": [],
+                "libobs.hide_scene_item.18": [],
+                "libobs.show_scene_item.38": [],
+                "libobs.hide_scene_item.38": [],
+                "libobs.show_scene_item.43": [],
+                "libobs.hide_scene_item.43": [],
+                "libobs.show_scene_item.6": [],
+                "libobs.hide_scene_item.6": [],
+                "libobs.show_scene_item.45": [],
+                "libobs.hide_scene_item.45": [],
+                "libobs.show_scene_item.29": [],
+                "libobs.hide_scene_item.29": [],
+                "libobs.show_scene_item.40": [],
+                "libobs.hide_scene_item.40": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -550,33 +1012,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 536870914,
-            "name": "Screen Capture (PipeWire) 2",
-            "uuid": "70afd9ce-2578-4752-8e89-ff9a40a7d732",
-            "id": "pipewire-screen-capture-source",
-            "versioned_id": "pipewire-screen-capture-source",
-            "settings": {
-                "RestoreToken": "b2c1c476-1ace-4077-aeb1-2d0f387461fe"
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870914,
+            "prev_ver": 536870916,
             "name": "Chat External",
             "uuid": "37907bf0-6d12-47a8-a5db-5a0555c86b6e",
             "id": "browser_source",
@@ -610,13 +1046,14 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 536870914,
+            "prev_ver": 536870916,
             "name": "VTuber Model",
             "uuid": "df24d076-a1da-4643-8ec5-ac600242fefe",
             "id": "pipewire-screen-capture-source",
             "versioned_id": "pipewire-screen-capture-source",
             "settings": {
-                "RestoreToken": "5b5f88bc-aef7-49ee-a7b9-e39daebcc683"
+                "ShowCursor": false,
+                "RestoreToken": "9aac32da-bd18-48b4-ad0e-5c89c3eec1cf"
             },
             "mixers": 0,
             "sync": 0,
@@ -636,13 +1073,13 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 536870914,
+                    "prev_ver": 536870916,
                     "name": "Chroma Key",
                     "uuid": "0b62668c-6f79-46f8-96b4-99e0df4ffc1b",
                     "id": "chroma_key_filter",
                     "versioned_id": "chroma_key_filter_v2",
                     "settings": {
-                        "key_color": 4294901760,
+                        "key_color": 4291177215,
                         "key_color_type": "custom",
                         "similarity": 100,
                         "spill": 1
@@ -667,45 +1104,13 @@
             ]
         },
         {
-            "prev_ver": 536870914,
-            "name": "brb",
-            "uuid": "44d65c11-cff0-440b-a575-9d54acebabfa",
-            "id": "text_ft2_source",
-            "versioned_id": "text_ft2_source_v2",
-            "settings": {
-                "text": "BRB",
-                "font": {
-                    "face": "Maple Mono",
-                    "style": "Regular",
-                    "size": 256,
-                    "flags": 0
-                }
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870914,
+            "prev_ver": 536870916,
             "name": "Vtuber",
             "uuid": "6a1062c4-7e1f-4410-9f9f-4cdf91d8fcff",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 1,
+                "id_counter": 2,
                 "custom_size": false,
                 "items": [
                     {
@@ -723,26 +1128,26 @@
                         "bounds_align": 0,
                         "bounds_crop": false,
                         "crop_left": 0,
-                        "crop_top": 0,
+                        "crop_top": 34,
                         "crop_right": 0,
                         "crop_bottom": 0,
                         "id": 1,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 298.0,
-                            "y": 0.0
+                            "x": 0.0,
+                            "y": 84.5
                         },
                         "pos_rel": {
-                            "x": -1.2259259223937988,
-                            "y": -1.0
+                            "x": -1.7777777910232544,
+                            "y": -0.8435184955596924
                         },
                         "scale": {
-                            "x": 1.5271049737930298,
-                            "y": 1.5275813341140747
+                            "x": 1.4611872434616089,
+                            "y": 1.4617691040039062
                         },
                         "scale_rel": {
-                            "x": 1.5271049737930298,
-                            "y": 1.5275813341140747
+                            "x": 1.4611872434616089,
+                            "y": 1.4617691040039062
                         },
                         "bounds": {
                             "x": 0.0,
@@ -788,13 +1193,13 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 536870914,
-            "name": "Live Split One Druid",
-            "uuid": "fc691af2-11f8-44f0-9bd0-8ac5bdd7a6ad",
+            "prev_ver": 536870916,
+            "name": "Screen Capture (PipeWire)",
+            "uuid": "ff99a1f4-ee3c-4223-aef7-38488a9bc072",
             "id": "pipewire-screen-capture-source",
             "versioned_id": "pipewire-screen-capture-source",
             "settings": {
-                "RestoreToken": "29f76df9-94f8-4b65-a32b-352f543f72c0"
+                "RestoreToken": "97a51d3f-1669-4d72-9cf0-866c7e965a2a"
             },
             "mixers": 0,
             "sync": 0,
@@ -814,13 +1219,16 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 536870914,
-            "name": "Screen Capture (PipeWire)",
-            "uuid": "ff99a1f4-ee3c-4223-aef7-38488a9bc072",
-            "id": "pipewire-screen-capture-source",
-            "versioned_id": "pipewire-screen-capture-source",
+            "prev_ver": 536870916,
+            "name": "Title",
+            "uuid": "e78af5b7-7687-4da8-9b07-0b60ec9d8989",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "RestoreToken": "ed1cfb75-0c7a-4aeb-8aea-ed5588c3a5e5"
+                "from_file": true,
+                "text_file": "/home/lufimio/Documents/Other/OBS/Music/title.txt",
+                "color1": 4293517796,
+                "color2": 4293517796
             },
             "mixers": 0,
             "sync": 0,
@@ -838,9 +1246,1388 @@
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
             "private_settings": {}
+        },
+        {
+            "prev_ver": 536870916,
+            "name": "Artist",
+            "uuid": "29dadb0f-eed8-4028-82e0-b2758b0ab530",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {
+                "from_file": true,
+                "text_file": "/home/lufimio/Documents/Other/OBS/Music/artists.txt",
+                "font": {
+                    "face": "Noto Sans",
+                    "style": "Regular",
+                    "size": 256,
+                    "flags": 0
+                },
+                "antialiasing": true,
+                "color1": 4288319633,
+                "color2": 4288319633
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870916,
+            "name": "Album",
+            "uuid": "6f1ea687-68c1-4d9d-bb96-80a5cbee3232",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {
+                "from_file": true,
+                "text_file": "/home/lufimio/Documents/Other/OBS/Music/album.txt",
+                "color1": 4283385414,
+                "color2": 4283385414
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870916,
+            "name": "Cover",
+            "uuid": "2b369c4f-db36-40d4-859a-7cf3335d3ae0",
+            "id": "image_source",
+            "versioned_id": "image_source",
+            "settings": {
+                "file": "/home/lufimio/Documents/Other/OBS/Music/cover.png"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870916,
+            "name": "Tuna progress bar",
+            "uuid": "6802c92a-7f36-4a7c-889c-431138255e43",
+            "id": "progress_bar",
+            "versioned_id": "progress_bar",
+            "settings": {
+                "cy": 10
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870916,
+            "name": "Progress",
+            "uuid": "f6a98f54-b3e4-4c54-8a3b-03eb4c29efbd",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {
+                "from_file": true,
+                "text_file": "/home/lufimio/Documents/Other/OBS/Music/progress.txt"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870916,
+            "name": "Color Source",
+            "uuid": "74f33f6d-50d1-4dba-8217-7bb65dbc5a49",
+            "id": "color_source",
+            "versioned_id": "color_source_v3",
+            "settings": {
+                "color": 4279767827,
+                "width": 2600,
+                "height": 700
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870916,
+            "name": "Seperator",
+            "uuid": "1b3e7c37-bea2-4a6a-a6d0-d3046e35952e",
+            "id": "color_source",
+            "versioned_id": "color_source_v3",
+            "settings": {
+                "undo_suuid": "1b3e7c37-bea2-4a6a-a6d0-d3046e35952e",
+                "color": 4280622879,
+                "width": 250,
+                "height": 1
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870916,
+            "name": "Game Capture",
+            "uuid": "0ee7b319-8e36-43cd-b7b5-83342f25cecb",
+            "id": "vkcapture-source",
+            "versioned_id": "vkcapture-source",
+            "settings": {
+                "window": "",
+                "allow_transparency": false
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870916,
+            "name": "MPD",
+            "uuid": "2fd66bad-3e41-44d5-9e38-99c329328ee3",
+            "id": "pipewire_audio_application_capture",
+            "versioned_id": "pipewire_audio_application_capture",
+            "settings": {
+                "TargetName": "Music Player Daemon"
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": true,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870916,
+            "name": "LiveSplit One",
+            "uuid": "3bbfc46c-0a0c-4eb3-9c90-cef754ec8038",
+            "id": "livesplit-one",
+            "versioned_id": "livesplit-one",
+            "settings": {
+                "splits_path": "/home/lufimio/Documents/Other/LiveSplits/Silksong/100% v6.lss",
+                "game_path": "/home/lufimio/Documents/Other/LiveSplits/Silksong/silksong_autosplit_wasm_stable.wasm",
+                "auto_splitter_setting_hit_counter": true,
+                "auto_splitter_setting_splits_insert_0": false,
+                "auto_splitter_setting_splits_0_item": "StartNewGame",
+                "auto_splitter_setting_splits_0_action": "None",
+                "auto_splitter_setting_splits_1_item": "MossMother",
+                "auto_splitter_setting_splits_1_action": "None",
+                "auto_splitter_setting_splits_2_item": "SilkSpear",
+                "auto_splitter_setting_splits_2_action": "None",
+                "auto_splitter_setting_splits_3_item": "BellBeast",
+                "auto_splitter_setting_splits_3_action": "None",
+                "auto_splitter_setting_splits_4_item": "EnterHuntersMarch",
+                "auto_splitter_setting_splits_4_action": "None",
+                "auto_splitter_setting_splits_5_item": "SavedFleaHuntersMarch",
+                "auto_splitter_setting_splits_5_action": "None",
+                "auto_splitter_setting_splits_6_item": "HuntersMarchPostMiddleArenaTransition",
+                "auto_splitter_setting_splits_6_action": "None",
+                "auto_splitter_setting_splits_7_item": "SwiftStep",
+                "auto_splitter_setting_splits_7_action": "None",
+                "auto_splitter_setting_splits_8_item": "SavedFleaDeepDocksSprint",
+                "auto_splitter_setting_splits_8_action": "None",
+                "auto_splitter_setting_splits_9_item": "SavedFleaDeepDocksBellway",
+                "auto_splitter_setting_splits_9_action": "None",
+                "auto_splitter_setting_splits_10_item": "CraftingKit1",
+                "auto_splitter_setting_splits_10_action": "None",
+                "auto_splitter_setting_splits_11_item": "Lace1",
+                "auto_splitter_setting_splits_11_action": "None",
+                "auto_splitter_setting_splits_12_item": "SavedFleaFarFieldsTrap",
+                "auto_splitter_setting_splits_12_action": "None",
+                "auto_splitter_setting_splits_13_item": "FarFieldsStation",
+                "auto_splitter_setting_splits_13_action": "None",
+                "auto_splitter_setting_splits_14_item": "SavedFleaMarrow",
+                "auto_splitter_setting_splits_14_action": "None",
+                "auto_splitter_setting_splits_15_item": "FleaBrew",
+                "auto_splitter_setting_splits_15_action": "None",
+                "auto_splitter_setting_splits_16_item": "EnterShellwood",
+                "auto_splitter_setting_splits_16_action": "None",
+                "auto_splitter_setting_splits_17_item": "ClingGrip",
+                "auto_splitter_setting_splits_17_action": "None",
+                "auto_splitter_setting_splits_18_item": "SavedFleaShellwood",
+                "auto_splitter_setting_splits_18_action": "None",
+                "auto_splitter_setting_splits_19_item": "MaskShard1",
+                "auto_splitter_setting_splits_19_action": "None",
+                "auto_splitter_setting_splits_20_item": "SavedFleaBellhart",
+                "auto_splitter_setting_splits_20_action": "None",
+                "auto_splitter_setting_splits_21_item": "Widow",
+                "auto_splitter_setting_splits_21_action": "None",
+                "auto_splitter_setting_splits_22_item": "Longpin",
+                "auto_splitter_setting_splits_22_action": "None",
+                "auto_splitter_setting_splits_23_item": "NeedleUpgrade1",
+                "auto_splitter_setting_splits_23_action": "None",
+                "auto_splitter_setting_splits_24_item": "SpoolFragment1",
+                "auto_splitter_setting_splits_24_action": "None",
+                "auto_splitter_setting_splits_25_item": "SavedFleaGreymoorLake",
+                "auto_splitter_setting_splits_25_action": "None",
+                "auto_splitter_setting_splits_26_item": "ThreadStorm",
+                "auto_splitter_setting_splits_26_action": "None",
+                "auto_splitter_setting_splits_27_item": "ThreefoldPin",
+                "auto_splitter_setting_splits_27_action": "None",
+                "auto_splitter_setting_splits_28_item": "CraftingKit2",
+                "auto_splitter_setting_splits_28_action": "None",
+                "auto_splitter_setting_splits_29_item": "ReaperCrest",
+                "auto_splitter_setting_splits_29_action": "None",
+                "auto_splitter_setting_splits_30_item": "EnterFarFields",
+                "auto_splitter_setting_splits_30_action": "None",
+                "auto_splitter_setting_splits_31_item": "BenchAny",
+                "auto_splitter_setting_splits_31_action": "None",
+                "auto_splitter_setting_splits_32_item": "DriftersCloak",
+                "auto_splitter_setting_splits_32_action": "None",
+                "auto_splitter_setting_splits_33_item": "FourthChorus",
+                "auto_splitter_setting_splits_33_action": "None",
+                "auto_splitter_setting_splits_34_item": "ShellwoodBell",
+                "auto_splitter_setting_splits_34_action": "None",
+                "auto_splitter_setting_splits_35_item": "Spool1",
+                "auto_splitter_setting_splits_35_action": "None",
+                "auto_splitter_setting_splits_36_item": "BlastedStepsStation",
+                "auto_splitter_setting_splits_36_action": "None",
+                "auto_splitter_setting_splits_37_item": "LastJudge",
+                "auto_splitter_setting_splits_37_action": "None",
+                "auto_splitter_setting_splits_38_item": "Act2Started",
+                "auto_splitter_setting_splits_38_action": "None",
+                "auto_splitter_setting_splits_39_item": "SpoolFragment3",
+                "auto_splitter_setting_splits_39_action": "None",
+                "auto_splitter_setting_splits_40_item": "GrandBellwayTube",
+                "auto_splitter_setting_splits_40_action": "None",
+                "auto_splitter_setting_splits_41_item": "CollectedWhitewardKey",
+                "auto_splitter_setting_splits_41_action": "None",
+                "auto_splitter_setting_splits_42_item": "SavedFleaChoralChambersCage",
+                "auto_splitter_setting_splits_42_action": "None",
+                "auto_splitter_setting_splits_43_item": "Spool2",
+                "auto_splitter_setting_splits_43_action": "None",
+                "auto_splitter_setting_splits_44_item": "SlabStation",
+                "auto_splitter_setting_splits_44_action": "None",
+                "auto_splitter_setting_splits_45_item": "PostWhitewardElevatorTrans",
+                "auto_splitter_setting_splits_45_action": "None",
+                "auto_splitter_setting_splits_46_item": "SavedFleaUnderworksCauldron",
+                "auto_splitter_setting_splits_46_action": "None",
+                "auto_splitter_setting_splits_47_item": "Clawline",
+                "auto_splitter_setting_splits_47_action": "None",
+                "auto_splitter_setting_splits_48_item": "SpoolFragment5",
+                "auto_splitter_setting_splits_48_action": "None",
+                "auto_splitter_setting_splits_49_item": "UnderworksTube",
+                "auto_splitter_setting_splits_49_action": "None",
+                "auto_splitter_setting_splits_50_item": "EnterMountFay",
+                "auto_splitter_setting_splits_50_action": "None",
+                "auto_splitter_setting_splits_51_item": "UpperMountFayTrans",
+                "auto_splitter_setting_splits_51_action": "None",
+                "auto_splitter_setting_splits_52_item": "FaydownCloak",
+                "auto_splitter_setting_splits_52_action": "None",
+                "auto_splitter_setting_splits_53_item": "SavedFleaMountFay",
+                "auto_splitter_setting_splits_53_action": "None",
+                "auto_splitter_setting_splits_54_item": "MaskShard2",
+                "auto_splitter_setting_splits_54_action": "None",
+                "auto_splitter_setting_splits_55_item": "MemoryCrystal",
+                "auto_splitter_setting_splits_55_action": "None",
+                "auto_splitter_setting_splits_56_item": "SongclaveBell",
+                "auto_splitter_setting_splits_56_action": "None",
+                "auto_splitter_setting_splits_57_item": "EnterMemorium",
+                "auto_splitter_setting_splits_57_action": "None",
+                "auto_splitter_setting_splits_58_item": "Voltvessels",
+                "auto_splitter_setting_splits_58_action": "None",
+                "auto_splitter_setting_splits_59_item": "SavedFleaGiantFlea",
+                "auto_splitter_setting_splits_59_action": "None",
+                "auto_splitter_setting_splits_60_item": "Spool3",
+                "auto_splitter_setting_splits_60_action": "None",
+                "auto_splitter_setting_splits_61_item": "CogworkDancers",
+                "auto_splitter_setting_splits_61_action": "None",
+                "auto_splitter_setting_splits_62_item": "MaskShard3",
+                "auto_splitter_setting_splits_62_action": "None",
+                "auto_splitter_setting_splits_63_item": "ArchitectsMelody",
+                "auto_splitter_setting_splits_63_action": "None",
+                "auto_splitter_setting_splits_64_item": "WhisperingVaultsArena",
+                "auto_splitter_setting_splits_64_action": "None",
+                "auto_splitter_setting_splits_65_item": "SavedFleaWhisperingVaults",
+                "auto_splitter_setting_splits_65_action": "None",
+                "auto_splitter_setting_splits_66_item": "NeedleUpgrade2",
+                "auto_splitter_setting_splits_66_action": "None",
+                "auto_splitter_setting_splits_67_item": "MagnetiteDice",
+                "auto_splitter_setting_splits_67_action": "None",
+                "auto_splitter_setting_splits_68_item": "GreatConchflies",
+                "auto_splitter_setting_splits_68_action": "None",
+                "auto_splitter_setting_splits_69_item": "NeedleStrike",
+                "auto_splitter_setting_splits_69_action": "None",
+                "auto_splitter_setting_splits_70_item": "EnterSandsOfKarak",
+                "auto_splitter_setting_splits_70_action": "None",
+                "auto_splitter_setting_splits_71_item": "SeenShakraSandsOfKarak",
+                "auto_splitter_setting_splits_71_action": "None",
+                "auto_splitter_setting_splits_72_item": "Menu",
+                "auto_splitter_setting_splits_72_action": "None",
+                "auto_splitter_setting_splits_73_item": "Mask1",
+                "auto_splitter_setting_splits_73_action": "None",
+                "auto_splitter_setting_splits_74_item": "CraftingKit3",
+                "auto_splitter_setting_splits_74_action": "None",
+                "auto_splitter_setting_splits_75_item": "SavedFleaBlastedSteps",
+                "auto_splitter_setting_splits_75_action": "None",
+                "auto_splitter_setting_splits_76_item": "SavedFleaSandsOfKarak",
+                "auto_splitter_setting_splits_76_action": "None",
+                "auto_splitter_setting_splits_77_item": "EnterVoltnest",
+                "auto_splitter_setting_splits_77_action": "None",
+                "auto_splitter_setting_splits_78_item": "Voltvyrm",
+                "auto_splitter_setting_splits_78_action": "None",
+                "auto_splitter_setting_splits_79_item": "DeadBugsPurse",
+                "auto_splitter_setting_splits_79_action": "None",
+                "auto_splitter_setting_splits_80_item": "SavedFleaWormways",
+                "auto_splitter_setting_splits_80_action": "None",
+                "auto_splitter_setting_splits_81_item": "Sharpdart",
+                "auto_splitter_setting_splits_81_action": "None",
+                "auto_splitter_setting_splits_82_item": "PlasmiumPhial",
+                "auto_splitter_setting_splits_82_action": "None",
+                "auto_splitter_setting_splits_83_item": "WandererCrest",
+                "auto_splitter_setting_splits_83_action": "None",
+                "auto_splitter_setting_splits_84_item": "MagnetiteBrooch",
+                "auto_splitter_setting_splits_84_action": "None",
+                "auto_splitter_setting_splits_85_item": "EnterWeavenestAtla",
+                "auto_splitter_setting_splits_85_action": "None",
+                "auto_splitter_setting_splits_86_item": "MaskShard6",
+                "auto_splitter_setting_splits_86_action": "None",
+                "auto_splitter_setting_splits_87_item": "SpoolFragment7",
+                "auto_splitter_setting_splits_87_action": "None",
+                "auto_splitter_setting_splits_88_item": "Weavelight",
+                "auto_splitter_setting_splits_88_action": "None",
+                "auto_splitter_setting_splits_89_item": "DruidsEye",
+                "auto_splitter_setting_splits_89_action": "None",
+                "auto_splitter_setting_splits_90_item": "ShardPendant",
+                "auto_splitter_setting_splits_90_action": "None",
+                "auto_splitter_setting_splits_91_item": "SkullTyrant1",
+                "auto_splitter_setting_splits_91_action": "None",
+                "auto_splitter_setting_splits_92_item": "MaskShard7",
+                "auto_splitter_setting_splits_92_action": "None",
+                "auto_splitter_setting_splits_93_item": "EnterHuntersMarch",
+                "auto_splitter_setting_splits_93_action": "None",
+                "auto_splitter_setting_splits_94_item": "BeastCrest",
+                "auto_splitter_setting_splits_94_action": "None",
+                "auto_splitter_setting_splits_95_item": "Curveclaw",
+                "auto_splitter_setting_splits_95_action": "None",
+                "auto_splitter_setting_splits_96_item": "EnterFarFields",
+                "auto_splitter_setting_splits_96_action": "None",
+                "auto_splitter_setting_splits_97_item": "EnterHalfwayHomeBasement",
+                "auto_splitter_setting_splits_97_action": "None",
+                "auto_splitter_setting_splits_98_item": "Menu",
+                "auto_splitter_setting_splits_98_action": "None",
+                "auto_splitter_setting_splits_99_item": "SavedFleaKratt",
+                "auto_splitter_setting_splits_99_action": "None",
+                "auto_splitter_setting_splits_100_item": "BarbedBracelet",
+                "auto_splitter_setting_splits_100_action": "None",
+                "auto_splitter_setting_splits_101_item": "Lugoli",
+                "auto_splitter_setting_splits_101_action": "None",
+                "auto_splitter_setting_splits_102_item": "SeenShakraSinnersRoad",
+                "auto_splitter_setting_splits_102_action": "None",
+                "auto_splitter_setting_splits_103_item": "SinnersRoadSimpleKey",
+                "auto_splitter_setting_splits_103_action": "None",
+                "auto_splitter_setting_splits_104_item": "SavedFleaSinnersRoad",
+                "auto_splitter_setting_splits_104_action": "None",
+                "auto_splitter_setting_splits_105_item": "EnterBilewater",
+                "auto_splitter_setting_splits_105_action": "None",
+                "auto_splitter_setting_splits_106_item": "SavedFleaBilewaterThieves",
+                "auto_splitter_setting_splits_106_action": "None",
+                "auto_splitter_setting_splits_107_item": "EnterMist",
+                "auto_splitter_setting_splits_107_action": "None",
+                "auto_splitter_setting_splits_108_item": "EnterExhaustOrgan",
+                "auto_splitter_setting_splits_108_action": "None",
+                "auto_splitter_setting_splits_109_item": "SavedFleaBilewaterOrgan",
+                "auto_splitter_setting_splits_109_action": "None",
+                "auto_splitter_setting_splits_110_item": "CrossStitch",
+                "auto_splitter_setting_splits_110_action": "None",
+                "auto_splitter_setting_splits_111_item": "Trobbio",
+                "auto_splitter_setting_splits_111_action": "None",
+                "auto_splitter_setting_splits_112_item": "Mask2",
+                "auto_splitter_setting_splits_112_action": "None",
+                "auto_splitter_setting_splits_113_item": "SavedFleaSongclave",
+                "auto_splitter_setting_splits_113_action": "None",
+                "auto_splitter_setting_splits_114_item": "VaultkeepersMelody",
+                "auto_splitter_setting_splits_114_action": "None",
+                "auto_splitter_setting_splits_115_item": "EnterBilewater",
+                "auto_splitter_setting_splits_115_action": "None",
+                "auto_splitter_setting_splits_116_item": "ShakraMapBuyout",
+                "auto_splitter_setting_splits_116_action": "None",
+                "auto_splitter_setting_splits_117_item": "SlabKeyApostate",
+                "auto_splitter_setting_splits_117_action": "None",
+                "auto_splitter_setting_splits_118_item": "QuickSling",
+                "auto_splitter_setting_splits_118_action": "None",
+                "auto_splitter_setting_splits_119_item": "MaskShard9",
+                "auto_splitter_setting_splits_119_action": "None",
+                "auto_splitter_setting_splits_120_item": "Spool4",
+                "auto_splitter_setting_splits_120_action": "None",
+                "auto_splitter_setting_splits_121_item": "EnterGreymoor",
+                "auto_splitter_setting_splits_121_action": "None",
+                "auto_splitter_setting_splits_122_item": "SavedFleaGreymoorRoof",
+                "auto_splitter_setting_splits_122_action": "None",
+                "auto_splitter_setting_splits_123_item": "FatherOfTheFlame",
+                "auto_splitter_setting_splits_123_action": "None",
+                "auto_splitter_setting_splits_124_item": "SavedFleaUnderworksWispThicket",
+                "auto_splitter_setting_splits_124_action": "None",
+                "auto_splitter_setting_splits_125_item": "GreatTasteReward",
+                "auto_splitter_setting_splits_125_action": "None",
+                "auto_splitter_setting_splits_126_item": "SecondSentinelAwoken",
+                "auto_splitter_setting_splits_126_action": "None",
+                "auto_splitter_setting_splits_127_item": "NeedleUpgrade3",
+                "auto_splitter_setting_splits_127_action": "None",
+                "auto_splitter_setting_splits_128_item": "SavageBeastfly2",
+                "auto_splitter_setting_splits_128_action": "None",
+                "auto_splitter_setting_splits_129_item": "MaskShard10",
+                "auto_splitter_setting_splits_129_action": "None",
+                "auto_splitter_setting_splits_130_item": "MaskShard11",
+                "auto_splitter_setting_splits_130_action": "None",
+                "auto_splitter_setting_splits_131_item": "SpoolFragment9",
+                "auto_splitter_setting_splits_131_action": "None",
+                "auto_splitter_setting_splits_132_item": "SavedFleaDeepDocksArena",
+                "auto_splitter_setting_splits_132_action": "None",
+                "auto_splitter_setting_splits_133_item": "Forebrothers",
+                "auto_splitter_setting_splits_133_action": "None",
+                "auto_splitter_setting_splits_134_item": "Menu",
+                "auto_splitter_setting_splits_134_action": "None",
+                "auto_splitter_setting_splits_135_item": "SavedFleaSlabBellway",
+                "auto_splitter_setting_splits_135_action": "None",
+                "auto_splitter_setting_splits_136_item": "SavedFleaSlabCage",
+                "auto_splitter_setting_splits_136_action": "None",
+                "auto_splitter_setting_splits_137_item": "SlabKeyIndolent",
+                "auto_splitter_setting_splits_137_action": "None",
+                "auto_splitter_setting_splits_138_item": "SlabKeyHeretic",
+                "auto_splitter_setting_splits_138_action": "None",
+                "auto_splitter_setting_splits_139_item": "Mask3",
+                "auto_splitter_setting_splits_139_action": "None",
+                "auto_splitter_setting_splits_140_item": "SavedFleaFarFieldsPilgrimsRest",
+                "auto_splitter_setting_splits_140_action": "None",
+                "auto_splitter_setting_splits_141_item": "BellwayTrans",
+                "auto_splitter_setting_splits_141_action": "None",
+                "auto_splitter_setting_splits_142_item": "Spool5",
+                "auto_splitter_setting_splits_142_action": "None",
+                "auto_splitter_setting_splits_143_item": "EnterWhiteward",
+                "auto_splitter_setting_splits_143_action": "None",
+                "auto_splitter_setting_splits_144_item": "CollectedSurgeonsKey",
+                "auto_splitter_setting_splits_144_action": "None",
+                "auto_splitter_setting_splits_145_item": "InjectorBand",
+                "auto_splitter_setting_splits_145_action": "None",
+                "auto_splitter_setting_splits_146_item": "SpoolFragment11",
+                "auto_splitter_setting_splits_146_action": "None",
+                "auto_splitter_setting_splits_147_item": "MaskShard13",
+                "auto_splitter_setting_splits_147_action": "None",
+                "auto_splitter_setting_splits_148_item": "SavedFleaChoralChambersWind",
+                "auto_splitter_setting_splits_148_action": "None",
+                "auto_splitter_setting_splits_149_item": "EnterHighHalls",
+                "auto_splitter_setting_splits_149_action": "None",
+                "auto_splitter_setting_splits_150_item": "Spool6",
+                "auto_splitter_setting_splits_150_action": "None",
+                "auto_splitter_setting_splits_151_item": "Cogfly",
+                "auto_splitter_setting_splits_151_action": "None",
+                "auto_splitter_setting_splits_152_item": "EnterHighHallsArena",
+                "auto_splitter_setting_splits_152_action": "None",
+                "auto_splitter_setting_splits_153_item": "ConductorsMelody",
+                "auto_splitter_setting_splits_153_action": "None",
+                "auto_splitter_setting_splits_154_item": "RosaryCannon",
+                "auto_splitter_setting_splits_154_action": "None",
+                "auto_splitter_setting_splits_155_item": "SecondSentinel",
+                "auto_splitter_setting_splits_155_action": "None",
+                "auto_splitter_setting_splits_156_item": "EnterMemorium",
+                "auto_splitter_setting_splits_156_action": "None",
+                "auto_splitter_setting_splits_157_item": "EnterPutrifiedDucts",
+                "auto_splitter_setting_splits_157_action": "None",
+                "auto_splitter_setting_splits_158_item": "SeenFleatopiaEmpty",
+                "auto_splitter_setting_splits_158_action": "None",
+                "auto_splitter_setting_splits_159_item": "WreathofPurity",
+                "auto_splitter_setting_splits_159_action": "None",
+                "auto_splitter_setting_splits_160_item": "SavedFleaVog",
+                "auto_splitter_setting_splits_160_action": "None",
+                "auto_splitter_setting_splits_161_item": "PutrifiedDuctsStation",
+                "auto_splitter_setting_splits_161_action": "None",
+                "auto_splitter_setting_splits_162_item": "Longclaw",
+                "auto_splitter_setting_splits_162_action": "None",
+                "auto_splitter_setting_splits_163_item": "EnterBilewater",
+                "auto_splitter_setting_splits_163_action": "None",
+                "auto_splitter_setting_splits_164_item": "SavedFleaBilewaterTrap",
+                "auto_splitter_setting_splits_164_action": "None",
+                "auto_splitter_setting_splits_165_item": "ThrowingRing",
+                "auto_splitter_setting_splits_165_action": "None",
+                "auto_splitter_setting_splits_166_item": "UnlockedMelodyLift",
+                "auto_splitter_setting_splits_166_action": "None",
+                "auto_splitter_setting_splits_167_item": "Lace2",
+                "auto_splitter_setting_splits_167_action": "None",
+                "auto_splitter_setting_splits_168_item": "MaskShard14",
+                "auto_splitter_setting_splits_168_action": "None",
+                "auto_splitter_setting_splits_169_item": "CaravanTroupeFleatopia",
+                "auto_splitter_setting_splits_169_action": "None",
+                "auto_splitter_setting_splits_170_item": "SilkAndSoulOffered",
+                "auto_splitter_setting_splits_170_action": "None",
+                "auto_splitter_setting_splits_171_item": "Menu",
+                "auto_splitter_setting_splits_171_action": "None",
+                "auto_splitter_setting_splits_172_item": "VentricaTrans",
+                "auto_splitter_setting_splits_172_action": "None",
+                "auto_splitter_setting_splits_173_item": "EndingSplit",
+                "auto_splitter_setting_splits_173_action": "None",
+                "auto_splitter_setting_splits_174_item": "EnterDestroyedCogworks",
+                "auto_splitter_setting_splits_174_action": "None",
+                "auto_splitter_setting_splits_175_item": "DestroyedCogworksVoidArena",
+                "auto_splitter_setting_splits_175_action": "None",
+                "auto_splitter_setting_splits_176_item": "Spool7",
+                "auto_splitter_setting_splits_176_action": "None",
+                "auto_splitter_setting_splits_177_item": "EnterBellEater",
+                "auto_splitter_setting_splits_177_action": "None",
+                "auto_splitter_setting_splits_178_item": "BeastlingCall",
+                "auto_splitter_setting_splits_178_action": "None",
+                "auto_splitter_setting_splits_179_item": "FleaFestivalBegin",
+                "auto_splitter_setting_splits_179_action": "None",
+                "auto_splitter_setting_splits_180_item": "FleaFestivalEnd",
+                "auto_splitter_setting_splits_180_action": "None",
+                "auto_splitter_setting_splits_181_item": "StraightPin",
+                "auto_splitter_setting_splits_181_action": "None",
+                "auto_splitter_setting_splits_182_item": "MaskShard15",
+                "auto_splitter_setting_splits_182_action": "None",
+                "auto_splitter_setting_splits_183_item": "DeepDocksStation",
+                "auto_splitter_setting_splits_183_action": "None",
+                "auto_splitter_setting_splits_184_item": "BallowMoved",
+                "auto_splitter_setting_splits_184_action": "None",
+                "auto_splitter_setting_splits_185_item": "SpoolFragment15",
+                "auto_splitter_setting_splits_185_action": "None",
+                "auto_splitter_setting_splits_186_item": "DivingBellAbyssTrans",
+                "auto_splitter_setting_splits_186_action": "None",
+                "auto_splitter_setting_splits_187_item": "SilkSoar",
+                "auto_splitter_setting_splits_187_action": "None",
+                "auto_splitter_setting_splits_188_item": "AbyssEscape",
+                "auto_splitter_setting_splits_188_action": "None",
+                "auto_splitter_setting_splits_189_item": "EnterShellwood",
+                "auto_splitter_setting_splits_189_action": "None",
+                "auto_splitter_setting_splits_190_item": "GainedCurse",
+                "auto_splitter_setting_splits_190_action": "None",
+                "auto_splitter_setting_splits_191_item": "NeedleUpgrade4",
+                "auto_splitter_setting_splits_191_action": "None",
+                "auto_splitter_setting_splits_192_item": "EnterWispThicket",
+                "auto_splitter_setting_splits_192_action": "None",
+                "auto_splitter_setting_splits_193_item": "Mask4",
+                "auto_splitter_setting_splits_193_action": "None",
+                "auto_splitter_setting_splits_194_item": "EnterSinnersRoad",
+                "auto_splitter_setting_splits_194_action": "None",
+                "auto_splitter_setting_splits_195_item": "Tacks",
+                "auto_splitter_setting_splits_195_action": "None",
+                "auto_splitter_setting_splits_196_item": "WitchCrest",
+                "auto_splitter_setting_splits_196_action": "None",
+                "auto_splitter_setting_splits_197_item": "Pimpillo",
+                "auto_splitter_setting_splits_197_action": "None",
+                "auto_splitter_setting_splits_198_item": "Spool8",
+                "auto_splitter_setting_splits_198_action": "None",
+                "auto_splitter_setting_splits_199_item": "ArchitectCrest",
+                "auto_splitter_setting_splits_199_action": "None",
+                "auto_splitter_setting_splits_200_item": "PaleNails",
+                "auto_splitter_setting_splits_200_action": "None",
+                "auto_splitter_setting_splits_201_item": "SpoolFragment17",
+                "auto_splitter_setting_splits_201_action": "None",
+                "auto_splitter_setting_splits_202_item": "TheUnravelled",
+                "auto_splitter_setting_splits_202_action": "None",
+                "auto_splitter_setting_splits_203_item": "ElegyOfTheDeep",
+                "auto_splitter_setting_splits_203_action": "None",
+                "auto_splitter_setting_splits_204_item": "ShamanCrest",
+                "auto_splitter_setting_splits_204_action": "None",
+                "auto_splitter_setting_splits_205_item": "Sylphsong",
+                "auto_splitter_setting_splits_205_action": "None",
+                "auto_splitter_setting_splits_206_item": "WeightedBelt",
+                "auto_splitter_setting_splits_206_action": "None",
+                "auto_splitter_setting_splits_207_item": "EnterKarmelitaMemory",
+                "auto_splitter_setting_splits_207_action": "None",
+                "auto_splitter_setting_splits_208_item": "HeartKarmelita",
+                "auto_splitter_setting_splits_208_action": "None",
+                "auto_splitter_setting_splits_209_item": "Menu",
+                "auto_splitter_setting_splits_209_action": "None",
+                "auto_splitter_setting_splits_210_item": "GurrTheOutcast",
+                "auto_splitter_setting_splits_210_action": "None",
+                "auto_splitter_setting_splits_211_item": "MaskShard17",
+                "auto_splitter_setting_splits_211_action": "None",
+                "auto_splitter_setting_splits_212_item": "Spool9",
+                "auto_splitter_setting_splits_212_action": "None",
+                "auto_splitter_setting_splits_213_item": "RagingConchfly",
+                "auto_splitter_setting_splits_213_action": "None",
+                "auto_splitter_setting_splits_214_item": "EnterKhannMemory",
+                "auto_splitter_setting_splits_214_action": "None",
+                "auto_splitter_setting_splits_215_item": "HeartKhann",
+                "auto_splitter_setting_splits_215_action": "None",
+                "auto_splitter_setting_splits_216_item": "Menu",
+                "auto_splitter_setting_splits_216_action": "None",
+                "auto_splitter_setting_splits_217_item": "PinBadge",
+                "auto_splitter_setting_splits_217_action": "None",
+                "auto_splitter_setting_splits_218_item": "MaskShard18",
+                "auto_splitter_setting_splits_218_action": "None",
+                "auto_splitter_setting_splits_219_item": "DelversDrill",
+                "auto_splitter_setting_splits_219_action": "None",
+                "auto_splitter_setting_splits_220_item": "Seth",
+                "auto_splitter_setting_splits_220_action": "None",
+                "auto_splitter_setting_splits_221_item": "HeartNyleth",
+                "auto_splitter_setting_splits_221_action": "None",
+                "auto_splitter_setting_splits_222_item": "EnterFirstSinner",
+                "auto_splitter_setting_splits_222_action": "None",
+                "auto_splitter_setting_splits_223_item": "RuneRage",
+                "auto_splitter_setting_splits_223_action": "None",
+                "auto_splitter_setting_splits_224_item": "Mask5",
+                "auto_splitter_setting_splits_224_action": "None",
+                "auto_splitter_setting_splits_225_item": "EnterRedMemory",
+                "auto_splitter_setting_splits_225_action": "None",
+                "auto_splitter_setting_splits_226_item": "RedMemory",
+                "auto_splitter_setting_splits_226_action": "None",
+                "auto_splitter_setting_splits_227_item": "LastDiveTrans",
+                "auto_splitter_setting_splits_227_action": "None",
+                "auto_splitter_setting_splits_228_item": "EndingSplit",
+                "auto_splitter_setting_splits_228_action": "None",
+                "layout_path": "/home/lufimio/Documents/Other/LiveSplits/main_layout.ls1l",
+                "game_use_arguments": false,
+                "auto_save": true
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "hotkey_split": [
+                    {
+                        "alt": true,
+                        "key": "OBS_KEY_NUM1"
+                    }
+                ],
+                "hotkey_reset": [
+                    {
+                        "alt": true,
+                        "key": "OBS_KEY_NUM3"
+                    }
+                ],
+                "hotkey_undo": [
+                    {
+                        "alt": true,
+                        "key": "OBS_KEY_NUM8"
+                    }
+                ],
+                "hotkey_skip": [
+                    {
+                        "alt": true,
+                        "key": "OBS_KEY_NUM2"
+                    }
+                ],
+                "hotkey_pause": [
+                    {
+                        "alt": true,
+                        "key": "OBS_KEY_NUM7"
+                    }
+                ],
+                "hotkey_undo_all_pauses": [],
+                "hotkey_previous_comparison": [
+                    {
+                        "alt": true,
+                        "key": "OBS_KEY_NUM4"
+                    }
+                ],
+                "hotkey_next_comparison": [
+                    {
+                        "alt": true,
+                        "key": "OBS_KEY_NUM6"
+                    }
+                ],
+                "hotkey_toggle_timing_method": [
+                    {
+                        "alt": true,
+                        "key": "OBS_KEY_NUM5"
+                    }
+                ]
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
         }
     ],
-    "groups": [],
+    "groups": [
+        {
+            "prev_ver": 536870916,
+            "name": "Music",
+            "uuid": "fc5c5b6e-1aa1-4b06-8c31-20817e3cf942",
+            "id": "group",
+            "versioned_id": "group",
+            "settings": {
+                "id_counter": 0,
+                "custom_size": true,
+                "cx": 3921,
+                "cy": 939,
+                "items": [
+                    {
+                        "name": "Color Source",
+                        "source_uuid": "74f33f6d-50d1-4dba-8217-7bb65dbc5a49",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 36,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 512.1201171875,
+                            "y": 15.4287109375
+                        },
+                        "pos_rel": {
+                            "x": -0.8294072151184082,
+                            "y": -0.9714282751083374
+                        },
+                        "scale": {
+                            "x": 1.3109759092330933,
+                            "y": 1.3108254671096802
+                        },
+                        "scale_rel": {
+                            "x": 1.3109759092330933,
+                            "y": 1.3108254671096802
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Progress",
+                        "source_uuid": "f6a98f54-b3e4-4c54-8a3b-03eb4c29efbd",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 35,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 3383.837890625,
+                            "y": 813.03271484375
+                        },
+                        "pos_rel": {
+                            "x": 4.488588809967041,
+                            "y": 0.5056161284446716
+                        },
+                        "scale": {
+                            "x": 0.24156053364276886,
+                            "y": 0.24245692789554596
+                        },
+                        "scale_rel": {
+                            "x": 0.24156053364276886,
+                            "y": 0.24245692789554596
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Tuna progress bar",
+                        "source_uuid": "6802c92a-7f36-4a7c-889c-431138255e43",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 34,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 1474.4384765625,
+                            "y": 829.64697265625
+                        },
+                        "pos_rel": {
+                            "x": 0.9526638388633728,
+                            "y": 0.536383330821991
+                        },
+                        "scale": {
+                            "x": 6.201560020446777,
+                            "y": 6.1171875
+                        },
+                        "scale_rel": {
+                            "x": 6.201560020446777,
+                            "y": 6.1171875
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Album",
+                        "source_uuid": "6f1ea687-68c1-4d9d-bb96-80a5cbee3232",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 32,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 1474.0,
+                            "y": 601.4287109375
+                        },
+                        "pos_rel": {
+                            "x": 0.9518518447875977,
+                            "y": 0.11375682801008224
+                        },
+                        "scale": {
+                            "x": 0.5817992091178894,
+                            "y": 0.5830721259117126
+                        },
+                        "scale_rel": {
+                            "x": 0.5817992091178894,
+                            "y": 0.5830721259117126
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Artist",
+                        "source_uuid": "29dadb0f-eed8-4028-82e0-b2758b0ab530",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 31,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 1474.4384765625,
+                            "y": 353.93212890625
+                        },
+                        "pos_rel": {
+                            "x": 0.9526638388633728,
+                            "y": -0.3445701003074646
+                        },
+                        "scale": {
+                            "x": 0.7807426452636719,
+                            "y": 0.7797300815582275
+                        },
+                        "scale_rel": {
+                            "x": 0.7807426452636719,
+                            "y": 0.7797300815582275
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Title",
+                        "source_uuid": "e78af5b7-7687-4da8-9b07-0b60ec9d8989",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 30,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 1471.8701171875,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": 0.9479076266288757,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 0.9871809482574463,
+                            "y": 0.989783525466919
+                        },
+                        "scale_rel": {
+                            "x": 0.9871809482574463,
+                            "y": 0.989783525466919
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Seperator",
+                        "source_uuid": "1b3e7c37-bea2-4a6a-a6d0-d3046e35952e",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 37,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 478.54296875,
+                            "y": 358.99951171875
+                        },
+                        "pos_rel": {
+                            "x": -0.8915870785713196,
+                            "y": -0.33518606424331665
+                        },
+                        "scale": {
+                            "x": 13.607999801635742,
+                            "y": 14.0
+                        },
+                        "scale_rel": {
+                            "x": 13.607999801635742,
+                            "y": 14.0
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Cover",
+                        "source_uuid": "2b369c4f-db36-40d4-859a-7cf3335d3ae0",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 0,
+                        "bounds_type": 2,
+                        "bounds_align": 2,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 33,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 680.0,
+                            "y": 477.4287109375
+                        },
+                        "pos_rel": {
+                            "x": -0.5185185074806213,
+                            "y": -0.11587274819612503
+                        },
+                        "scale": {
+                            "x": 2.109375,
+                            "y": 2.109375
+                        },
+                        "scale_rel": {
+                            "x": 2.109375,
+                            "y": 2.109375
+                        },
+                        "bounds": {
+                            "x": 1360.86669921875,
+                            "y": 921.2857055664062
+                        },
+                        "bounds_rel": {
+                            "x": 2.5201234817504883,
+                            "y": 1.7060846090316772
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.show_scene_item.36": [],
+                "libobs.hide_scene_item.36": [],
+                "libobs.show_scene_item.35": [],
+                "libobs.hide_scene_item.35": [],
+                "libobs.show_scene_item.34": [],
+                "libobs.hide_scene_item.34": [],
+                "libobs.show_scene_item.32": [],
+                "libobs.hide_scene_item.32": [],
+                "libobs.show_scene_item.31": [],
+                "libobs.hide_scene_item.31": [],
+                "libobs.show_scene_item.30": [],
+                "libobs.hide_scene_item.30": [],
+                "libobs.show_scene_item.37": [],
+                "libobs.hide_scene_item.37": [],
+                "libobs.show_scene_item.33": [],
+                "libobs.hide_scene_item.33": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870916,
+            "name": "Audio Capture",
+            "uuid": "7644469e-e64b-4424-a41d-b5e55d3891a0",
+            "id": "group",
+            "versioned_id": "group",
+            "settings": {
+                "id_counter": 0,
+                "custom_size": true,
+                "cx": 0,
+                "cy": 0,
+                "items": [
+                    {
+                        "name": "MPD",
+                        "source_uuid": "2fd66bad-3e41-44d5-9e38-99c329328ee3",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 39,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": -1.7777777910232544,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_rel": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.show_scene_item.39": [],
+                "libobs.hide_scene_item.39": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
+            "private_settings": {}
+        }
+    ],
     "quick_transitions": [
         {
             "name": "Cut",
@@ -893,6 +2680,10 @@
             "switch_if_not_matching": false,
             "active": false,
             "switches": []
+        },
+        "tuna": {
+            "vlc_prev_hotkey": [],
+            "vlc_next_hotkey": []
         }
     },
     "resolution": {

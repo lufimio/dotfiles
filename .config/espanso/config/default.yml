@@ -1,0 +1,9 @@
+# Options: https://espanso.org/docs/configuration/options/#options-reference
+
+auto_restart: true
+search_shortcut: ALT+SHIFT+SPACE
+show_icon: false
+show_notifications: false
+toggle_key: RIGHT_ALT
+undo_backspace: true
+

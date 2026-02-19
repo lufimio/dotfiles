@@ -1,0 +1,39 @@
+gestures { hot-corners { top-right; }; }
+
+input {
+    keyboard {
+        xkb { options "lv5:caps_switch"; }
+        numlock
+        repeat-delay 400
+        repeat-rate 50
+    }
+
+    touchpad {
+        tap
+        dwt
+        dwtp
+        drag true
+        drag-lock
+        natural-scroll
+        scroll-method "two-finger"
+        middle-emulation
+    }
+
+    mouse {
+        scroll-factor 2
+    }
+
+    // warp-mouse-to-focus mode="center-xy"
+    focus-follows-mouse max-scroll-amount="40%"
+    workspace-auto-back-and-forth
+}
+
+output "eDP-1" {
+    mode "1366x768@60.059"
+    position x=0 y=0
+}
+
+output "ViewSonic Corporation VA2406M-LED TEN124101269" {
+    mode "1920x1080@60.000"
+    position x=-1920 y=-650
+}

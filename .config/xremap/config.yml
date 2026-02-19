@@ -1,16 +1,14 @@
+virtual_modifiers:
+  - CapsLock
+
 modmap:
-  - name: CapsLock to RightCtrl/Esc
+  - name: CapsLock to Esc
     remap:
-      CapsLock: Ctrl_R
+      CapsLock:
+        alone: Esc
+        held: CapsLock
 
 keymap:
-  - name: Right Alt + HJKL to Arrow Keys
-    remap:
-      Ctrl_R: Reserved
-      Ctrl_R-h: Left
-      Ctrl_R-j: Down
-      Ctrl_R-k: Up
-      Ctrl_R-l: Right
   - name: Fn Keys
     remap:
       F6: Mute
@@ -19,6 +17,7 @@ keymap:
       Mute: F6
       VolumeDown: F7
       VolumeUp: F8
+
   - name: CapsLock + HJKL → Arrow Keys
     remap:
       CapsLock-h: Left

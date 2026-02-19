@@ -1,0 +1,9 @@
+matches:
+- trigger: ':somega:'
+  replace: ω
+- trigger: ':spi:'
+  replace: π
+- trigger: ':ssum:'
+  replace: ∑
+- trigger: ':sSigma:'
+  replace: ∑

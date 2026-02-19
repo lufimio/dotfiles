@@ -58,14 +58,6 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
 
-# Enviorment Variables
-export GEM_HOME="$HOME/gems"
-export QT_QPA_PLATFORM="xcb"
-export VISUAL=nvim
-export EDITOR=nvim
-export MANPAGER='nvim +Man!'
-export QT_QPA_PLATFORM=wayland
-
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -109,13 +101,13 @@ alias sudo='sudo '
 alias ..='cd ..'
 alias ...='cd ../..'
 
+# Environment Variables
+source ~/.zshenv
+source ~/.zprofile
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-
-# Path Mods
-export PATH="$HOME/gems/bin:$PATH"
-export PATH="$PATH:/home/lufimio/.local/bin:/home/lufimio/.spicetify"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -133,6 +125,6 @@ export NVM_DIR="$HOME/.nvm"
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
+fpath=($HOME/.zsh/completions $fpath)
 [[ -f /home/lufimio/.dart-cli-completion/zsh-config.zsh ]] && . /home/lufimio/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
-

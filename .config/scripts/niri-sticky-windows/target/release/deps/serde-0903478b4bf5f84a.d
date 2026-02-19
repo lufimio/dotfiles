@@ -1,0 +1,14 @@
+/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/release/deps/serde-0903478b4bf5f84a.d: /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/release/build/serde-9d08b465ff0b51b1/out/private.rs
+
+/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/release/deps/libserde-0903478b4bf5f84a.rlib: /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/release/build/serde-9d08b465ff0b51b1/out/private.rs
+
+/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/release/deps/libserde-0903478b4bf5f84a.rmeta: /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/release/build/serde-9d08b465ff0b51b1/out/private.rs
+
+/home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs:
+/home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs:
+/home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs:
+/home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs:
+/home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs:
+/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/release/build/serde-9d08b465ff0b51b1/out/private.rs:
+
+# env-dep:OUT_DIR=/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/release/build/serde-9d08b465ff0b51b1/out

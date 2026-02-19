@@ -1,0 +1,43 @@
+layer-rule {
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=0 y=0 relative-to="bottom-right"
+}
+
+window-rule {
+    match app-id="[xX]dg-[dD]esktop-[pP]ortal-(.*)"
+    border { off; }
+    shadow { off; }
+}
+
+window-rule {
+    match app-id="org.gnome.NautilusPreviewer"
+    open-floating true
+    default-column-width { proportion 0.5; }
+    default-window-height { proportion 0.5; }
+    shadow { off; }
+}
+
+window-rule {
+    match app-id="org.gnome.Nautilus" title="(Resize|Rotate) Images"
+    shadow { off; }
+    border { off; }
+}
+
+window-rule {
+    match title="^[pP]icture[- ]in[- ][pP]icture$"
+    open-floating true
+    default-column-width { proportion 0.3; }
+    default-window-height { proportion 0.3; }
+    default-floating-position x=7 y=7 relative-to="bottom-right"
+}
+
+window-rule {
+    geometry-corner-radius 15
+    clip-to-geometry true
+    open-maximized-to-edges false
+}

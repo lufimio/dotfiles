@@ -1,0 +1,96 @@
+layout {
+    gaps 6
+    center-focused-column "never"
+    background-color "transparent"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+    }
+
+    default-column-width { proportion 1.0; }
+
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    focus-ring { off; }
+
+    border {
+        on
+        width 2
+        active-color "#ac82e9"
+        inactive-color "#d8cab8"
+        urgent-color "#da70d6"
+    }
+
+    shadow {
+        on
+        softness 2
+        spread 5
+        color "#1a1a1aee"
+    }
+
+    tab-indicator {
+        hide-when-single-tab
+        place-within-column
+    }
+
+    struts {
+        left 18
+        right 18
+        top 3
+        bottom 3
+    }
+}
+
+animations {
+    // Uncomment to turn off all animations.
+    // off
+
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    // slowdown 3.0
+}
+
+overview {
+    zoom 0.5
+    backdrop-color "#262626"
+
+    workspace-shadow {
+        off
+        // softness 40
+        // spread 10
+        // color "#00000050"
+    }
+}
+
+cursor {
+    xcursor-theme "breeze_cursors"
+    xcursor-size 24
+    hide-after-inactive-ms 3000
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S_nirisshot.png"
+
+hotkey-overlay {
+    skip-at-startup
+    hide-not-bound
+}
+
+clipboard {
+    disable-primary
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+xwayland-satellite {
+    path "xwayland-satellite"
+}

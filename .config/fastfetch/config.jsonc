@@ -3,22 +3,28 @@
     "display": {
         "separator": " "
     },
+    "logo": {
+        "color": {
+            "1": "blue",
+            "2": "blue"
+        }
+    },
     "modules": [
         {
             "type": "title",
             "key": "╭─",
             "format": "{user-name}@{host-name}",
-            "keyColor": "yellow"
+            "keyColor": "red"
         },
         {
             "type": "os",
             "key": "├─󰣇", // Just get your distro's logo off nerdfonts.com
-            "keyColor": "yellow"
+            "keyColor": "red"
         },
         {
             "type": "packages",
             "key": "╰─󰏖",
-            "keyColor": "yellow"
+            "keyColor": "red"
         },
         "break",
         {
