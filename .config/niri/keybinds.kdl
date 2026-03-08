@@ -12,22 +12,23 @@ binds {
     Mod+F11 repeat=false hotkey-overlay-title="Fullscreen Window" { fullscreen-window; }
 
     Mod+Delete repeat=false hotkey-overlay-title="Lock Device" { spawn "loginctl" "lock-session"; }
-    Mod+Ctrl+Delete repeat=false hotkey-overlay-title=null { spawn-sh "pkill wlogout || wlogout"; }
+    Mod+Ctrl+Delete repeat=false hotkey-overlay-title=null { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
+    Mod+Shift+F12 allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     Mod+Tab repeat=false { toggle-overview; }
     Mod+O repeat=false { toggle-overview; }
 
-    Mod+N repeat=false hotkey-overlay-title=null { spawn "swaync-client" "-t"; }
+    Mod+N repeat=false hotkey-overlay-title=null { spawn "dms" "ipc" "call" "notifications" "toggle"; }
     Mod+V repeat=false hotkey-overlay-title=null { spawn-sh "vicinae close || vicinae vicinae://extensions/vicinae/clipboard/history"; }
     Mod+Period repeat=false hotkey-overlay-title=null { spawn-sh "vicinae close || vicinae vicinae://extensions/vicinae/core/search-emojis"; }
-    Mod+Comma repeat=false hotkey-overlay-title=null { spawn-sh "vicinae close || vicinae vicinae://extensions/mmazzarolo/unicode-symbols/index"; }
+    Mod+Comma repeat=false hotkey-overlay-title=null { spawn-sh "vicinae close || vicinae vicinae://extensios/mmazzarolo/unicode-symbols/index"; }
     Mod+Shift+Escape repeat=false hotkey-overlay-title=null { spawn-sh "pkill missioncenter || missioncenter"; }
 
-    Mod+Shift+N repeat=false hotkey-overlay-title="Next Song" { spawn "playerctl" "next"; }
-    Mod+Shift+P repeat=false hotkey-overlay-title="Pause/Play Song" { spawn "playerctl" "play-pause"; }
-    Mod+Shift+B repeat=false hotkey-overlay-title="Previous Song" { spawn "playerctl" "previous"; }
-    Mod+Shift+Period hotkey-overlay-title=null { spawn "playerctl" "volume" "0.05+"; }
-    Mod+Shift+Comma hotkey-overlay-title=null { spawn "playerctl" "volume" "0.05-"; }
+    Mod+Shift+N repeat=false hotkey-overlay-title="Next Song" { spawn "dms" "ipc" "call" "mpris" "next"; }
+    Mod+Shift+P repeat=false hotkey-overlay-title="Pause/Play Song" { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    Mod+Shift+B repeat=false hotkey-overlay-title="Previous Song" { spawn "dms" "ipc" "call" "mpris" "previous"; }
+    Mod+Shift+Period hotkey-overlay-title=null { spawn "dms" "ipc" "call" "mpris" "increment" "5"; }
+    Mod+Shift+Comma hotkey-overlay-title=null { spawn "dms" "ipc" "call" "mpris" "decrement" "5"; }
 
     Mod+Shift+S repeat=false { screenshot; }
     Mod+Ctrl+S repeat=false { screenshot-window; }
@@ -42,7 +43,7 @@ binds {
     Mod+Shift+C repeat=false hotkey-overlay-title=null { spawn "hyprpicker" "--autocopy" "--format=hex"; }
     Mod+Ctrl+Shift+C repeat=false hotkey-overlay-title=null { spawn "hyprpicker" "--autocopy" "--format=rgb"; }
 
-    Mod+Shift+Space repeat=false { toggle-window-floating; }
+    Mod+Ctrl+Space repeat=false { toggle-window-floating; }
     Mod+P repeat=false hotkey-overlay-title="Pin Window" { spawn "niri-sticky-windows" "toggle-sticky"; }
 
     Mod+Minus { set-column-width "-10%"; }
@@ -149,15 +150,15 @@ binds {
     Mod+Shift+BracketLeft repeat=false  { consume-window-into-column; }
     Mod+Shift+BracketRight repeat=false { expel-window-from-column; }
 
-    Mod+Shift+Slash repeat=false { show-hotkey-overlay; }
+    Mod+Shift+Slash repeat=false { spawn "dms" "ipc" "call" "keybinds" "toggle" "niri"; }
 
-    XF86AudioRaiseVolume    allow-when-locked=true { spawn-sh "swayosd-client --output-volume +5 || wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"; }
-    XF86AudioLowerVolume    allow-when-locked=true { spawn-sh "swayosd-client --output-volume -5 || wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
-    XF86AudioMute           allow-when-locked=true { spawn-sh "swayosd-client --output-volume mute-toggle || wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-    XF86MonBrightnessUp     allow-when-locked=true { spawn-sh "swayosd-client --brightness +5 || brightnessctl -e4 -n2 set 5%+"; }
-    XF86MonBrightnessDown   allow-when-locked=true { spawn-sh "swayosd-client --brightness -5 || brightnessctl -e4 -n2 set 5%-"; }
-    XF86AudioNext           allow-when-locked=true { spawn "playerctl" "--player=spotify,mpd,vlc,%any" "next"; }
-    XF86AudioPlay           allow-when-locked=true { spawn "playerctl" "--player=spotify,mpd,vlc,%any" "play-pause"; }
-    XF86AudioPause          allow-when-locked=true { spawn "playerctl" "--player=spotify,mpd,vlc,%any" "play-pause"; }
-    XF86AudioPrev           allow-when-locked=true { spawn "playerctl" "--player=spotify,mpd,vlc,%any" "previous"; }
+    XF86AudioRaiseVolume    allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
+    XF86AudioLowerVolume    allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
+    XF86AudioMute           allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
+    XF86MonBrightnessUp     allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5"; }
+    XF86MonBrightnessDown   allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5"; }
+    XF86AudioNext           allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
+    XF86AudioPlay           allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    XF86AudioPause          allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    XF86AudioPrev           allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
 }

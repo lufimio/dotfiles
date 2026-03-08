@@ -2,7 +2,7 @@
 from argparse import ArgumentParser
 from datetime import datetime
 from pathlib import Path
-from subprocess import run
+from plumbum.cmd import mpc, rm, ls, cp
 from time import sleep
 from os.path import exists
 
@@ -70,14 +70,10 @@ class Song:
         return self.rating < other.rating or self.rating == other.rating and self.like < other.like
 
 
-MPD_HOST = '/home/lufimio/.mpd/socket'
-MPD_MUSIC_DIR = '/home/lufimio/Music/'
-OUTPUT_DIR = '/home/lufimio/Downloads/ios/'
-
-mpd_songs = run(['mpc', '--host', MPD_HOST, '--format', '%file%', 'listall'], capture_output=True).stdout.decode().splitlines()
+mpd_songs = mpc["--host", args.mpd_host, "--format", "%file%", "listall"]().splitlines()
 songs: list[Song] = []
 for song_path in mpd_songs:
-    stickers = run(['mpc', '--host', MPD_HOST, 'sticker', song_path, 'list'], capture_output=True).stdout.decode().splitlines()
+    stickers = mpc['--host', args.mpd_host, 'sticker', song_path, 'list']().splitlines()
 
     ratings = list(filter(lambda x: 'rating' in x, stickers))
     likes = list(filter(lambda x: 'like' in x, stickers))
@@ -117,16 +113,15 @@ for i, song_set in enumerate(song_stages):
     if args.action in ['ls', 'list']:
         print(*[song.filename if args.filename_only else f'{song.rating}:{song.like} - {song.filename}' for song in song_set], sep='\n')
     elif args.action in ['rm', 'remove']:
-        run(['rm', *[f'{OUTPUT_DIR}{song.filename}' for song in song_set if exists(f'{OUTPUT_DIR}{song.filename}')]])
+        rm[*[f'{args.output_dir / song.filename}' for song in song_set if exists(f'{args.output_dir / song.filename}')]]()
     elif args.action in ['cp', 'copy']:
-        run(['cp', *[f'{MPD_MUSIC_DIR}{song.filename}' for song in song_set], OUTPUT_DIR])
+        cp[*[f'{args.mpd_music_dir / song.filename}' for song in song_set], args.output_dir]()
     elif args.action == 'refresh':
-        run(['rm', *[f'{OUTPUT_DIR}{song.filename}' for song in song_set if exists(f'{OUTPUT_DIR}{song.filename}')]])
-        sleep(60);
-        run(['cp', *[f'{MPD_MUSIC_DIR}{song.filename}' for song in song_set], OUTPUT_DIR])
+        rm[*[f'{args.output_dir / song.filename}' for song in song_set if exists(f'{args.output_dir / song.filename}')]]()
+        sleep(60)
+        cp[*[f'{args.mpd_music_dir / song.filename}' for song in song_set], args.output_dir]()
     elif args.action == 'queue':
-        for song in song_set:
-            run(['mpc', '--host', MPD_HOST, 'insert' if args.insert else 'add', f'{MPD_MUSIC_DIR}{song.filename}'])
+        mpc['--host', args.mpd_host, 'insert' if args.insert else 'add', *[f'{args.mpd_music_dir / song.filename}' for song in song_set]]()
 
     if args.delay is not None and args.action not in ['ls', 'list']:
         finished_songs += len(song_set)

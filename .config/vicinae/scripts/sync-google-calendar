@@ -1,0 +1,8 @@
+#!/bin/bash
+# @vicinae.schemaVersion 1
+# @vicinae.title Sync Google Calendar
+# @vicinae.mode compact
+# @vicinae.exec ["/bin/bash"]
+
+vdirsyncer sync
+echo "Done"

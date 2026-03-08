@@ -5,3 +5,9 @@ include "rules.kdl"
 include "io.kdl"
 include "general.kdl"
 
+include "dms/alttab.kdl"
+include "dms/colors.kdl"
+include "dms/cursor.kdl"
+include "dms/outputs.kdl"
+include "dms/windowrules.kdl"
+

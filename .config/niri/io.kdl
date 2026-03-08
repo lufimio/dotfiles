@@ -1,4 +1,4 @@
-gestures { hot-corners { top-right; }; }
+gestures { hot-corners { top-left; }; }
 
 input {
     keyboard {

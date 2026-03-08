@@ -37,7 +37,7 @@
         "id": "pulse_input_capture",
         "versioned_id": "pulse_input_capture",
         "settings": {
-            "device_id": "alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Mic1__source"
+            "device_id": "easyeffects_source"
         },
         "mixers": 255,
         "sync": 0,
@@ -90,7 +90,7 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 45,
+                "id_counter": 47,
                 "custom_size": false,
                 "items": [
                     {
@@ -107,10 +107,10 @@
                         "bounds_type": 2,
                         "bounds_align": 0,
                         "bounds_crop": false,
-                        "crop_left": 276,
-                        "crop_top": 78,
-                        "crop_right": 268,
-                        "crop_bottom": 82,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
                         "id": 18,
                         "group_item_backup": false,
                         "pos": {
@@ -122,12 +122,12 @@
                             "y": -1.0
                         },
                         "scale": {
-                            "x": 1.5041782855987549,
-                            "y": 1.5041782855987549
+                            "x": 1.0,
+                            "y": 1.0
                         },
                         "scale_rel": {
-                            "x": 1.5041782855987549,
-                            "y": 1.5041782855987549
+                            "x": 1.0,
+                            "y": 1.0
                         },
                         "bounds": {
                             "x": 1920.0,
@@ -259,6 +259,61 @@
                         "private_settings": {}
                     },
                     {
+                        "name": "LiveSplit One",
+                        "source_uuid": "c95a6594-2b04-4b83-a50c-0a47929ed15b",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 47,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 1520.0,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": 1.0370370149612427,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.3333333730697632,
+                            "y": 1.3339999914169312
+                        },
+                        "scale_rel": {
+                            "x": 1.3333333730697632,
+                            "y": 1.3339999914169312
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
                         "name": "Chat External",
                         "source_uuid": "37907bf0-6d12-47a8-a5db-5a0555c86b6e",
                         "visible": false,
@@ -301,61 +356,6 @@
                         "bounds_rel": {
                             "x": 2.842592477798462,
                             "y": 2.0
-                        },
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    },
-                    {
-                        "name": "LiveSplit One",
-                        "source_uuid": "3bbfc46c-0a0c-4eb3-9c90-cef754ec8038",
-                        "visible": false,
-                        "locked": false,
-                        "rot": 0.0,
-                        "scale_ref": {
-                            "x": 1920.0,
-                            "y": 1080.0
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 45,
-                        "group_item_backup": false,
-                        "pos": {
-                            "x": 1586.0,
-                            "y": 0.0
-                        },
-                        "pos_rel": {
-                            "x": 1.1592592000961304,
-                            "y": -1.0
-                        },
-                        "scale": {
-                            "x": 1.1133333444595337,
-                            "y": 1.1139999628067017
-                        },
-                        "scale_rel": {
-                            "x": 1.1133333444595337,
-                            "y": 1.1139999628067017
-                        },
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_rel": {
-                            "x": 0.0,
-                            "y": 0.0
                         },
                         "scale_filter": "disable",
                         "blend_method": "default",
@@ -562,11 +562,11 @@
                             "y": 0.9181137084960938
                         },
                         "scale": {
-                            "x": 0.5817992091178894,
+                            "x": 0.5817990303039551,
                             "y": 0.5830721259117126
                         },
                         "scale_rel": {
-                            "x": 0.07626747339963913,
+                            "x": 0.07626745104789734,
                             "y": 0.07637685537338257
                         },
                         "bounds": {
@@ -774,12 +774,12 @@
                         "id": 33,
                         "group_item_backup": true,
                         "pos": {
-                            "x": 1495.1405029296875,
-                            "y": 1019.53857421875
+                            "x": 1430.644775390625,
+                            "y": 1019.6134033203125
                         },
                         "pos_rel": {
-                            "x": 0.9910009503364563,
-                            "y": 0.8880343437194824
+                            "x": 0.8715643882751465,
+                            "y": 0.88817298412323
                         },
                         "scale": {
                             "x": 2.109375,
@@ -790,11 +790,11 @@
                             "y": 0.2763079106807709
                         },
                         "bounds": {
-                            "x": 1360.86669921875,
+                            "x": 2344.93115234375,
                             "y": 921.2857055664062
                         },
                         "bounds_rel": {
-                            "x": 2.5201234817504883,
+                            "x": 4.342464923858643,
                             "y": 1.7060846090316772
                         },
                         "scale_filter": "disable",
@@ -811,7 +811,7 @@
                     {
                         "name": "Music",
                         "source_uuid": "fc5c5b6e-1aa1-4b06-8c31-20817e3cf942",
-                        "visible": false,
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
@@ -829,11 +829,11 @@
                         "id": 29,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 1406.0,
+                            "x": 1277.0084228515625,
                             "y": 957.0
                         },
                         "pos_rel": {
-                            "x": 0.8259259462356567,
+                            "x": 0.5870526432991028,
                             "y": 0.7722222805023193
                         },
                         "scale": {
@@ -884,6 +884,61 @@
                         "crop_right": 0,
                         "crop_bottom": 0,
                         "id": 39,
+                        "group_item_backup": true,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": -1.7777777910232544,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_rel": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Silksong",
+                        "source_uuid": "d810b465-0152-4cd4-8761-91573faab7e6",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 46,
                         "group_item_backup": true,
                         "pos": {
                             "x": 0.0,
@@ -973,7 +1028,9 @@
                         "hide_transition": {
                             "duration": 0
                         },
-                        "private_settings": {}
+                        "private_settings": {
+                            "collapsed": false
+                        }
                     }
                 ]
             },
@@ -996,10 +1053,10 @@
                 "libobs.hide_scene_item.38": [],
                 "libobs.show_scene_item.43": [],
                 "libobs.hide_scene_item.43": [],
+                "libobs.show_scene_item.47": [],
+                "libobs.hide_scene_item.47": [],
                 "libobs.show_scene_item.6": [],
                 "libobs.hide_scene_item.6": [],
-                "libobs.show_scene_item.45": [],
-                "libobs.hide_scene_item.45": [],
                 "libobs.show_scene_item.29": [],
                 "libobs.hide_scene_item.29": [],
                 "libobs.show_scene_item.40": [],
@@ -1053,7 +1110,7 @@
             "versioned_id": "pipewire-screen-capture-source",
             "settings": {
                 "ShowCursor": false,
-                "RestoreToken": "9aac32da-bd18-48b4-ad0e-5c89c3eec1cf"
+                "RestoreToken": "7dd38278-55ae-42dd-aec0-2325a5354d12"
             },
             "mixers": 0,
             "sync": 0,
@@ -1199,7 +1256,7 @@
             "id": "pipewire-screen-capture-source",
             "versioned_id": "pipewire-screen-capture-source",
             "settings": {
-                "RestoreToken": "97a51d3f-1669-4d72-9cf0-866c7e965a2a"
+                "RestoreToken": "56db17d3-8384-4c70-a38c-3d3cfa0d6876"
             },
             "mixers": 0,
             "sync": 0,
@@ -1487,6 +1544,37 @@
             "mixers": 255,
             "sync": 0,
             "flags": 0,
+            "volume": 0.021234584972262383,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": true,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870916,
+            "name": "Silksong",
+            "uuid": "d810b465-0152-4cd4-8761-91573faab7e6",
+            "id": "pipewire_audio_application_capture",
+            "versioned_id": "pipewire_audio_application_capture",
+            "settings": {
+                "TargetName": "Hollow Knight Silksong"
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
             "volume": 1.0,
             "balance": 0.5,
             "enabled": true,
@@ -1509,475 +1597,20 @@
         {
             "prev_ver": 536870916,
             "name": "LiveSplit One",
-            "uuid": "3bbfc46c-0a0c-4eb3-9c90-cef754ec8038",
+            "uuid": "c95a6594-2b04-4b83-a50c-0a47929ed15b",
             "id": "livesplit-one",
             "versioned_id": "livesplit-one",
             "settings": {
                 "splits_path": "/home/lufimio/Documents/Other/LiveSplits/Silksong/100% v6.lss",
+                "layout_path": "/home/lufimio/Documents/Other/LiveSplits/main_layout.ls1l",
                 "game_path": "/home/lufimio/Documents/Other/LiveSplits/Silksong/silksong_autosplit_wasm_stable.wasm",
                 "auto_splitter_setting_hit_counter": true,
                 "auto_splitter_setting_splits_insert_0": false,
                 "auto_splitter_setting_splits_0_item": "StartNewGame",
                 "auto_splitter_setting_splits_0_action": "None",
-                "auto_splitter_setting_splits_1_item": "MossMother",
+                "auto_splitter_setting_splits_1_item": "EndingSplit",
                 "auto_splitter_setting_splits_1_action": "None",
-                "auto_splitter_setting_splits_2_item": "SilkSpear",
-                "auto_splitter_setting_splits_2_action": "None",
-                "auto_splitter_setting_splits_3_item": "BellBeast",
-                "auto_splitter_setting_splits_3_action": "None",
-                "auto_splitter_setting_splits_4_item": "EnterHuntersMarch",
-                "auto_splitter_setting_splits_4_action": "None",
-                "auto_splitter_setting_splits_5_item": "SavedFleaHuntersMarch",
-                "auto_splitter_setting_splits_5_action": "None",
-                "auto_splitter_setting_splits_6_item": "HuntersMarchPostMiddleArenaTransition",
-                "auto_splitter_setting_splits_6_action": "None",
-                "auto_splitter_setting_splits_7_item": "SwiftStep",
-                "auto_splitter_setting_splits_7_action": "None",
-                "auto_splitter_setting_splits_8_item": "SavedFleaDeepDocksSprint",
-                "auto_splitter_setting_splits_8_action": "None",
-                "auto_splitter_setting_splits_9_item": "SavedFleaDeepDocksBellway",
-                "auto_splitter_setting_splits_9_action": "None",
-                "auto_splitter_setting_splits_10_item": "CraftingKit1",
-                "auto_splitter_setting_splits_10_action": "None",
-                "auto_splitter_setting_splits_11_item": "Lace1",
-                "auto_splitter_setting_splits_11_action": "None",
-                "auto_splitter_setting_splits_12_item": "SavedFleaFarFieldsTrap",
-                "auto_splitter_setting_splits_12_action": "None",
-                "auto_splitter_setting_splits_13_item": "FarFieldsStation",
-                "auto_splitter_setting_splits_13_action": "None",
-                "auto_splitter_setting_splits_14_item": "SavedFleaMarrow",
-                "auto_splitter_setting_splits_14_action": "None",
-                "auto_splitter_setting_splits_15_item": "FleaBrew",
-                "auto_splitter_setting_splits_15_action": "None",
-                "auto_splitter_setting_splits_16_item": "EnterShellwood",
-                "auto_splitter_setting_splits_16_action": "None",
-                "auto_splitter_setting_splits_17_item": "ClingGrip",
-                "auto_splitter_setting_splits_17_action": "None",
-                "auto_splitter_setting_splits_18_item": "SavedFleaShellwood",
-                "auto_splitter_setting_splits_18_action": "None",
-                "auto_splitter_setting_splits_19_item": "MaskShard1",
-                "auto_splitter_setting_splits_19_action": "None",
-                "auto_splitter_setting_splits_20_item": "SavedFleaBellhart",
-                "auto_splitter_setting_splits_20_action": "None",
-                "auto_splitter_setting_splits_21_item": "Widow",
-                "auto_splitter_setting_splits_21_action": "None",
-                "auto_splitter_setting_splits_22_item": "Longpin",
-                "auto_splitter_setting_splits_22_action": "None",
-                "auto_splitter_setting_splits_23_item": "NeedleUpgrade1",
-                "auto_splitter_setting_splits_23_action": "None",
-                "auto_splitter_setting_splits_24_item": "SpoolFragment1",
-                "auto_splitter_setting_splits_24_action": "None",
-                "auto_splitter_setting_splits_25_item": "SavedFleaGreymoorLake",
-                "auto_splitter_setting_splits_25_action": "None",
-                "auto_splitter_setting_splits_26_item": "ThreadStorm",
-                "auto_splitter_setting_splits_26_action": "None",
-                "auto_splitter_setting_splits_27_item": "ThreefoldPin",
-                "auto_splitter_setting_splits_27_action": "None",
-                "auto_splitter_setting_splits_28_item": "CraftingKit2",
-                "auto_splitter_setting_splits_28_action": "None",
-                "auto_splitter_setting_splits_29_item": "ReaperCrest",
-                "auto_splitter_setting_splits_29_action": "None",
-                "auto_splitter_setting_splits_30_item": "EnterFarFields",
-                "auto_splitter_setting_splits_30_action": "None",
-                "auto_splitter_setting_splits_31_item": "BenchAny",
-                "auto_splitter_setting_splits_31_action": "None",
-                "auto_splitter_setting_splits_32_item": "DriftersCloak",
-                "auto_splitter_setting_splits_32_action": "None",
-                "auto_splitter_setting_splits_33_item": "FourthChorus",
-                "auto_splitter_setting_splits_33_action": "None",
-                "auto_splitter_setting_splits_34_item": "ShellwoodBell",
-                "auto_splitter_setting_splits_34_action": "None",
-                "auto_splitter_setting_splits_35_item": "Spool1",
-                "auto_splitter_setting_splits_35_action": "None",
-                "auto_splitter_setting_splits_36_item": "BlastedStepsStation",
-                "auto_splitter_setting_splits_36_action": "None",
-                "auto_splitter_setting_splits_37_item": "LastJudge",
-                "auto_splitter_setting_splits_37_action": "None",
-                "auto_splitter_setting_splits_38_item": "Act2Started",
-                "auto_splitter_setting_splits_38_action": "None",
-                "auto_splitter_setting_splits_39_item": "SpoolFragment3",
-                "auto_splitter_setting_splits_39_action": "None",
-                "auto_splitter_setting_splits_40_item": "GrandBellwayTube",
-                "auto_splitter_setting_splits_40_action": "None",
-                "auto_splitter_setting_splits_41_item": "CollectedWhitewardKey",
-                "auto_splitter_setting_splits_41_action": "None",
-                "auto_splitter_setting_splits_42_item": "SavedFleaChoralChambersCage",
-                "auto_splitter_setting_splits_42_action": "None",
-                "auto_splitter_setting_splits_43_item": "Spool2",
-                "auto_splitter_setting_splits_43_action": "None",
-                "auto_splitter_setting_splits_44_item": "SlabStation",
-                "auto_splitter_setting_splits_44_action": "None",
-                "auto_splitter_setting_splits_45_item": "PostWhitewardElevatorTrans",
-                "auto_splitter_setting_splits_45_action": "None",
-                "auto_splitter_setting_splits_46_item": "SavedFleaUnderworksCauldron",
-                "auto_splitter_setting_splits_46_action": "None",
-                "auto_splitter_setting_splits_47_item": "Clawline",
-                "auto_splitter_setting_splits_47_action": "None",
-                "auto_splitter_setting_splits_48_item": "SpoolFragment5",
-                "auto_splitter_setting_splits_48_action": "None",
-                "auto_splitter_setting_splits_49_item": "UnderworksTube",
-                "auto_splitter_setting_splits_49_action": "None",
-                "auto_splitter_setting_splits_50_item": "EnterMountFay",
-                "auto_splitter_setting_splits_50_action": "None",
-                "auto_splitter_setting_splits_51_item": "UpperMountFayTrans",
-                "auto_splitter_setting_splits_51_action": "None",
-                "auto_splitter_setting_splits_52_item": "FaydownCloak",
-                "auto_splitter_setting_splits_52_action": "None",
-                "auto_splitter_setting_splits_53_item": "SavedFleaMountFay",
-                "auto_splitter_setting_splits_53_action": "None",
-                "auto_splitter_setting_splits_54_item": "MaskShard2",
-                "auto_splitter_setting_splits_54_action": "None",
-                "auto_splitter_setting_splits_55_item": "MemoryCrystal",
-                "auto_splitter_setting_splits_55_action": "None",
-                "auto_splitter_setting_splits_56_item": "SongclaveBell",
-                "auto_splitter_setting_splits_56_action": "None",
-                "auto_splitter_setting_splits_57_item": "EnterMemorium",
-                "auto_splitter_setting_splits_57_action": "None",
-                "auto_splitter_setting_splits_58_item": "Voltvessels",
-                "auto_splitter_setting_splits_58_action": "None",
-                "auto_splitter_setting_splits_59_item": "SavedFleaGiantFlea",
-                "auto_splitter_setting_splits_59_action": "None",
-                "auto_splitter_setting_splits_60_item": "Spool3",
-                "auto_splitter_setting_splits_60_action": "None",
-                "auto_splitter_setting_splits_61_item": "CogworkDancers",
-                "auto_splitter_setting_splits_61_action": "None",
-                "auto_splitter_setting_splits_62_item": "MaskShard3",
-                "auto_splitter_setting_splits_62_action": "None",
-                "auto_splitter_setting_splits_63_item": "ArchitectsMelody",
-                "auto_splitter_setting_splits_63_action": "None",
-                "auto_splitter_setting_splits_64_item": "WhisperingVaultsArena",
-                "auto_splitter_setting_splits_64_action": "None",
-                "auto_splitter_setting_splits_65_item": "SavedFleaWhisperingVaults",
-                "auto_splitter_setting_splits_65_action": "None",
-                "auto_splitter_setting_splits_66_item": "NeedleUpgrade2",
-                "auto_splitter_setting_splits_66_action": "None",
-                "auto_splitter_setting_splits_67_item": "MagnetiteDice",
-                "auto_splitter_setting_splits_67_action": "None",
-                "auto_splitter_setting_splits_68_item": "GreatConchflies",
-                "auto_splitter_setting_splits_68_action": "None",
-                "auto_splitter_setting_splits_69_item": "NeedleStrike",
-                "auto_splitter_setting_splits_69_action": "None",
-                "auto_splitter_setting_splits_70_item": "EnterSandsOfKarak",
-                "auto_splitter_setting_splits_70_action": "None",
-                "auto_splitter_setting_splits_71_item": "SeenShakraSandsOfKarak",
-                "auto_splitter_setting_splits_71_action": "None",
-                "auto_splitter_setting_splits_72_item": "Menu",
-                "auto_splitter_setting_splits_72_action": "None",
-                "auto_splitter_setting_splits_73_item": "Mask1",
-                "auto_splitter_setting_splits_73_action": "None",
-                "auto_splitter_setting_splits_74_item": "CraftingKit3",
-                "auto_splitter_setting_splits_74_action": "None",
-                "auto_splitter_setting_splits_75_item": "SavedFleaBlastedSteps",
-                "auto_splitter_setting_splits_75_action": "None",
-                "auto_splitter_setting_splits_76_item": "SavedFleaSandsOfKarak",
-                "auto_splitter_setting_splits_76_action": "None",
-                "auto_splitter_setting_splits_77_item": "EnterVoltnest",
-                "auto_splitter_setting_splits_77_action": "None",
-                "auto_splitter_setting_splits_78_item": "Voltvyrm",
-                "auto_splitter_setting_splits_78_action": "None",
-                "auto_splitter_setting_splits_79_item": "DeadBugsPurse",
-                "auto_splitter_setting_splits_79_action": "None",
-                "auto_splitter_setting_splits_80_item": "SavedFleaWormways",
-                "auto_splitter_setting_splits_80_action": "None",
-                "auto_splitter_setting_splits_81_item": "Sharpdart",
-                "auto_splitter_setting_splits_81_action": "None",
-                "auto_splitter_setting_splits_82_item": "PlasmiumPhial",
-                "auto_splitter_setting_splits_82_action": "None",
-                "auto_splitter_setting_splits_83_item": "WandererCrest",
-                "auto_splitter_setting_splits_83_action": "None",
-                "auto_splitter_setting_splits_84_item": "MagnetiteBrooch",
-                "auto_splitter_setting_splits_84_action": "None",
-                "auto_splitter_setting_splits_85_item": "EnterWeavenestAtla",
-                "auto_splitter_setting_splits_85_action": "None",
-                "auto_splitter_setting_splits_86_item": "MaskShard6",
-                "auto_splitter_setting_splits_86_action": "None",
-                "auto_splitter_setting_splits_87_item": "SpoolFragment7",
-                "auto_splitter_setting_splits_87_action": "None",
-                "auto_splitter_setting_splits_88_item": "Weavelight",
-                "auto_splitter_setting_splits_88_action": "None",
-                "auto_splitter_setting_splits_89_item": "DruidsEye",
-                "auto_splitter_setting_splits_89_action": "None",
-                "auto_splitter_setting_splits_90_item": "ShardPendant",
-                "auto_splitter_setting_splits_90_action": "None",
-                "auto_splitter_setting_splits_91_item": "SkullTyrant1",
-                "auto_splitter_setting_splits_91_action": "None",
-                "auto_splitter_setting_splits_92_item": "MaskShard7",
-                "auto_splitter_setting_splits_92_action": "None",
-                "auto_splitter_setting_splits_93_item": "EnterHuntersMarch",
-                "auto_splitter_setting_splits_93_action": "None",
-                "auto_splitter_setting_splits_94_item": "BeastCrest",
-                "auto_splitter_setting_splits_94_action": "None",
-                "auto_splitter_setting_splits_95_item": "Curveclaw",
-                "auto_splitter_setting_splits_95_action": "None",
-                "auto_splitter_setting_splits_96_item": "EnterFarFields",
-                "auto_splitter_setting_splits_96_action": "None",
-                "auto_splitter_setting_splits_97_item": "EnterHalfwayHomeBasement",
-                "auto_splitter_setting_splits_97_action": "None",
-                "auto_splitter_setting_splits_98_item": "Menu",
-                "auto_splitter_setting_splits_98_action": "None",
-                "auto_splitter_setting_splits_99_item": "SavedFleaKratt",
-                "auto_splitter_setting_splits_99_action": "None",
-                "auto_splitter_setting_splits_100_item": "BarbedBracelet",
-                "auto_splitter_setting_splits_100_action": "None",
-                "auto_splitter_setting_splits_101_item": "Lugoli",
-                "auto_splitter_setting_splits_101_action": "None",
-                "auto_splitter_setting_splits_102_item": "SeenShakraSinnersRoad",
-                "auto_splitter_setting_splits_102_action": "None",
-                "auto_splitter_setting_splits_103_item": "SinnersRoadSimpleKey",
-                "auto_splitter_setting_splits_103_action": "None",
-                "auto_splitter_setting_splits_104_item": "SavedFleaSinnersRoad",
-                "auto_splitter_setting_splits_104_action": "None",
-                "auto_splitter_setting_splits_105_item": "EnterBilewater",
-                "auto_splitter_setting_splits_105_action": "None",
-                "auto_splitter_setting_splits_106_item": "SavedFleaBilewaterThieves",
-                "auto_splitter_setting_splits_106_action": "None",
-                "auto_splitter_setting_splits_107_item": "EnterMist",
-                "auto_splitter_setting_splits_107_action": "None",
-                "auto_splitter_setting_splits_108_item": "EnterExhaustOrgan",
-                "auto_splitter_setting_splits_108_action": "None",
-                "auto_splitter_setting_splits_109_item": "SavedFleaBilewaterOrgan",
-                "auto_splitter_setting_splits_109_action": "None",
-                "auto_splitter_setting_splits_110_item": "CrossStitch",
-                "auto_splitter_setting_splits_110_action": "None",
-                "auto_splitter_setting_splits_111_item": "Trobbio",
-                "auto_splitter_setting_splits_111_action": "None",
-                "auto_splitter_setting_splits_112_item": "Mask2",
-                "auto_splitter_setting_splits_112_action": "None",
-                "auto_splitter_setting_splits_113_item": "SavedFleaSongclave",
-                "auto_splitter_setting_splits_113_action": "None",
-                "auto_splitter_setting_splits_114_item": "VaultkeepersMelody",
-                "auto_splitter_setting_splits_114_action": "None",
-                "auto_splitter_setting_splits_115_item": "EnterBilewater",
-                "auto_splitter_setting_splits_115_action": "None",
-                "auto_splitter_setting_splits_116_item": "ShakraMapBuyout",
-                "auto_splitter_setting_splits_116_action": "None",
-                "auto_splitter_setting_splits_117_item": "SlabKeyApostate",
-                "auto_splitter_setting_splits_117_action": "None",
-                "auto_splitter_setting_splits_118_item": "QuickSling",
-                "auto_splitter_setting_splits_118_action": "None",
-                "auto_splitter_setting_splits_119_item": "MaskShard9",
-                "auto_splitter_setting_splits_119_action": "None",
-                "auto_splitter_setting_splits_120_item": "Spool4",
-                "auto_splitter_setting_splits_120_action": "None",
-                "auto_splitter_setting_splits_121_item": "EnterGreymoor",
-                "auto_splitter_setting_splits_121_action": "None",
-                "auto_splitter_setting_splits_122_item": "SavedFleaGreymoorRoof",
-                "auto_splitter_setting_splits_122_action": "None",
-                "auto_splitter_setting_splits_123_item": "FatherOfTheFlame",
-                "auto_splitter_setting_splits_123_action": "None",
-                "auto_splitter_setting_splits_124_item": "SavedFleaUnderworksWispThicket",
-                "auto_splitter_setting_splits_124_action": "None",
-                "auto_splitter_setting_splits_125_item": "GreatTasteReward",
-                "auto_splitter_setting_splits_125_action": "None",
-                "auto_splitter_setting_splits_126_item": "SecondSentinelAwoken",
-                "auto_splitter_setting_splits_126_action": "None",
-                "auto_splitter_setting_splits_127_item": "NeedleUpgrade3",
-                "auto_splitter_setting_splits_127_action": "None",
-                "auto_splitter_setting_splits_128_item": "SavageBeastfly2",
-                "auto_splitter_setting_splits_128_action": "None",
-                "auto_splitter_setting_splits_129_item": "MaskShard10",
-                "auto_splitter_setting_splits_129_action": "None",
-                "auto_splitter_setting_splits_130_item": "MaskShard11",
-                "auto_splitter_setting_splits_130_action": "None",
-                "auto_splitter_setting_splits_131_item": "SpoolFragment9",
-                "auto_splitter_setting_splits_131_action": "None",
-                "auto_splitter_setting_splits_132_item": "SavedFleaDeepDocksArena",
-                "auto_splitter_setting_splits_132_action": "None",
-                "auto_splitter_setting_splits_133_item": "Forebrothers",
-                "auto_splitter_setting_splits_133_action": "None",
-                "auto_splitter_setting_splits_134_item": "Menu",
-                "auto_splitter_setting_splits_134_action": "None",
-                "auto_splitter_setting_splits_135_item": "SavedFleaSlabBellway",
-                "auto_splitter_setting_splits_135_action": "None",
-                "auto_splitter_setting_splits_136_item": "SavedFleaSlabCage",
-                "auto_splitter_setting_splits_136_action": "None",
-                "auto_splitter_setting_splits_137_item": "SlabKeyIndolent",
-                "auto_splitter_setting_splits_137_action": "None",
-                "auto_splitter_setting_splits_138_item": "SlabKeyHeretic",
-                "auto_splitter_setting_splits_138_action": "None",
-                "auto_splitter_setting_splits_139_item": "Mask3",
-                "auto_splitter_setting_splits_139_action": "None",
-                "auto_splitter_setting_splits_140_item": "SavedFleaFarFieldsPilgrimsRest",
-                "auto_splitter_setting_splits_140_action": "None",
-                "auto_splitter_setting_splits_141_item": "BellwayTrans",
-                "auto_splitter_setting_splits_141_action": "None",
-                "auto_splitter_setting_splits_142_item": "Spool5",
-                "auto_splitter_setting_splits_142_action": "None",
-                "auto_splitter_setting_splits_143_item": "EnterWhiteward",
-                "auto_splitter_setting_splits_143_action": "None",
-                "auto_splitter_setting_splits_144_item": "CollectedSurgeonsKey",
-                "auto_splitter_setting_splits_144_action": "None",
-                "auto_splitter_setting_splits_145_item": "InjectorBand",
-                "auto_splitter_setting_splits_145_action": "None",
-                "auto_splitter_setting_splits_146_item": "SpoolFragment11",
-                "auto_splitter_setting_splits_146_action": "None",
-                "auto_splitter_setting_splits_147_item": "MaskShard13",
-                "auto_splitter_setting_splits_147_action": "None",
-                "auto_splitter_setting_splits_148_item": "SavedFleaChoralChambersWind",
-                "auto_splitter_setting_splits_148_action": "None",
-                "auto_splitter_setting_splits_149_item": "EnterHighHalls",
-                "auto_splitter_setting_splits_149_action": "None",
-                "auto_splitter_setting_splits_150_item": "Spool6",
-                "auto_splitter_setting_splits_150_action": "None",
-                "auto_splitter_setting_splits_151_item": "Cogfly",
-                "auto_splitter_setting_splits_151_action": "None",
-                "auto_splitter_setting_splits_152_item": "EnterHighHallsArena",
-                "auto_splitter_setting_splits_152_action": "None",
-                "auto_splitter_setting_splits_153_item": "ConductorsMelody",
-                "auto_splitter_setting_splits_153_action": "None",
-                "auto_splitter_setting_splits_154_item": "RosaryCannon",
-                "auto_splitter_setting_splits_154_action": "None",
-                "auto_splitter_setting_splits_155_item": "SecondSentinel",
-                "auto_splitter_setting_splits_155_action": "None",
-                "auto_splitter_setting_splits_156_item": "EnterMemorium",
-                "auto_splitter_setting_splits_156_action": "None",
-                "auto_splitter_setting_splits_157_item": "EnterPutrifiedDucts",
-                "auto_splitter_setting_splits_157_action": "None",
-                "auto_splitter_setting_splits_158_item": "SeenFleatopiaEmpty",
-                "auto_splitter_setting_splits_158_action": "None",
-                "auto_splitter_setting_splits_159_item": "WreathofPurity",
-                "auto_splitter_setting_splits_159_action": "None",
-                "auto_splitter_setting_splits_160_item": "SavedFleaVog",
-                "auto_splitter_setting_splits_160_action": "None",
-                "auto_splitter_setting_splits_161_item": "PutrifiedDuctsStation",
-                "auto_splitter_setting_splits_161_action": "None",
-                "auto_splitter_setting_splits_162_item": "Longclaw",
-                "auto_splitter_setting_splits_162_action": "None",
-                "auto_splitter_setting_splits_163_item": "EnterBilewater",
-                "auto_splitter_setting_splits_163_action": "None",
-                "auto_splitter_setting_splits_164_item": "SavedFleaBilewaterTrap",
-                "auto_splitter_setting_splits_164_action": "None",
-                "auto_splitter_setting_splits_165_item": "ThrowingRing",
-                "auto_splitter_setting_splits_165_action": "None",
-                "auto_splitter_setting_splits_166_item": "UnlockedMelodyLift",
-                "auto_splitter_setting_splits_166_action": "None",
-                "auto_splitter_setting_splits_167_item": "Lace2",
-                "auto_splitter_setting_splits_167_action": "None",
-                "auto_splitter_setting_splits_168_item": "MaskShard14",
-                "auto_splitter_setting_splits_168_action": "None",
-                "auto_splitter_setting_splits_169_item": "CaravanTroupeFleatopia",
-                "auto_splitter_setting_splits_169_action": "None",
-                "auto_splitter_setting_splits_170_item": "SilkAndSoulOffered",
-                "auto_splitter_setting_splits_170_action": "None",
-                "auto_splitter_setting_splits_171_item": "Menu",
-                "auto_splitter_setting_splits_171_action": "None",
-                "auto_splitter_setting_splits_172_item": "VentricaTrans",
-                "auto_splitter_setting_splits_172_action": "None",
-                "auto_splitter_setting_splits_173_item": "EndingSplit",
-                "auto_splitter_setting_splits_173_action": "None",
-                "auto_splitter_setting_splits_174_item": "EnterDestroyedCogworks",
-                "auto_splitter_setting_splits_174_action": "None",
-                "auto_splitter_setting_splits_175_item": "DestroyedCogworksVoidArena",
-                "auto_splitter_setting_splits_175_action": "None",
-                "auto_splitter_setting_splits_176_item": "Spool7",
-                "auto_splitter_setting_splits_176_action": "None",
-                "auto_splitter_setting_splits_177_item": "EnterBellEater",
-                "auto_splitter_setting_splits_177_action": "None",
-                "auto_splitter_setting_splits_178_item": "BeastlingCall",
-                "auto_splitter_setting_splits_178_action": "None",
-                "auto_splitter_setting_splits_179_item": "FleaFestivalBegin",
-                "auto_splitter_setting_splits_179_action": "None",
-                "auto_splitter_setting_splits_180_item": "FleaFestivalEnd",
-                "auto_splitter_setting_splits_180_action": "None",
-                "auto_splitter_setting_splits_181_item": "StraightPin",
-                "auto_splitter_setting_splits_181_action": "None",
-                "auto_splitter_setting_splits_182_item": "MaskShard15",
-                "auto_splitter_setting_splits_182_action": "None",
-                "auto_splitter_setting_splits_183_item": "DeepDocksStation",
-                "auto_splitter_setting_splits_183_action": "None",
-                "auto_splitter_setting_splits_184_item": "BallowMoved",
-                "auto_splitter_setting_splits_184_action": "None",
-                "auto_splitter_setting_splits_185_item": "SpoolFragment15",
-                "auto_splitter_setting_splits_185_action": "None",
-                "auto_splitter_setting_splits_186_item": "DivingBellAbyssTrans",
-                "auto_splitter_setting_splits_186_action": "None",
-                "auto_splitter_setting_splits_187_item": "SilkSoar",
-                "auto_splitter_setting_splits_187_action": "None",
-                "auto_splitter_setting_splits_188_item": "AbyssEscape",
-                "auto_splitter_setting_splits_188_action": "None",
-                "auto_splitter_setting_splits_189_item": "EnterShellwood",
-                "auto_splitter_setting_splits_189_action": "None",
-                "auto_splitter_setting_splits_190_item": "GainedCurse",
-                "auto_splitter_setting_splits_190_action": "None",
-                "auto_splitter_setting_splits_191_item": "NeedleUpgrade4",
-                "auto_splitter_setting_splits_191_action": "None",
-                "auto_splitter_setting_splits_192_item": "EnterWispThicket",
-                "auto_splitter_setting_splits_192_action": "None",
-                "auto_splitter_setting_splits_193_item": "Mask4",
-                "auto_splitter_setting_splits_193_action": "None",
-                "auto_splitter_setting_splits_194_item": "EnterSinnersRoad",
-                "auto_splitter_setting_splits_194_action": "None",
-                "auto_splitter_setting_splits_195_item": "Tacks",
-                "auto_splitter_setting_splits_195_action": "None",
-                "auto_splitter_setting_splits_196_item": "WitchCrest",
-                "auto_splitter_setting_splits_196_action": "None",
-                "auto_splitter_setting_splits_197_item": "Pimpillo",
-                "auto_splitter_setting_splits_197_action": "None",
-                "auto_splitter_setting_splits_198_item": "Spool8",
-                "auto_splitter_setting_splits_198_action": "None",
-                "auto_splitter_setting_splits_199_item": "ArchitectCrest",
-                "auto_splitter_setting_splits_199_action": "None",
-                "auto_splitter_setting_splits_200_item": "PaleNails",
-                "auto_splitter_setting_splits_200_action": "None",
-                "auto_splitter_setting_splits_201_item": "SpoolFragment17",
-                "auto_splitter_setting_splits_201_action": "None",
-                "auto_splitter_setting_splits_202_item": "TheUnravelled",
-                "auto_splitter_setting_splits_202_action": "None",
-                "auto_splitter_setting_splits_203_item": "ElegyOfTheDeep",
-                "auto_splitter_setting_splits_203_action": "None",
-                "auto_splitter_setting_splits_204_item": "ShamanCrest",
-                "auto_splitter_setting_splits_204_action": "None",
-                "auto_splitter_setting_splits_205_item": "Sylphsong",
-                "auto_splitter_setting_splits_205_action": "None",
-                "auto_splitter_setting_splits_206_item": "WeightedBelt",
-                "auto_splitter_setting_splits_206_action": "None",
-                "auto_splitter_setting_splits_207_item": "EnterKarmelitaMemory",
-                "auto_splitter_setting_splits_207_action": "None",
-                "auto_splitter_setting_splits_208_item": "HeartKarmelita",
-                "auto_splitter_setting_splits_208_action": "None",
-                "auto_splitter_setting_splits_209_item": "Menu",
-                "auto_splitter_setting_splits_209_action": "None",
-                "auto_splitter_setting_splits_210_item": "GurrTheOutcast",
-                "auto_splitter_setting_splits_210_action": "None",
-                "auto_splitter_setting_splits_211_item": "MaskShard17",
-                "auto_splitter_setting_splits_211_action": "None",
-                "auto_splitter_setting_splits_212_item": "Spool9",
-                "auto_splitter_setting_splits_212_action": "None",
-                "auto_splitter_setting_splits_213_item": "RagingConchfly",
-                "auto_splitter_setting_splits_213_action": "None",
-                "auto_splitter_setting_splits_214_item": "EnterKhannMemory",
-                "auto_splitter_setting_splits_214_action": "None",
-                "auto_splitter_setting_splits_215_item": "HeartKhann",
-                "auto_splitter_setting_splits_215_action": "None",
-                "auto_splitter_setting_splits_216_item": "Menu",
-                "auto_splitter_setting_splits_216_action": "None",
-                "auto_splitter_setting_splits_217_item": "PinBadge",
-                "auto_splitter_setting_splits_217_action": "None",
-                "auto_splitter_setting_splits_218_item": "MaskShard18",
-                "auto_splitter_setting_splits_218_action": "None",
-                "auto_splitter_setting_splits_219_item": "DelversDrill",
-                "auto_splitter_setting_splits_219_action": "None",
-                "auto_splitter_setting_splits_220_item": "Seth",
-                "auto_splitter_setting_splits_220_action": "None",
-                "auto_splitter_setting_splits_221_item": "HeartNyleth",
-                "auto_splitter_setting_splits_221_action": "None",
-                "auto_splitter_setting_splits_222_item": "EnterFirstSinner",
-                "auto_splitter_setting_splits_222_action": "None",
-                "auto_splitter_setting_splits_223_item": "RuneRage",
-                "auto_splitter_setting_splits_223_action": "None",
-                "auto_splitter_setting_splits_224_item": "Mask5",
-                "auto_splitter_setting_splits_224_action": "None",
-                "auto_splitter_setting_splits_225_item": "EnterRedMemory",
-                "auto_splitter_setting_splits_225_action": "None",
-                "auto_splitter_setting_splits_226_item": "RedMemory",
-                "auto_splitter_setting_splits_226_action": "None",
-                "auto_splitter_setting_splits_227_item": "LastDiveTrans",
-                "auto_splitter_setting_splits_227_action": "None",
-                "auto_splitter_setting_splits_228_item": "EndingSplit",
-                "auto_splitter_setting_splits_228_action": "None",
-                "layout_path": "/home/lufimio/Documents/Other/LiveSplits/main_layout.ls1l",
-                "game_use_arguments": false,
-                "auto_save": true
+                "auto_save": false
             },
             "mixers": 0,
             "sync": 0,
@@ -1993,51 +1626,43 @@
             "hotkeys": {
                 "hotkey_split": [
                     {
-                        "alt": true,
                         "key": "OBS_KEY_NUM1"
                     }
                 ],
                 "hotkey_reset": [
                     {
-                        "alt": true,
                         "key": "OBS_KEY_NUM3"
                     }
                 ],
                 "hotkey_undo": [
                     {
-                        "alt": true,
                         "key": "OBS_KEY_NUM8"
                     }
                 ],
                 "hotkey_skip": [
                     {
-                        "alt": true,
                         "key": "OBS_KEY_NUM2"
                     }
                 ],
                 "hotkey_pause": [
                     {
-                        "alt": true,
-                        "key": "OBS_KEY_NUM7"
+                        "key": "OBS_KEY_NUM5"
                     }
                 ],
                 "hotkey_undo_all_pauses": [],
                 "hotkey_previous_comparison": [
                     {
-                        "alt": true,
                         "key": "OBS_KEY_NUM4"
                     }
                 ],
                 "hotkey_next_comparison": [
                     {
-                        "alt": true,
                         "key": "OBS_KEY_NUM6"
                     }
                 ],
                 "hotkey_toggle_timing_method": [
                     {
-                        "alt": true,
-                        "key": "OBS_KEY_NUM5"
+                        "key": "OBS_KEY_NUM7"
                     }
                 ]
             },
@@ -2057,8 +1682,8 @@
             "settings": {
                 "id_counter": 0,
                 "custom_size": true,
-                "cx": 3921,
-                "cy": 939,
+                "cx": 4905,
+                "cy": 940,
                 "items": [
                     {
                         "name": "Color Source",
@@ -2081,11 +1706,11 @@
                         "id": 36,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 512.1201171875,
+                            "x": 1496.1201171875,
                             "y": 15.4287109375
                         },
                         "pos_rel": {
-                            "x": -0.8294072151184082,
+                            "x": 0.9928150177001953,
                             "y": -0.9714282751083374
                         },
                         "scale": {
@@ -2136,11 +1761,11 @@
                         "id": 35,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 3383.837890625,
+                            "x": 4367.837890625,
                             "y": 813.03271484375
                         },
                         "pos_rel": {
-                            "x": 4.488588809967041,
+                            "x": 6.3108110427856445,
                             "y": 0.5056161284446716
                         },
                         "scale": {
@@ -2191,11 +1816,11 @@
                         "id": 34,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 1474.4384765625,
+                            "x": 2458.4384765625,
                             "y": 829.64697265625
                         },
                         "pos_rel": {
-                            "x": 0.9526638388633728,
+                            "x": 2.774886131286621,
                             "y": 0.536383330821991
                         },
                         "scale": {
@@ -2246,19 +1871,19 @@
                         "id": 32,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 1474.0,
+                            "x": 2458.0,
                             "y": 601.4287109375
                         },
                         "pos_rel": {
-                            "x": 0.9518518447875977,
+                            "x": 2.774074077606201,
                             "y": 0.11375682801008224
                         },
                         "scale": {
-                            "x": 0.5817992091178894,
+                            "x": 0.5817990303039551,
                             "y": 0.5830721259117126
                         },
                         "scale_rel": {
-                            "x": 0.5817992091178894,
+                            "x": 0.5817990303039551,
                             "y": 0.5830721259117126
                         },
                         "bounds": {
@@ -2301,11 +1926,11 @@
                         "id": 31,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 1474.4384765625,
+                            "x": 2458.4384765625,
                             "y": 353.93212890625
                         },
                         "pos_rel": {
-                            "x": 0.9526638388633728,
+                            "x": 2.774886131286621,
                             "y": -0.3445701003074646
                         },
                         "scale": {
@@ -2356,11 +1981,11 @@
                         "id": 30,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 1471.8701171875,
+                            "x": 2455.8701171875,
                             "y": 0.0
                         },
                         "pos_rel": {
-                            "x": 0.9479076266288757,
+                            "x": 2.770129919052124,
                             "y": -1.0
                         },
                         "scale": {
@@ -2411,11 +2036,11 @@
                         "id": 37,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 478.54296875,
+                            "x": 1462.54296875,
                             "y": 358.99951171875
                         },
                         "pos_rel": {
-                            "x": -0.8915870785713196,
+                            "x": 0.9306351542472839,
                             "y": -0.33518606424331665
                         },
                         "scale": {
@@ -2466,12 +2091,12 @@
                         "id": 33,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 680.0,
-                            "y": 477.4287109375
+                            "x": 1172.0,
+                            "y": 478.0
                         },
                         "pos_rel": {
-                            "x": -0.5185185074806213,
-                            "y": -0.11587274819612503
+                            "x": 0.39259257912635803,
+                            "y": -0.11481482535600662
                         },
                         "scale": {
                             "x": 2.109375,
@@ -2482,11 +2107,11 @@
                             "y": 2.109375
                         },
                         "bounds": {
-                            "x": 1360.86669921875,
+                            "x": 2344.93115234375,
                             "y": 921.2857055664062
                         },
                         "bounds_rel": {
-                            "x": 2.5201234817504883,
+                            "x": 4.342464923858643,
                             "y": 1.7060846090316772
                         },
                         "scale_filter": "disable",
@@ -2603,6 +2228,61 @@
                             "duration": 0
                         },
                         "private_settings": {}
+                    },
+                    {
+                        "name": "Silksong",
+                        "source_uuid": "d810b465-0152-4cd4-8761-91573faab7e6",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 46,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": -1.7777777910232544,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_rel": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
                     }
                 ]
             },
@@ -2619,7 +2299,9 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "libobs.show_scene_item.39": [],
-                "libobs.hide_scene_item.39": []
+                "libobs.hide_scene_item.39": [],
+                "libobs.show_scene_item.46": [],
+                "libobs.hide_scene_item.46": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -2661,6 +2343,9 @@
     "scaling_level": -17,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
+    "virtual-camera": {
+        "type2": 3
+    },
     "modules": {
         "scripts-tool": [],
         "output-timer": {

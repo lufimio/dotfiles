@@ -1,0 +1,11 @@
+#!/bin/bash
+# @vicinae.schemaVersion 1
+# @vicinae.title Setup WH-CH720N Microphone
+# @vicinae.mode compact
+# @vicinae.exec ["/bin/bash"]
+
+pactl set-card-profile bluez_card.40_72_18_BA_E8_C9 a2dp-sink
+pidof easyeffects &> /dev/null || niri msg action spawn -- 'easyeffects' '-w'
+sleep 0.25
+pactl set-default-source easyeffects_source
+echo 'Done'

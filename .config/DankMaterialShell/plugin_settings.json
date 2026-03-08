@@ -1,0 +1,59 @@
+{
+  "alarmClock": {
+    "enabled": true
+  },
+  "musicLyrics": {
+    "enabled": true,
+    "musixmatchToken": "2603010413db770c62b984624b711f8b5dd263dae0b781c8c7b359"
+  },
+  "dankNotepadModule": {
+    "enabled": true
+  },
+  "dankLauncherKeys": {
+    "enabled": true
+  },
+  "dankActions": {
+    "enabled": true
+  },
+  "dankBatteryAlerts": {
+    "enabled": true,
+    "criticalThreshold": 10,
+    "enableWarningAlert": false
+  },
+  "dankHooks": {
+    "enabled": true
+  },
+  "developerUtilities": {
+    "enabled": true
+  },
+  "linuxWallpaperEngine": {
+    "enabled": true,
+    "monitorPlaylists": {},
+    "monitorScenes": {},
+    "sceneSettings": {
+      "3554161528": {
+        "fps": 15,
+        "screenshotDelay": 30
+      }
+    },
+    "generateStaticWallpaper": true,
+    "playlistIntervalMinutes": 10
+  },
+  "pkgUpdate": {
+    "enabled": true,
+    "terminalApp": "kitty",
+    "hideOnNoUpdates": true
+  },
+  "pkgUpdates": {
+    "enabled": true
+  },
+  "emojiLauncher": {
+    "enabled": true
+  },
+  "lyricsOnPanel": {
+    "enabled": true
+  },
+  "dankDesktopWeather": {
+    "enabled": true
+  }
+}

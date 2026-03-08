@@ -1,0 +1,11 @@
+binds {
+    Alt+D repeat=false hotkey-overlay-title=null { spawn "obs-cmd" "audio" "toggle" "Mic/Aux"; }
+    Shift+KP_End repeat=false hotkey-overlay-title=null { spawn "obs-cmd" "trigger-hotkey" "hotkey_split"; }
+    Shift+KP_Next repeat=false hotkey-overlay-title=null { spawn "obs-cmd" "trigger-hotkey" "hotkey_reset"; }
+    Shift+KP_Up repeat=false hotkey-overlay-title=null { spawn "obs-cmd" "trigger-hotkey" "hotkey_undo"; }
+    Shift+KP_Down repeat=false hotkey-overlay-title=null { spawn "obs-cmd" "trigger-hotkey" "hotkey_skip"; }
+    Shift+KP_Begin repeat=false hotkey-overlay-title=null { spawn "obs-cmd" "trigger-hotkey" "hotkey_pause"; }
+    Shift+KP_Left repeat=false hotkey-overlay-title=null { spawn "obs-cmd" "trigger-hotkey" "hotkey_previous_comparison"; }
+    Shift+KP_Right repeat=false hotkey-overlay-title=null { spawn "obs-cmd" "trigger-hotkey" "hotkey_next_comparison"; }
+    Shift+KP_Home repeat=false hotkey-overlay-title=null { spawn "obs-cmd" "trigger-hotkey" "hotkey_toggle_timing_method"; }
+}

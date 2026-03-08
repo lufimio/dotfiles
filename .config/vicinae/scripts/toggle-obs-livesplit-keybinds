@@ -1,0 +1,15 @@
+#!/bin/bash
+# @vicinae.schemaVersion 1
+# @vicinae.title Toggle OBS Livesplit Keybinds
+# @vicinae.mode inline
+# @vicinae.exec ["/bin/bash"]
+
+if grep 'obs-livesplit.kdl' ~/.config/niri/config.kdl &> /dev/null; then
+    sed -i '/obs-livesplit.kdl/d' ~/.config/niri/config.kdl
+    echo "Disabled"
+    vicinae close
+else
+    echo 'include "binds/obs-livesplit.kdl"' >> ~/.config/niri/config.kdl
+    echo 'Enabled'
+    vicinae close
+fi
