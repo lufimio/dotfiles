@@ -14,3 +14,5 @@
 .config/obs-studio/profiler_data/
 .config/obs-studio/basic/profiles/Untitled/service.json
 .config/quickshell/.qmlls.ini
+.config/DankMaterialShell/plugins/
+!.config/DankMaterialShell/plugins/pkgUpdate/
