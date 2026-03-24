@@ -43,7 +43,7 @@ PluginComponent {
         }, 100)
 
         root.aurChecking = true;
-        Proc.runCommand("pkgUpdate.aur", ["sh", "-c", "yay -Qu 2> /dev/null"], (stdout, exitCode) => {
+        Proc.runCommand("pkgUpdate.aur", ["sh", "-c", "yay -Qua 2> /dev/null"], (stdout, exitCode) => {
             root.aurUpdates = parsePacmanPackages(stdout);
             root.aurChecking = false;
         }, 100)

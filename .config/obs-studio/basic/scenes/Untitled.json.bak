@@ -1,6 +1,7 @@
 {
+    "name": "Untitled",
     "DesktopAudioDevice1": {
-        "prev_ver": 536870916,
+        "prev_ver": 536936448,
         "name": "Desktop Audio",
         "uuid": "c5934800-3037-4017-8072-9c261da3deed",
         "id": "pulse_output_capture",
@@ -31,7 +32,7 @@
         "private_settings": {}
     },
     "AuxAudioDevice1": {
-        "prev_ver": 536870916,
+        "prev_ver": 536936448,
         "name": "Mic/Aux",
         "uuid": "86efa205-60aa-4c14-8bff-d14c4f1a3f69",
         "id": "pulse_input_capture",
@@ -71,20 +72,523 @@
         "monitoring_type": 0,
         "private_settings": {}
     },
-    "current_scene": "Main Monitor",
-    "current_program_scene": "Main Monitor",
-    "scene_order": [
-        {
-            "name": "Main Monitor"
-        },
-        {
-            "name": "Vtuber"
-        }
-    ],
-    "name": "Untitled",
     "sources": [
         {
-            "prev_ver": 536870916,
+            "prev_ver": 536936448,
+            "name": "Chat External",
+            "uuid": "37907bf0-6d12-47a8-a5db-5a0555c86b6e",
+            "id": "browser_source",
+            "versioned_id": "browser_source",
+            "settings": {
+                "url": "https://streamelements.com/overlay/682ba75e98c45a5a848af0eb/N9_IqI5ncBOCxfvoYTm6t1stGjBY8QTUaEtJOjbadXzSpoOf",
+                "width": 1920,
+                "height": 1080
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "ObsBrowser.Refresh": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "VTuber Model",
+            "uuid": "df24d076-a1da-4643-8ec5-ac600242fefe",
+            "id": "pipewire-screen-capture-source",
+            "versioned_id": "pipewire-screen-capture-source",
+            "settings": {
+                "ShowCursor": false,
+                "RestoreToken": "7dd38278-55ae-42dd-aec0-2325a5354d12"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {},
+            "filters": [
+                {
+                    "prev_ver": 536936448,
+                    "name": "Chroma Key",
+                    "uuid": "0b62668c-6f79-46f8-96b4-99e0df4ffc1b",
+                    "id": "chroma_key_filter",
+                    "versioned_id": "chroma_key_filter_v2",
+                    "settings": {
+                        "key_color": 4291177215,
+                        "key_color_type": "custom",
+                        "similarity": 100,
+                        "spill": 1
+                    },
+                    "mixers": 0,
+                    "sync": 0,
+                    "flags": 0,
+                    "volume": 1.0,
+                    "balance": 0.5,
+                    "enabled": true,
+                    "muted": false,
+                    "push-to-mute": false,
+                    "push-to-mute-delay": 0,
+                    "push-to-talk": false,
+                    "push-to-talk-delay": 0,
+                    "hotkeys": {},
+                    "deinterlace_mode": 0,
+                    "deinterlace_field_order": 0,
+                    "monitoring_type": 0,
+                    "private_settings": {}
+                }
+            ]
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "Screen Capture (PipeWire)",
+            "uuid": "ff99a1f4-ee3c-4223-aef7-38488a9bc072",
+            "id": "pipewire-screen-capture-source",
+            "versioned_id": "pipewire-screen-capture-source",
+            "settings": {
+                "RestoreToken": "56db17d3-8384-4c70-a38c-3d3cfa0d6876"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "Title",
+            "uuid": "e78af5b7-7687-4da8-9b07-0b60ec9d8989",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {
+                "from_file": true,
+                "text_file": "/home/lufimio/Documents/Other/OBS/Music/title.txt",
+                "color1": 4293517796,
+                "color2": 4293517796
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "Artist",
+            "uuid": "29dadb0f-eed8-4028-82e0-b2758b0ab530",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {
+                "from_file": true,
+                "text_file": "/home/lufimio/Documents/Other/OBS/Music/artists.txt",
+                "font": {
+                    "face": "Noto Sans",
+                    "style": "Regular",
+                    "size": 256,
+                    "flags": 0
+                },
+                "antialiasing": true,
+                "color1": 4288319633,
+                "color2": 4288319633
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "Album",
+            "uuid": "6f1ea687-68c1-4d9d-bb96-80a5cbee3232",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {
+                "from_file": true,
+                "text_file": "/home/lufimio/Documents/Other/OBS/Music/album.txt",
+                "color1": 4283385414,
+                "color2": 4283385414
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "Cover",
+            "uuid": "2b369c4f-db36-40d4-859a-7cf3335d3ae0",
+            "id": "image_source",
+            "versioned_id": "image_source",
+            "settings": {
+                "file": "/home/lufimio/Documents/Other/OBS/Music/cover.png"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "Tuna progress bar",
+            "uuid": "6802c92a-7f36-4a7c-889c-431138255e43",
+            "id": "progress_bar",
+            "versioned_id": "progress_bar",
+            "settings": {
+                "cy": 10
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "Progress",
+            "uuid": "f6a98f54-b3e4-4c54-8a3b-03eb4c29efbd",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {
+                "from_file": true,
+                "text_file": "/home/lufimio/Documents/Other/OBS/Music/progress.txt"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "Color Source",
+            "uuid": "74f33f6d-50d1-4dba-8217-7bb65dbc5a49",
+            "id": "color_source",
+            "versioned_id": "color_source_v3",
+            "settings": {
+                "color": 4279767827,
+                "width": 2600,
+                "height": 700
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "Seperator",
+            "uuid": "1b3e7c37-bea2-4a6a-a6d0-d3046e35952e",
+            "id": "color_source",
+            "versioned_id": "color_source_v3",
+            "settings": {
+                "undo_suuid": "1b3e7c37-bea2-4a6a-a6d0-d3046e35952e",
+                "color": 4280622879,
+                "width": 250,
+                "height": 1
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "Game Capture",
+            "uuid": "0ee7b319-8e36-43cd-b7b5-83342f25cecb",
+            "id": "vkcapture-source",
+            "versioned_id": "vkcapture-source",
+            "settings": {
+                "window": "",
+                "allow_transparency": false
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "MPD",
+            "uuid": "2fd66bad-3e41-44d5-9e38-99c329328ee3",
+            "id": "pipewire_audio_application_capture",
+            "versioned_id": "pipewire_audio_application_capture",
+            "settings": {
+                "TargetName": "Music Player Daemon"
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 0.021234584972262383,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": true,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "Silksong",
+            "uuid": "d810b465-0152-4cd4-8761-91573faab7e6",
+            "id": "pipewire_audio_application_capture",
+            "versioned_id": "pipewire_audio_application_capture",
+            "settings": {
+                "TargetName": "Hollow Knight Silksong"
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": true,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
+            "name": "LiveSplit One",
+            "uuid": "c95a6594-2b04-4b83-a50c-0a47929ed15b",
+            "id": "livesplit-one",
+            "versioned_id": "livesplit-one",
+            "settings": {
+                "splits_path": "/home/lufimio/Documents/Other/LiveSplits/Silksong/100% v6.lss",
+                "layout_path": "/home/lufimio/Documents/Other/LiveSplits/main_layout.ls1l",
+                "game_path": "/home/lufimio/Documents/Other/LiveSplits/Silksong/silksong_autosplit_wasm_stable.wasm",
+                "auto_splitter_setting_hit_counter": true,
+                "auto_splitter_setting_splits_insert_0": false,
+                "auto_splitter_setting_splits_0_item": "StartNewGame",
+                "auto_splitter_setting_splits_0_action": "None",
+                "auto_splitter_setting_splits_1_item": "EndingSplit",
+                "auto_splitter_setting_splits_1_action": "None",
+                "auto_save": false
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "hotkey_split": [
+                    {
+                        "key": "OBS_KEY_NUM1"
+                    }
+                ],
+                "hotkey_reset": [
+                    {
+                        "key": "OBS_KEY_NUM3"
+                    }
+                ],
+                "hotkey_undo": [
+                    {
+                        "key": "OBS_KEY_NUM8"
+                    }
+                ],
+                "hotkey_skip": [
+                    {
+                        "key": "OBS_KEY_NUM2"
+                    }
+                ],
+                "hotkey_pause": [
+                    {
+                        "key": "OBS_KEY_NUM5"
+                    }
+                ],
+                "hotkey_undo_all_pauses": [],
+                "hotkey_previous_comparison": [
+                    {
+                        "key": "OBS_KEY_NUM4"
+                    }
+                ],
+                "hotkey_next_comparison": [
+                    {
+                        "key": "OBS_KEY_NUM6"
+                    }
+                ],
+                "hotkey_toggle_timing_method": [
+                    {
+                        "key": "OBS_KEY_NUM7"
+                    }
+                ]
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536936448,
             "name": "Main Monitor",
             "uuid": "272c60b5-3e46-40b6-9511-3d229404b54b",
             "id": "scene",
@@ -1069,99 +1573,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 536870916,
-            "name": "Chat External",
-            "uuid": "37907bf0-6d12-47a8-a5db-5a0555c86b6e",
-            "id": "browser_source",
-            "versioned_id": "browser_source",
-            "settings": {
-                "url": "https://streamelements.com/overlay/682ba75e98c45a5a848af0eb/N9_IqI5ncBOCxfvoYTm6t1stGjBY8QTUaEtJOjbadXzSpoOf",
-                "width": 1920,
-                "height": 1080
-            },
-            "mixers": 255,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "libobs.mute": [],
-                "libobs.unmute": [],
-                "libobs.push-to-mute": [],
-                "libobs.push-to-talk": [],
-                "ObsBrowser.Refresh": []
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "VTuber Model",
-            "uuid": "df24d076-a1da-4643-8ec5-ac600242fefe",
-            "id": "pipewire-screen-capture-source",
-            "versioned_id": "pipewire-screen-capture-source",
-            "settings": {
-                "ShowCursor": false,
-                "RestoreToken": "7dd38278-55ae-42dd-aec0-2325a5354d12"
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {},
-            "filters": [
-                {
-                    "prev_ver": 536870916,
-                    "name": "Chroma Key",
-                    "uuid": "0b62668c-6f79-46f8-96b4-99e0df4ffc1b",
-                    "id": "chroma_key_filter",
-                    "versioned_id": "chroma_key_filter_v2",
-                    "settings": {
-                        "key_color": 4291177215,
-                        "key_color_type": "custom",
-                        "similarity": 100,
-                        "spill": 1
-                    },
-                    "mixers": 0,
-                    "sync": 0,
-                    "flags": 0,
-                    "volume": 1.0,
-                    "balance": 0.5,
-                    "enabled": true,
-                    "muted": false,
-                    "push-to-mute": false,
-                    "push-to-mute-delay": 0,
-                    "push-to-talk": false,
-                    "push-to-talk-delay": 0,
-                    "hotkeys": {},
-                    "deinterlace_mode": 0,
-                    "deinterlace_field_order": 0,
-                    "monitoring_type": 0,
-                    "private_settings": {}
-                }
-            ]
-        },
-        {
-            "prev_ver": 536870916,
+            "prev_ver": 536936448,
             "name": "Vtuber",
             "uuid": "6a1062c4-7e1f-4410-9f9f-4cdf91d8fcff",
             "id": "scene",
@@ -1248,433 +1660,11 @@
             "monitoring_type": 0,
             "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
             "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "Screen Capture (PipeWire)",
-            "uuid": "ff99a1f4-ee3c-4223-aef7-38488a9bc072",
-            "id": "pipewire-screen-capture-source",
-            "versioned_id": "pipewire-screen-capture-source",
-            "settings": {
-                "RestoreToken": "56db17d3-8384-4c70-a38c-3d3cfa0d6876"
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "Title",
-            "uuid": "e78af5b7-7687-4da8-9b07-0b60ec9d8989",
-            "id": "text_ft2_source",
-            "versioned_id": "text_ft2_source_v2",
-            "settings": {
-                "from_file": true,
-                "text_file": "/home/lufimio/Documents/Other/OBS/Music/title.txt",
-                "color1": 4293517796,
-                "color2": 4293517796
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "Artist",
-            "uuid": "29dadb0f-eed8-4028-82e0-b2758b0ab530",
-            "id": "text_ft2_source",
-            "versioned_id": "text_ft2_source_v2",
-            "settings": {
-                "from_file": true,
-                "text_file": "/home/lufimio/Documents/Other/OBS/Music/artists.txt",
-                "font": {
-                    "face": "Noto Sans",
-                    "style": "Regular",
-                    "size": 256,
-                    "flags": 0
-                },
-                "antialiasing": true,
-                "color1": 4288319633,
-                "color2": 4288319633
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "Album",
-            "uuid": "6f1ea687-68c1-4d9d-bb96-80a5cbee3232",
-            "id": "text_ft2_source",
-            "versioned_id": "text_ft2_source_v2",
-            "settings": {
-                "from_file": true,
-                "text_file": "/home/lufimio/Documents/Other/OBS/Music/album.txt",
-                "color1": 4283385414,
-                "color2": 4283385414
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "Cover",
-            "uuid": "2b369c4f-db36-40d4-859a-7cf3335d3ae0",
-            "id": "image_source",
-            "versioned_id": "image_source",
-            "settings": {
-                "file": "/home/lufimio/Documents/Other/OBS/Music/cover.png"
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "Tuna progress bar",
-            "uuid": "6802c92a-7f36-4a7c-889c-431138255e43",
-            "id": "progress_bar",
-            "versioned_id": "progress_bar",
-            "settings": {
-                "cy": 10
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "Progress",
-            "uuid": "f6a98f54-b3e4-4c54-8a3b-03eb4c29efbd",
-            "id": "text_ft2_source",
-            "versioned_id": "text_ft2_source_v2",
-            "settings": {
-                "from_file": true,
-                "text_file": "/home/lufimio/Documents/Other/OBS/Music/progress.txt"
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "Color Source",
-            "uuid": "74f33f6d-50d1-4dba-8217-7bb65dbc5a49",
-            "id": "color_source",
-            "versioned_id": "color_source_v3",
-            "settings": {
-                "color": 4279767827,
-                "width": 2600,
-                "height": 700
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "Seperator",
-            "uuid": "1b3e7c37-bea2-4a6a-a6d0-d3046e35952e",
-            "id": "color_source",
-            "versioned_id": "color_source_v3",
-            "settings": {
-                "undo_suuid": "1b3e7c37-bea2-4a6a-a6d0-d3046e35952e",
-                "color": 4280622879,
-                "width": 250,
-                "height": 1
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "Game Capture",
-            "uuid": "0ee7b319-8e36-43cd-b7b5-83342f25cecb",
-            "id": "vkcapture-source",
-            "versioned_id": "vkcapture-source",
-            "settings": {
-                "window": "",
-                "allow_transparency": false
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "MPD",
-            "uuid": "2fd66bad-3e41-44d5-9e38-99c329328ee3",
-            "id": "pipewire_audio_application_capture",
-            "versioned_id": "pipewire_audio_application_capture",
-            "settings": {
-                "TargetName": "Music Player Daemon"
-            },
-            "mixers": 255,
-            "sync": 0,
-            "flags": 0,
-            "volume": 0.021234584972262383,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": true,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "libobs.mute": [],
-                "libobs.unmute": [],
-                "libobs.push-to-mute": [],
-                "libobs.push-to-talk": []
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "Silksong",
-            "uuid": "d810b465-0152-4cd4-8761-91573faab7e6",
-            "id": "pipewire_audio_application_capture",
-            "versioned_id": "pipewire_audio_application_capture",
-            "settings": {
-                "TargetName": "Hollow Knight Silksong"
-            },
-            "mixers": 255,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": true,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "libobs.mute": [],
-                "libobs.unmute": [],
-                "libobs.push-to-mute": [],
-                "libobs.push-to-talk": []
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870916,
-            "name": "LiveSplit One",
-            "uuid": "c95a6594-2b04-4b83-a50c-0a47929ed15b",
-            "id": "livesplit-one",
-            "versioned_id": "livesplit-one",
-            "settings": {
-                "splits_path": "/home/lufimio/Documents/Other/LiveSplits/Silksong/100% v6.lss",
-                "layout_path": "/home/lufimio/Documents/Other/LiveSplits/main_layout.ls1l",
-                "game_path": "/home/lufimio/Documents/Other/LiveSplits/Silksong/silksong_autosplit_wasm_stable.wasm",
-                "auto_save": false,
-                "auto_splitter_setting_hit_counter": true,
-                "auto_splitter_setting_splits_insert_0": false,
-                "auto_splitter_setting_splits_0_item": "StartNewGame",
-                "auto_splitter_setting_splits_0_action": "None",
-                "auto_splitter_setting_splits_1_item": "EndingSplit",
-                "auto_splitter_setting_splits_1_action": "None"
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "hotkey_split": [
-                    {
-                        "key": "OBS_KEY_NUM1"
-                    }
-                ],
-                "hotkey_reset": [
-                    {
-                        "key": "OBS_KEY_NUM3"
-                    }
-                ],
-                "hotkey_undo": [
-                    {
-                        "key": "OBS_KEY_NUM8"
-                    }
-                ],
-                "hotkey_skip": [
-                    {
-                        "key": "OBS_KEY_NUM2"
-                    }
-                ],
-                "hotkey_pause": [
-                    {
-                        "key": "OBS_KEY_NUM5"
-                    }
-                ],
-                "hotkey_undo_all_pauses": [],
-                "hotkey_previous_comparison": [
-                    {
-                        "key": "OBS_KEY_NUM4"
-                    }
-                ],
-                "hotkey_next_comparison": [
-                    {
-                        "key": "OBS_KEY_NUM6"
-                    }
-                ],
-                "hotkey_toggle_timing_method": [
-                    {
-                        "key": "OBS_KEY_NUM7"
-                    }
-                ]
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
         }
     ],
     "groups": [
         {
-            "prev_ver": 536870916,
+            "prev_ver": 536936448,
             "name": "Music",
             "uuid": "fc5c5b6e-1aa1-4b06-8c31-20817e3cf942",
             "id": "group",
@@ -2163,7 +2153,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 536870916,
+            "prev_ver": 536936448,
             "name": "Audio Capture",
             "uuid": "7644469e-e64b-4424-a41d-b5e55d3891a0",
             "id": "group",
@@ -2310,6 +2300,20 @@
             "private_settings": {}
         }
     ],
+    "scene_order": [
+        {
+            "name": "Main Monitor"
+        },
+        {
+            "name": "Vtuber"
+        }
+    ],
+    "current_scene": "Main Monitor",
+    "current_program_scene": "Main Monitor",
+    "canvases": [],
+    "current_transition": "Fade",
+    "transition_duration": 300,
+    "transitions": [],
     "quick_transitions": [
         {
             "name": "Cut",
@@ -2333,14 +2337,10 @@
             "fade_to_black": true
         }
     ],
-    "transitions": [],
     "saved_projectors": [],
-    "canvases": [],
-    "current_transition": "Fade",
-    "transition_duration": 300,
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -17,
+    "scaling_level": -23,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {

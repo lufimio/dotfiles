@@ -35,6 +35,9 @@
          "icon_theme": "auto"
       }
    },
+   "telemetry": {
+      "system_info": false
+   },
    "launcher_window": {
       "opacity": 0.95,
       "client_side_decorations": {
