@@ -1,129 +1,279 @@
-## Arch Base
- - base
- - base-devel
+## Hardware
+ - acpi
+ - alac-git
+ - alsa-tools
+ - alsa-utils
+ - bluez-tools
+ - bluez-utils
  - brightnessctl
- - efibootmgr
- - firewalld
- - gamemode
- - git
+ - chaotic-keyring
+ - chaoric-mirrorlist
+ - cnrdrvcups-lib
+ - cups
+ - cups-pk-helper
+ - ddcutil
+ - dptfxtract-bin
+ - dxvk-bin
+ - evdi-dkms
+ - exfat-utils
+ - flatpak
  - grub
- - inotify-tools
+ - gvfs
+ - hdparm
+ - hw-probe
  - intel-media-driver
+ - intel-opencl-runtime
  - intel-ucode
- - lib32-gamemode
+ - iwd
+ - kwayland-integration
  - lib32-mesa
+ - lib32-vkd3d
  - lib32-vulkan-intel
- - linux
- - linux-firmware
- - man-db
+ - libdeep_filter_ladspa-git
+ - libva-intel-driver
+ - libvdpau-va-gl
+ - libvncserver
+ - lvm2
  - mesa
- - networkmanager
- - openssh
+ - mesa-utils
  - pipewire
  - pipewire-alsa
  - pipewire-jack
  - pipewire-pulse
  - pipewire-x11-bell
- - reflector
+ - power-profiles-daemon
  - sof-firmware
- - sudo
+ - system-config-printer
+ - thermald
+ - v4l2loopback-dkms
+ - vkd3d
+ - vpl-gpu-rt
  - vulkan-intel
  - wireplumber
- - yay
 
-## WM Config
- - clipse
- - hypridle
- - hyprland
- - hyprlock
- - hyprpicker
- - hyprpolkitagent
- - hyprshot
- - noto-fonts
- - noto-fonts-cjk
- - noto-fonts-emoji
- - noto-fonts-extra
- - nwg-look
- - qt5-wayland
- - qt5ct
- - qt6ct
- - sddm
- - smile
- - stow
- - swaync
- - swww
- - ttf-firacode-nerd
- - v4l2loopback-dkms
- - walker
- - waybar
- - waypaper
- - wev
- - wl-clipboard
- - wl-screenrec
- - wlogout
- - xdg-desktop-portal-gtk
- - xdg-desktop-portal-hyprland
- - xdg-user-dirs
- - xfce4-settings
- - xwaylandvideobridge
 
-## Command Line Tools
+## CLI
+ - bat
  - bluetui
  - btop
+ - cava
+ - ccache
  - clang
- - cloudflare-warp-bin
- - cpio
- - flatpak
+ - devtools
+ - dnsmasq
+ - docker
+ - docker-compose
+ - dotool
+ - dragon-drop
+ - dsearch-bin
+ - fastfetch
+ - fd
+ - ffmpegthumbnailer
+ - ffmpegthumbnailer-mp3
+ - freerdp
+ - freerdp2
  - fzf
+ - gamemode
+ - gamescope
+ - gdb
+ - git
  - git-delta
  - git-filter-repo
  - github-cli
- - go
+ - glow
+ - gpu-screen-recorder
+ - hexyl
+ - ifuse
  - imagemagick
+ - inotify-tools
+ - intel-gpu-tools
+ - inxi
+ - iw
+ - kcachegrind
+ - lact
+ - laptop-mode-tools
  - lazygit
+ - lib32-gamemode
+ - lib32-mangohud
+ - lib32-obs-vkcapture-git
  - libqalculate
- - lua51
- - luarocks
- - lynx
- - neofetch
+ - libva-utils
+ - lldb
+ - lsd
+ - lshw
+ - macchanger
+ - mangohud
+ - mpd
+ - mpc
+ - mpdris2
+ - mpdscribble
+ - mypy
+ - ncdu
  - neovim
- - nodejs-gitmoji-cli
+ - networkmanager
+ - nmap
  - npm
+ - obs-cmd
+ - openbsd-netcap
+ - opencode
+ - openssh
+ - openvpn
+ - ouch
  - pacman-contrib
- - scdoc
+ - pastel
+ - pdftk
+ - perf-tools
+ - perl-image-exiftool
+ - perl-file-mimeinfo
+ - pkgfile
+ - powertop
+ - pwndbg
+ - pyenv-virtualenv
+ - pyenv-latest
+ - pyright
+ - python-pip
+ - python-pywalfox
+ - python-shtab
+ - python-z3-solver
+ - qemu-full
+ - rbw
+ - reflector
+ - rmpc-git
+ - rmtrash
+ - sagemath
+ - socat
+ - spicetify-cli
+ - spotdl
+ - spotify
+ - spout2pw-bin
+ - sshfs
+ - stasis
+ - stow
+ - tesseract
+ - tldr
+ - tmux
+ - tree
+ - typst
+ - tzupdate
+ - ufw
  - unzip
+ - uxplay
+ - v4l2loopback-utils
+ - valgrind
  - vim
+ - vulkan-tools
+ - waypipe
+ - wev
+ - wget
+ - wikiman
+ - wl-clipboard
+ - wl-screenrec
+ - wlr-randr
+ - wlr-which-key
+ - wlrctl
+ - wmctrl
+ - wtype
+ - wvkbd
+ - xdg-terminal-exec
+ - xdg-user-dirs
+ - xremap-niri-bin
+ - xwayland-satellite-git
+ - xwaylandvideo-bridge
+ - yad
+ - yay
+ - yazi
+ - ydotool
  - zoxide
  - zsh
  - zsh-autosuggestions
- - zsh-competions
+ - zsh-completions
+
 
 ## GUI
- - ark
+ - actions-for-nautilus-git
+ - arronax
+ - bazzar
+ - bitwarden
  - blender
+ - bongocat
  - bottles
- - calibre
  - code
  - code-features
  - code-marketplace
- - discover
- - ffmpegthumbnailer
- - firefox
- - gimp
- - google-chrome
- - gvfs
+ - dconf-editor
+ - discord
+ - dms-shell-niri
+ - drawy
+ - easyeffects
+ - flatseal
+ - waterfox-bin
+ - fluffychat
+ - gale-bin
+ - goverlay
+ - gparted
+ - greetd-dms-greeter-git
+ - greetd-regreet
+ - hotspot
+ - psst-keyring-prompter-bin
+ - psst-polkit-agent-bin
+ - inkscape
+ - inochi-session
+ - inochi-creator-bin
  - kitty
- - libreoffice-fresh
- - obs-studio
- - pavucontrol
+ - koodo-reader-bin
+ - linux-wallpaperengine-git
+ - localsend
+ - losslesscut-bin
+ - maplemono-ttf
+ - matugen-bin
+ - mission-center
+ - mpv
+ - nautilus
+ - nautilus-open-any-terminal
+ - nautilus-metadata-editor
+ - nautilus-launch
+ - nautilus-image-converter
+ - nautilus-checksums
+ - niri-git
+ - nomacs
+ - noto-fonts
+ - noto-fonts-extra
+ - noto-fonts-cjk
+ - nwg-icon-picker
+ - nwg-look
+ - obs-gstreamer
+ - obs-livesplit-one-bin
+ - obs-pipewire-audio-capture
+ - obs-plugin-tuna-bin
+ - obs-pwvideo
+ - obs-studio-tytan652
+ - obs-vkcapture-git
+ - obs-wayland-hotkeys-git
+ - olympus
+ - onlyoffice-bin
+ - pinta
+ - portmaster-bin
+ - prismlauncher
+ - protonplus
+ - pulsemixer
  - qbittorrent
- - spotify
- - thunar
- - thunar-archive-plugin
- - thunar-media-tags-plugin
- - thunar-volman
- - tumbler
- - vesktop
- - vlc
- - wine
-
+ - qdirstat
+ - quickshell
+ - remmina
+ - rofi
+ - signal-desktop
+ - snekstudio-bin
+ - steam
+ - sushi
+ - themix-full-git
+ - ttf-firacode-nerd
+ - ttf-twemoji-color
+ - vicinae-bin
+ - vlc-plugin-luajit
+ - vlc-plugins-all
+ - vmware-workstation
+ - wayscriber-bin
+ - wayscriber-configurator
+ - wireshark-qt
+ - xdg-desktop-portal-gnome
+ - xdg-desktop-portal-gtk

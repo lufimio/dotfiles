@@ -21,20 +21,28 @@ parser.add_argument('--filename-only', action='store_true', help='If enabled, do
 
 # rating can be -1 or positive int; -1 is unrated
 # like can be None, -1, 0, 1, 2; None is *, -1 is unrated, rest are valid
-def parse_filter(string):
+def parse_rating(string):
     parsed = [int(i) for i in string.split(':')]
     if len(parsed) not in [1, 2]:
         raise ValueError(f'invalid number of specifiers: expected 1 or 2, got {len(parsed)}')
     return (parsed[0], None if len(parsed) == 1 else parsed[1])
 
 
+def parse_views(string):
+    if string[0] in ['>', '<']:
+        return int(string[1:]) * (-1 if string[0] == '<' else 1)
+    return -int(string)
+
+
+
 filters = parser.add_argument_group('Filters', 'Format: rating[:like] - A rating of -1 is unrated, similarly a like of -1 is unrated, ommitting it allows any rating')
-filters.add_argument('-ge', type=parse_filter, help='select ratings greater than or equal to value')
-filters.add_argument('-gt', type=parse_filter, help='select ratings greater than value')
-filters.add_argument('-le', type=parse_filter, help='select ratings less than or equal to value')
-filters.add_argument('-lt', type=parse_filter, help='select ratings less than value')
-filters.add_argument('-eq', action='extend', nargs='+', type=parse_filter, help='select ratings equal to value')
-filters.add_argument('-ne', action='extend', nargs='+', type=parse_filter, help='remove ratings equal to value')
+filters.add_argument('-ge', type=parse_rating, help='select ratings greater than or equal to value')
+filters.add_argument('-gt', type=parse_rating, help='select ratings greater than value')
+filters.add_argument('-le', type=parse_rating, help='select ratings less than or equal to value')
+filters.add_argument('-lt', type=parse_rating, help='select ratings less than value')
+filters.add_argument('-eq', action='extend', nargs='+', type=parse_rating, help='select ratings equal to value')
+filters.add_argument('-ne', action='extend', nargs='+', type=parse_rating, help='remove ratings equal to value')
+filters.add_argument('-views', action='extend', nargs=1, type=parse_views, help='select view count less than value (default, prefix with < or > to change)')
 
 args = parser.parse_args()
 if args.action == 'help':
@@ -43,10 +51,11 @@ if args.action == 'help':
 
 
 class Song:
-    def __init__(self, filename, rating, like):
+    def __init__(self, filename, rating, like, views):
         self.filename = filename
         self.rating = rating
         self.like = like
+        self.views = views
 
     def ge(self, rating, like):
         return self.rating > rating or self.rating == rating and (like is None or self.like >= like)
@@ -63,10 +72,15 @@ class Song:
     def eq(self, rating, like):
         return self.rating == rating and (like is None or self.like == like)
 
+    def filter_views(self, views):
+        if views < 0:
+            return self.views < -views
+        return self.views > views
+
     def __eq__(self, other):
         return self.rating == other.rating and self.like == other.like
 
-    def __lt__(self, other: Song):
+    def __lt__(self, other):
         return self.rating < other.rating or self.rating == other.rating and self.like < other.like
 
 
@@ -77,11 +91,13 @@ for song_path in mpd_songs:
 
     ratings = list(filter(lambda x: 'rating' in x, stickers))
     likes = list(filter(lambda x: 'like' in x, stickers))
+    views = list(filter(lambda x: 'playCount' in x, stickers))
 
     rating = int(ratings[0].split('=')[1]) if ratings else -1
     like = int(likes[0].split('=')[1]) if likes else -1
+    view = int(views[0].split('=')[1]) if views else 0
 
-    songs.append(Song(song_path, rating, like))
+    songs.append(Song(song_path, rating, like, view))
 
 filtered_songs: list[Song] = [] if args.ge or args.gt or args.le or args.lt or args.eq else songs[:]
 if args.ge:
@@ -96,6 +112,8 @@ if args.eq:
     filtered_songs.extend([song for song in songs if any(song.eq(r, l) for r, l in args.eq)])
 if args.ne:
     filtered_songs = [song for song in filtered_songs if not any(song.eq(r, l) for r, l in args.ne)]
+if args.views:
+    filtered_songs = [song for song in filtered_songs if all(song.filter_views(v) for v in args.views)]
 filtered_songs.sort()
 
 if args.delay is None:
@@ -111,7 +129,7 @@ else:
 finished_songs = 0
 for i, song_set in enumerate(song_stages):
     if args.action in ['ls', 'list']:
-        print(*[song.filename if args.filename_only else f'{song.rating}:{song.like} - {song.filename}' for song in song_set], sep='\n')
+        print(*[song.filename if args.filename_only else f'{song.rating}:{song.like} [{song.views}] - {song.filename}' for song in song_set], sep='\n')
     elif args.action in ['rm', 'remove']:
         rm[*[f'{args.output_dir / song.filename}' for song in song_set if exists(f'{args.output_dir / song.filename}')]]()
     elif args.action in ['cp', 'copy']:

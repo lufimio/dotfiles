@@ -30,9 +30,11 @@ layout {
 
     shadow {
         on
-        softness 2
+        softness 10
         spread 5
+        offset x=0 y=0
         color "#1a1a1aee"
+        // draw-behind-window true
     }
 
     tab-indicator {

@@ -27,13 +27,3 @@ input {
     focus-follows-mouse max-scroll-amount="40%"
     workspace-auto-back-and-forth
 }
-
-output "eDP-1" {
-    mode "1366x768@60.059"
-    position x=0 y=0
-}
-
-output "ViewSonic Corporation VA2406M-LED TEN124101269" {
-    mode "1920x1080@60.000"
-    position x=-1920 y=-650
-}

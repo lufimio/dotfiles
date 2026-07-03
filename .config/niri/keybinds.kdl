@@ -19,9 +19,9 @@ binds {
     Mod+O repeat=false { toggle-overview; }
 
     Mod+N repeat=false hotkey-overlay-title=null { spawn "dms" "ipc" "call" "notifications" "toggle"; }
-    Mod+V repeat=false hotkey-overlay-title=null { spawn-sh "vicinae close || vicinae vicinae://extensions/vicinae/clipboard/history"; }
-    Mod+Period repeat=false hotkey-overlay-title=null { spawn-sh "vicinae close || vicinae vicinae://extensions/vicinae/core/search-emojis"; }
-    Mod+Comma repeat=false hotkey-overlay-title=null { spawn-sh "vicinae close || vicinae vicinae://extensions/mmazzarolo/unicode-symbols/index"; }
+    Mod+V repeat=false hotkey-overlay-title=null { spawn "vicinae" "vicinae://launch/clipboard/history?toggle=true"; }
+    Mod+Period repeat=false hotkey-overlay-title=null { spawn "vicinae" "vicinae://launch/core/search-emojis?toggle=true"; }
+    Mod+Comma repeat=false hotkey-overlay-title=null { spawn "vicinae" "vicinae://launch/@mmazzarolo/store.raycast.unicode-symbols/index?toggle=true"; }
     Mod+Shift+Escape repeat=false hotkey-overlay-title=null { spawn-sh "pkill missioncenter || missioncenter"; }
 
     Mod+Shift+N repeat=false hotkey-overlay-title="Next Song" { spawn "dms" "ipc" "call" "mpris" "next"; }
@@ -30,9 +30,9 @@ binds {
     Mod+Shift+Period hotkey-overlay-title=null { spawn "dms" "ipc" "call" "mpris" "increment" "5"; }
     Mod+Shift+Comma hotkey-overlay-title=null { spawn "dms" "ipc" "call" "mpris" "decrement" "5"; }
 
-    Mod+Shift+S repeat=false { screenshot; }
-    Mod+Ctrl+S repeat=false { screenshot-window; }
-    Mod+Ctrl+Shift+S repeat=false { screenshot-screen; }
+    Mod+Shift+S repeat=false { screenshot show-pointer=false; }
+    Mod+Ctrl+S repeat=false { screenshot-window show-pointer=false; }
+    Mod+Ctrl+Shift+S repeat=false { screenshot-screen show-pointer=false; }
 
     Mod+A repeat=false hotkey-overlay-title=null { spawn "pkill" "-SIGUSR1" "wayscriber"; }
 
@@ -155,8 +155,8 @@ binds {
     XF86AudioRaiseVolume    allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
     XF86AudioLowerVolume    allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
     XF86AudioMute           allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
-    XF86MonBrightnessUp     allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" "backlight:intel_backlight"; }
-    XF86MonBrightnessDown   allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" "backlight:intel_backlight"; }
+    XF86MonBrightnessUp     allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
+    XF86MonBrightnessDown   allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
     XF86AudioNext           allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
     XF86AudioPlay           allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
     XF86AudioPause          allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }

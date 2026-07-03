@@ -36,6 +36,12 @@
   "modalAnimationSpeed": 1,
   "modalCustomAnimationDuration": 150,
   "enableRippleEffects": true,
+  "blurEnabled": false,
+  "blurForegroundLayers": true,
+  "blurLayerOutlineOpacity": 0.12,
+  "blurBorderColor": "outline",
+  "blurBorderCustomColor": "#ffffff",
+  "blurBorderOpacity": 0.35,
   "wallpaperFillMode": "Fill",
   "blurredWallpaperLayer": false,
   "blurWallpaperOnOverview": false,
@@ -52,6 +58,9 @@
   "selectedGpuIndex": 0,
   "enabledGpuPciIds": [],
   "showSystemTray": true,
+  "systemTrayIconTintMode": "none",
+  "systemTrayIconTintSaturation": 50,
+  "systemTrayIconTintStrength": 135,
   "showClock": true,
   "showNotificationButton": true,
   "showBattery": true,
@@ -82,6 +91,17 @@
     {
       "id": "brightnessSlider",
       "enabled": true,
+      "width": 50,
+      "deviceName": "backlight:intel_backlight"
+    },
+    {
+      "id": "audioInput",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "audioOutput",
+      "enabled": true,
       "width": 50
     },
     {
@@ -95,24 +115,19 @@
       "width": 50
     },
     {
-      "id": "audioOutput",
-      "enabled": true,
-      "width": 50
-    },
-    {
-      "id": "audioInput",
+      "id": "builtin_vpn",
       "enabled": true,
       "width": 50
     },
     {
       "id": "idleInhibitor",
       "enabled": true,
-      "width": 25
+      "width": 50
     },
     {
       "id": "colorPicker",
       "enabled": true,
-      "width": 25
+      "width": 50
     },
     {
       "id": "diskUsage",
@@ -173,12 +188,6 @@
   "greeterEnableFprint": false,
   "greeterEnableU2f": false,
   "greeterWallpaperPath": "",
-  "greeterUse24HourClock": true,
-  "greeterShowSeconds": false,
-  "greeterPadHours12Hour": false,
-  "greeterLockDateFormat": "",
-  "greeterFontFamily": "",
-  "greeterWallpaperFillMode": "",
   "mediaSize": 1,
   "appLauncherViewMode": "list",
   "spotlightModalViewMode": "list",
@@ -248,7 +257,7 @@
   "soundPluggedIn": true,
   "acMonitorTimeout": 300,
   "acLockTimeout": 300,
-  "acSuspendTimeout": 600,
+  "acSuspendTimeout": 0,
   "acSuspendBehavior": 0,
   "acProfileName": "2",
   "batteryMonitorTimeout": 180,
@@ -279,6 +288,10 @@
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
   "terminalsAlwaysDark": true,
+  "muxType": "tmux",
+  "muxUseCustomCommand": false,
+  "muxCustomCommand": "",
+  "muxSessionFilter": "",
   "runDmsMatugenTemplates": true,
   "matugenTemplateGtk": true,
   "matugenTemplateNiri": true,
@@ -416,6 +429,9 @@
     "eDP-1": {
       "vrrOnDemand": true,
       "focusAtStartup": true
+    },
+    "HDMI-A-1": {
+      "disabled": true
     }
   },
   "hyprlandOutputSettings": {},
@@ -641,6 +657,18 @@
           "height": 165.21875,
           "x": 0,
           "y": 602.78125
+        },
+        "HDMI-A-1": {
+          "width": 384.7109375,
+          "height": 217.06640625,
+          "x": 0,
+          "y": 862.93359375
+        },
+        "Native": {
+          "width": 160,
+          "height": 70,
+          "x": 603,
+          "y": 349
         }
       }
     }
@@ -655,7 +683,7 @@
       "currentFilePath": "notepad-files/untitled-1772385760565.txt",
       "currentFileExtension": "txt",
       "sourceContent": "",
-      "updatedAt": 1772800949793
+      "updatedAt": 1783013570268
     }
   },
   "clipboardEnterToPaste": false,
