@@ -35,9 +35,3 @@ tab_bar_align left
 # Dank color generation
 include dank-tabs.conf
 include dank-theme.conf
-
-
-# BEGIN_KITTY_THEME
-# Noctalia
-include current-theme.conf
-# END_KITTY_THEME

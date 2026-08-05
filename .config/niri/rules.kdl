@@ -2,6 +2,8 @@ layer-rule {
     match namespace="^swww-daemon$"
     match namespace="^quickshell$"
     match namespace="^linux-wallpaperengine$"
+    match namespace="^noctalia-wallpaper.*$"
+    match namespace="^noctalia-parallax.*$"
     place-within-backdrop true
 }
 

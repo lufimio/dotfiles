@@ -2,7 +2,7 @@ binds {
     Mod+Return repeat=false hotkey-overlay-title="Terminal" { spawn "kitty"; }
     Mod+T repeat=false hotkey-overlay-title=null { spawn "kitty"; }
     Mod+Space repeat=false hotkey-overlay-title="Application Launcher" { spawn-sh "vicinae vicinae://toggle || pkill rofi || rofi -show drun"; }
-    Mod+W repeat=false hotkey-overlay-title="Web Browser" { spawn "floorp"; }
+    Mod+W repeat=false hotkey-overlay-title="Web Browser" { spawn "waterfox"; }
     Mod+E repeat=false hotkey-overlay-title="File Browser" { spawn "nautilus"; }
     Mod+Shift+E repeat=false hotkey-overlay-title=null { spawn "kitty" "--" "yazi"; }
 
@@ -11,24 +11,14 @@ binds {
     Mod+Ctrl+D repeat=false hotkey-overlay-title=null { maximize-column; }
     Mod+F11 repeat=false hotkey-overlay-title="Fullscreen Window" { fullscreen-window; }
 
-    Mod+Delete repeat=false hotkey-overlay-title="Lock Device" { spawn "loginctl" "lock-session"; }
-    Mod+Ctrl+Delete repeat=false hotkey-overlay-title=null { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
     Mod+Shift+F12 allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     Mod+Tab repeat=false { toggle-overview; }
     Mod+O repeat=false { toggle-overview; }
 
-    Mod+N repeat=false hotkey-overlay-title=null { spawn "dms" "ipc" "call" "notifications" "toggle"; }
     Mod+V repeat=false hotkey-overlay-title=null { spawn "vicinae" "vicinae://launch/clipboard/history?toggle=true"; }
     Mod+Period repeat=false hotkey-overlay-title=null { spawn "vicinae" "vicinae://launch/core/search-emojis?toggle=true"; }
-    Mod+Comma repeat=false hotkey-overlay-title=null { spawn "vicinae" "vicinae://launch/@mmazzarolo/store.raycast.unicode-symbols/index?toggle=true"; }
     Mod+Shift+Escape repeat=false hotkey-overlay-title=null { spawn-sh "pkill missioncenter || missioncenter"; }
-
-    Mod+Shift+N repeat=false hotkey-overlay-title="Next Song" { spawn "dms" "ipc" "call" "mpris" "next"; }
-    Mod+Shift+P repeat=false hotkey-overlay-title="Pause/Play Song" { spawn "dms" "ipc" "call" "mpris" "playPause"; }
-    Mod+Shift+B repeat=false hotkey-overlay-title="Previous Song" { spawn "dms" "ipc" "call" "mpris" "previous"; }
-    Mod+Shift+Period hotkey-overlay-title=null { spawn "dms" "ipc" "call" "mpris" "increment" "5"; }
-    Mod+Shift+Comma hotkey-overlay-title=null { spawn "dms" "ipc" "call" "mpris" "decrement" "5"; }
 
     Mod+Shift+S repeat=false { screenshot show-pointer=false; }
     Mod+Ctrl+S repeat=false { screenshot-window show-pointer=false; }
@@ -150,15 +140,4 @@ binds {
     Mod+Shift+BracketLeft repeat=false  { consume-window-into-column; }
     Mod+Shift+BracketRight repeat=false { expel-window-from-column; }
 
-    Mod+Shift+Slash repeat=false { spawn "dms" "ipc" "call" "keybinds" "toggle" "niri"; }
-
-    XF86AudioRaiseVolume    allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
-    XF86AudioLowerVolume    allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
-    XF86AudioMute           allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
-    XF86MonBrightnessUp     allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
-    XF86MonBrightnessDown   allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
-    XF86AudioNext           allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
-    XF86AudioPlay           allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
-    XF86AudioPause          allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
-    XF86AudioPrev           allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
 }

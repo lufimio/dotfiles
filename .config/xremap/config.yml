@@ -25,6 +25,11 @@ keymap:
       CapsLock-k: Up
       CapsLock-l: Right
 
+  - name: CapsLock + d/x -> Delete
+    remap:
+      CapsLock-d: Delete
+      CapsLock-x: Backspace
+
   - name: CapsLock + Left/Right → Home/End
     remap:
       CapsLock-Left: Home

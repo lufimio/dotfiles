@@ -30,6 +30,7 @@ default:
     "mpv"
     "YouTube"
     "Twitch"
+    "Miruro"
     r".*\.exe"
     r"steam_app_.*"
   ]

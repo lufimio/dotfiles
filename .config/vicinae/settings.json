@@ -148,27 +148,6 @@
             }
          }
       },
-      "@kud/store.raycast.espanso": {
-         "entrypoints": {
-            "add-match": {
-               "enabled": false
-            },
-            "index": {
-               "enabled": false
-            }
-         }
-      },
-      "@lufimio/gpu-screen-recorder": {
-         "preferences": {
-            "open-after-save-replay": false,
-            "open-after-stop-recording": false
-         },
-         "entrypoints": {
-            "save-instant-replay": {
-               "alias": "clip"
-            }
-         }
-      },
       "@lufimio/playerctl": {
          "enabled": false
       },
@@ -234,7 +213,16 @@
          "entrypoints": {
             "code-oss": {
                "alias": "vscode"
+            },
+            "osu-lazer": {
+               "enabled": false
             }
+         }
+      },
+      "calculator": {
+         "preferences": {
+            "backend": "soulver-core",
+            "refreshRatesOnStartup": true
          }
       },
       "clipboard": {
@@ -270,7 +258,7 @@
       "scripts": {
          "preferences": {
             "customDirs": [
-               "/home/lufimio/.config/vicinae/scripts/"
+               "/home/lufimio/.config/vicinae/scripts"
             ]
          }
       },

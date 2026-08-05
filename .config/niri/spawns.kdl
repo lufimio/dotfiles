@@ -6,10 +6,11 @@ spawn-at-startup "xremap" "--watch=config,device" "/home/lufimio/.config/xremap/
 // spawn-at-startup "clipse" "-listen"
 spawn-at-startup "wayscriber" "--daemon"
 spawn-at-startup "niri-sticky-windows"
-spawn-at-startup "vicinae" "server"
+spawn-at-startup "quickshell" "-c" "noctalia-shell"
+// spawn-at-startup "vicinae" "server" // changed to systemd service
 // spawn-at-startup "hypridle"
 // spawn-at-startup "swaync"
-spawn-at-startup "mpd"
+// spawn-at-startup "mpd"
 // spawn-at-startup "espanso" "start"
 // spawn-at-startup "easyeffects" "--gapplication-service"
 // spawn-at-startup "systemctl" "--user" "start" "hyprpolkitagent"

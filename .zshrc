@@ -94,7 +94,7 @@ eval "$(pyenv init - zsh)"
 
 # Aliases
 alias vim='nvim'
-alias ls='ls --color'
+alias ls='lsd'
 alias rm='rmtrash'
 alias rmdir='rmdirtrash'
 alias sudo='sudo '

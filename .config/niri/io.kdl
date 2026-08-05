@@ -20,7 +20,7 @@ input {
     }
 
     mouse {
-        scroll-factor 2
+        scroll-factor 1
     }
 
     // warp-mouse-to-focus mode="center-xy"

@@ -11,7 +11,7 @@ parser.add_argument('action', choices=['help', 'ls', 'list', 'cp', 'copy', 'refr
 
 parser.add_argument('--mpd-host', type=Path, default='/home/lufimio/.mpd/socket', help='Where mpc should look to communicate with the mpd daemon')
 parser.add_argument('--mpd-music-dir', type=Path, default='/home/lufimio/Music/', help='Where this program should look for the source music files')
-parser.add_argument('--output-dir', type=Path, default='/home/lufimio/Downloads/ios/', help='Where this program should move the music files to')
+parser.add_argument('--output-dir', type=Path, default='/home/lufimio/Mount/ios/', help='Where this program should move the music files to')
 parser.add_argument('--insert', action='store_true', help='If enabled, the queue action will queue the song to be played next')
 
 parser.add_argument('-d', '--delay', type=float, help='The number of minutes to wait between each set')
