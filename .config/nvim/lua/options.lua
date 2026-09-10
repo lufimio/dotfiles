@@ -1,57 +1,84 @@
-local conf = require("config")
+-- Enable faster startup by caching compiled Lua modules
+vim.loader.enable()
 
-vim.g.mapleader = conf.leader
-vim.g.maplocalleader = conf.localLeader
+-- Set <space> as the leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
+-- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
-vim.opt.mouse = "a"
-vim.opt.mousemoveevent = true
+-- [[ Setting options ]]
 
-vim.opt.whichwrap = "hl<>[]"
-vim.opt.confirm = true
+-- Make line numbers default
+vim.o.number = true
+vim.o.relativenumber = true
 
--- vim.schedule(function()
---     vim.opt.clipboard = 'unnamedplus'
--- end)
+vim.o.whichwrap = "hl<>[]"
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+-- Enable mouse mode, can be useful for resizing splits for example!
+vim.o.mouse = 'a'
+vim.o.mousemoveevent = true
 
-vim.opt.tabstop = conf.indentSize
-vim.opt.softtabstop = conf.indentSize
-vim.opt.shiftwidth = conf.indentSize
-vim.opt.expandtab = true
+-- Don't show the mode, since it's already in the status line
+vim.o.showmode = false
 
-vim.opt.smartindent = true
-vim.opt.breakindent = true
+-- Sync clipboard between OS and Neovim.
+-- vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
-vim.opt.wrap = false
-vim.opt.linebreak = true
+-- Enable break indent
+vim.o.breakindent = true
 
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+-- Enable undo/redo changes even after closing and reopening a file
+vim.o.undofile = true
 
-vim.opt.list = true
+-- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- Keep signcolumn on by default
+vim.o.signcolumn = 'yes'
+
+-- Decrease update time
+vim.o.updatetime = 250
+
+-- Decrease mapped sequence wait time
+vim.o.timeoutlen = 300
+
+-- Configure how new splits should be opened
+vim.o.splitright = true
+vim.o.splitbelow = true
+
+-- Sets how neovim will display certain whitespace characters in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+--
+--  Notice listchars is set using `vim.opt` instead of `vim.o`.
+--  It is very similar to `vim.o` but offers an interface for conveniently interacting with tables.
+--   See `:help lua-options`
+--   and `:help lua-guide-options`
+vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
-vim.opt.inccommand = 'split'
-vim.opt.incsearch = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+-- Preview substitutions live, as you type!
+vim.o.inccommand = 'split'
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.scrolloff = 10
-vim.opt.signcolumn = "yes"
+-- Show which line your cursor is on
+vim.o.cursorline = true
 
-vim.opt.showmode = false
--- vim.opt.cmdheight = 0
+-- Minimal number of screen lines to keep above and below the cursor.
+vim.o.scrolloff = 10
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
-vim.opt.foldnestmax = 5
+-- Enable folding and leave folds open by default
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldnestmax = 5
 
-vim.opt.updatetime = 50
+-- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- instead raise a dialog asking if you wish to save the current file(s)
+-- See `:help 'confirm'`
+vim.o.confirm = true
+
+-- vim: ts=2 sts=2 sw=2 et

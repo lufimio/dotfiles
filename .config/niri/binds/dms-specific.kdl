@@ -1,6 +1,7 @@
 binds {
     Mod+Ctrl+Delete repeat=false hotkey-overlay-title=null { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
     Mod+N repeat=false hotkey-overlay-title=null { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+    Mod+Escape repeat=false hotkey-overlay-title="Dismiss Popup" { spawn "dms" "ipc" "call" "notifications" "dismiss"; }
     Mod+Shift+Slash repeat=false { spawn "dms" "ipc" "call" "keybinds" "toggle" "niri"; }
     Mod+Delete repeat=false hotkey-overlay-title="Lock Device" { spawn "loginctl" "lock-session"; }
 

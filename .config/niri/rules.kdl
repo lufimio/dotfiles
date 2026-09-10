@@ -8,14 +8,44 @@ layer-rule {
 }
 
 layer-rule {
+    match namespace="^dms:.*$"
+    background-effect { xray false; }
+}
+
+window-rule {
+    match app-id="^com.danklinux.dms$"
+    background-effect { xray false; }
+}
+
+layer-rule {
     match namespace="^vicinae$"
     background-effect { xray false; }
 }
 
 window-rule {
     match app-id="^vicinae$" title="^Vicinae Settings$"
+    open-floating true
+    background-effect { xray false; }
     focus-ring { off; }
     border { off; }
+}
+
+window-rule {
+    match title="Kando Menu" app-id="^menu.kando.Kando$"
+    open-floating true
+    focus-ring { off; }
+    border { off; }
+    shadow { off; }
+    default-floating-position x=0 y=0
+}
+
+window-rule {
+    match app-id="^com.mitchellh.ghostty$"
+    match app-id="^kitty$"
+    background-effect {
+        blur true
+        xray false
+    }
 }
 
 window-rule {
@@ -55,6 +85,11 @@ window-rule {
     default-column-width { proportion 0.3; }
     default-window-height { proportion 0.3; }
     default-floating-position x=7 y=7 relative-to="bottom-right"
+}
+
+window-rule {
+    match is-floating=true
+    background-effect { xray false; }
 }
 
 window-rule {

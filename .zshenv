@@ -4,5 +4,4 @@ export VISUAL=nvim
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
 
-export PATH="$HOME/gems/bin:$PATH"
-export PATH="$PATH:$HOME/.local/bin:$HOME/.spicetify"
+export PATH="$HOME/gems/bin:$HOME/.cargo/bin:$PATH:$HOME/.local/bin:$HOME/.spicetify"

@@ -1,0 +1,98 @@
+{
+  "lockfileVersion": 1,
+  "plugins": {
+    "activateLinux": {
+      "repo": "https://github.com/hthienloc/dms-activate-linux",
+      "commit": "34f359aedcac9d27ff5df51d43cc41031ea00f80"
+    },
+    "alarmClock": {
+      "repo": "https://github.com/lucyfire/dms-plugins",
+      "path": "alarmClock",
+      "commit": "c99ba77c848721fbb8b8c3307638ea10d5dccdd9"
+    },
+    "batteryPlus": {
+      "repo": "https://github.com/arcatva/dms-battery-plus",
+      "commit": "4e653d09174e1edc260f279c42ec2477b6fb2e24"
+    },
+    "dankActions": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankActions",
+      "commit": "3ad0e7845b62a9aca56f7959dd086b2a85655079"
+    },
+    "dankCalendarAgenda": {
+      "repo": "https://github.com/arqueon/dms-dankcalendar",
+      "commit": "a592b4954ded272303d76fe5c85663a0fad1cdaf"
+    },
+    "dankNotepadModule": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankNotepadModule",
+      "commit": "3ad0e7845b62a9aca56f7959dd086b2a85655079"
+    },
+    "dankStopwatch": {
+      "repo": "https://github.com/NordicsSys/dankStopwatch",
+      "commit": "76004b9f2f08da010a80096c5d48e6ef41390fdc"
+    },
+    "discordVoice": {
+      "repo": "https://github.com/PandorasFox/dms-discord-widget",
+      "commit": "937e33a6c362546fa0a0e8546ff565b3f0945e0b"
+    },
+    "displayMirror": {
+      "repo": "https://github.com/jfchenier/dms-display-mirror",
+      "commit": "92cd44c4fb67834bf71fdd78f83c29df5e0750b2"
+    },
+    "hiddenBar": {
+      "repo": "https://github.com/hthienloc/dms-hidden-bar",
+      "commit": "21b127f44bb5ee42621df94f509a0410ec803e55"
+    },
+    "intelGpuMonitor": {
+      "repo": "https://github.com/rdannenbring/dms-intel-gpu-plugin",
+      "commit": "38a07800a648542a3b5f687cdd66c745d50078f6"
+    },
+    "latex2svg": {
+      "repo": "https://github.com/KinnariyaMamaTanha/latex2svg",
+      "commit": "f0a4e5cb6b51b57c49f9ad4350daa157d52c2240"
+    },
+    "modernClock": {
+      "repo": "https://github.com/beefsizzle/ModernClockDMS",
+      "commit": "0d11d9fb560547a2589d59e456598f7c94847bae"
+    },
+    "qrGenerator": {
+      "repo": "https://github.com/hthienloc/dms-qr-generator",
+      "commit": "361fde5f62d91bcbdaebf36b7984f91c0abaf027"
+    },
+    "quickCapture": {
+      "repo": "https://github.com/hthienloc/dms-quick-capture",
+      "commit": "8e923d1604fd860007f0d5a3a3088011f253f2c1"
+    },
+    "screenCaptureToolbar": {
+      "repo": "https://github.com/JDKamalakar/DMS-ScreenCapture_Toolbar",
+      "commit": "2b923cc95faa36876d790df6fc1ed575388e966d"
+    },
+    "screenkey": {
+      "repo": "https://github.com/hthienloc/dms-screenkey",
+      "commit": "526c08eeab486ca3b5b5fc88a99bfcc0c0007ec9"
+    },
+    "simpleAudioControl": {
+      "repo": "https://github.com/Dadangdut33/dms-plugins",
+      "path": "SimpleAudioControl",
+      "commit": "63fe6b87c497f1f7c2ea61432716817db1c5c3a4"
+    },
+    "timer": {
+      "repo": "https://github.com/hthienloc/dms-timer",
+      "commit": "73fade01762bd88a19e45bf5d1d663b93ce79fcf"
+    },
+    "typingSounds": {
+      "repo": "https://github.com/hthienloc/dms-typing-sounds",
+      "commit": "0d61da952116aa18942128ca216bffc558684fdf"
+    },
+    "wallpaperDiscovery": {
+      "repo": "https://github.com/lucyfire/dms-plugins",
+      "path": "wallpaperDiscovery",
+      "commit": "c99ba77c848721fbb8b8c3307638ea10d5dccdd9"
+    },
+    "worldClock": {
+      "repo": "https://github.com/rochacbruno/WorldClock",
+      "commit": "f10e1f9c1ce14a819640fbea9e2787472cf3815f"
+    }
+  }
+}

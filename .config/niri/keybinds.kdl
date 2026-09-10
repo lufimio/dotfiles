@@ -2,7 +2,8 @@ binds {
     Mod+Return repeat=false hotkey-overlay-title="Terminal" { spawn "kitty"; }
     Mod+T repeat=false hotkey-overlay-title=null { spawn "kitty"; }
     Mod+Space repeat=false hotkey-overlay-title="Application Launcher" { spawn-sh "vicinae vicinae://toggle || pkill rofi || rofi -show drun"; }
-    Mod+W repeat=false hotkey-overlay-title="Web Browser" { spawn "waterfox"; }
+    Mod+Ctrl+R repeat=false hotkey-overlay-title="Navigation Menu" { spawn "kando" "-t" "niri-nav"; }
+    Mod+W repeat=false hotkey-overlay-title="Web Browser" { spawn "flatpak" "run" "net.waterfox.waterfox"; }
     Mod+E repeat=false hotkey-overlay-title="File Browser" { spawn "nautilus"; }
     Mod+Shift+E repeat=false hotkey-overlay-title=null { spawn "kitty" "--" "yazi"; }
 
@@ -24,11 +25,9 @@ binds {
     Mod+Ctrl+S repeat=false { screenshot-window show-pointer=false; }
     Mod+Ctrl+Shift+S repeat=false { screenshot-screen show-pointer=false; }
 
-    Mod+A repeat=false hotkey-overlay-title=null { spawn "pkill" "-SIGUSR1" "wayscriber"; }
+    // Mod+A repeat=false hotkey-overlay-title=null { spawn "wayscriber" "--daemon-toggle"; }
 
     Mod+Shift+R repeat=false { set-dynamic-cast-window; }
-    Mod+Ctrl+R repeat=false { set-dynamic-cast-window; }
-    Mod+Ctrl+Shift+R repeat=false { clear-dynamic-cast-target; }
 
     Mod+Shift+C repeat=false hotkey-overlay-title=null { spawn "hyprpicker" "--autocopy" "--format=hex"; }
     Mod+Ctrl+Shift+C repeat=false hotkey-overlay-title=null { spawn "hyprpicker" "--autocopy" "--format=rgb"; }

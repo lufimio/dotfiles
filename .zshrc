@@ -100,6 +100,8 @@ alias rmdir='rmdirtrash'
 alias sudo='sudo '
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
 # Environment Variables
 source ~/.zshenv

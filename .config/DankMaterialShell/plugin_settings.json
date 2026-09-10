@@ -1,59 +1,103 @@
 {
-  "alarmClock": {
-    "enabled": true
+  "discordVoice": {
+    "enabled": false
   },
-  "musicLyrics": {
+  "hiddenBar": {
     "enabled": true,
-    "musixmatchToken": "2603010413db770c62b984624b711f8b5dd263dae0b781c8c7b359"
+    "usePopout": true,
+    "autoExpand": false,
+    "widgetSelectionMode": "blacklist",
+    "widgetBlacklist": [
+      "batteryPlus",
+      "clock",
+      "controlCenterButton",
+      "music",
+      "simpleAudioControl",
+      "privacyIndicator",
+      "notificationButton",
+      "systemTray",
+      "systemUpdate"
+    ],
+    "hideIconPillWhenCollapsed": false,
+    "hideIconPillWhenExpanded": false,
+    "hideCount": 20,
+    "ipcCommandsExpanded": true,
+    "autoCollapse": false
+  },
+  "batteryPlus": {
+    "enabled": true,
+    "timespanHours": 12
   },
   "dankNotepadModule": {
-    "enabled": true
-  },
-  "dankLauncherKeys": {
     "enabled": true
   },
   "dankActions": {
     "enabled": true
   },
-  "dankBatteryAlerts": {
+  "simpleAudioControl": {
     "enabled": true,
-    "criticalThreshold": 10,
-    "enableWarningAlert": false
+    "volumeScrollStep": 5,
+    "micVolumeScrollStep": 5,
+    "maxVolumePercent": 150
   },
-  "dankHooks": {
-    "enabled": true
+  "quickCapture": {
+    "enabled": false
   },
-  "developerUtilities": {
-    "enabled": true
-  },
-  "linuxWallpaperEngine": {
+  "screenCaptureToolbar": {
     "enabled": true,
-    "monitorPlaylists": {},
-    "monitorScenes": {},
-    "sceneSettings": {
-      "3554161528": {
-        "fps": 15,
-        "screenshotDelay": 30
-      }
-    },
-    "generateStaticWallpaper": true,
-    "playlistIntervalMinutes": 10
+    "stdout": true,
+    "swapCaptureKeys": false,
+    "videoFormat": "mp4"
   },
-  "pkgUpdate": {
+  "dankCalendarAgenda": {
+    "enabled": true
+  },
+  "dankStopwatch": {
     "enabled": true,
-    "terminalApp": "kitty",
-    "hideOnNoUpdates": true
+    "updateInterval": "50"
   },
-  "pkgUpdates": {
+  "typingSounds": {
+    "enabled": false,
+    "mouseEnabled": false,
+    "selectedPackPath": "/home/lufimio/.config/DankMaterialShell/plugins/typingSounds/soundpacks/cherrymx-blue-abs"
+  },
+  "wallpaperDiscovery": {
+    "enabled": true,
+    "lastWallpaperUsed": "wallhaven.cc"
+  },
+  "modernClock": {
+    "enabled": false
+  },
+  "latex2svg": {
+    "enabled": true,
+    "currentColor": true,
+    "outputDirectory": "~/Pictures/latex2svg"
+  },
+  "qrGenerator": {
     "enabled": true
   },
-  "emojiLauncher": {
+  "screenkey": {
+    "enabled": false,
+    "showOnlyModifiers": true,
+    "selectedDevicePath": "all"
+  },
+  "intelGpuMonitor": {
     "enabled": true
   },
-  "lyricsOnPanel": {
+  "displayMirror": {
     "enabled": true
   },
-  "dankDesktopWeather": {
+  "timer": {
+    "enabled": true,
+    "systemActionOnTimeout": "none"
+  },
+  "alarmClock": {
     "enabled": true
+  },
+  "worldClock": {
+    "enabled": true
+  },
+  "screenToolkit": {
+    "enabled": false
   }
 }

@@ -8,3 +8,23 @@ window-rule {
     default-column-width { fixed 400; }
     default-window-height { fixed 400; }
 }
+
+// @id=dms-floating-windows @name=DMS Floating Windows
+window-rule {
+    match app-id="^com.danklinux.dms$"
+    open-floating true
+}
+
+// @id=wr_1788124310825289602 @name=eu.betterbird.Betterbird
+window-rule {
+    match app-id="^eu.betterbird.Betterbird$" title=".*Reminder.*"
+    open-floating true
+    default-column-width { fixed 600; }
+    default-window-height { fixed 700; }
+}
+
+// @id=wr_1788493949845058522 @name=love
+window-rule {
+    match app-id="^love$" title="^Olympus$"
+    open-floating true
+}

@@ -4,9 +4,10 @@
 // spawn-at-startup "swayosd-server"
 spawn-at-startup "xremap" "--watch=config,device" "/home/lufimio/.config/xremap/config.yml"
 // spawn-at-startup "clipse" "-listen"
-spawn-at-startup "wayscriber" "--daemon"
+// spawn-at-startup "wayscriber" "--daemon"
 spawn-at-startup "niri-sticky-windows"
-spawn-at-startup "quickshell" "-c" "noctalia-shell"
+// spawn-at-startup "quickshell" "-c" "noctalia-shell"
+spawn-at-startup "dcal" "daemon"
 // spawn-at-startup "vicinae" "server" // changed to systemd service
 // spawn-at-startup "hypridle"
 // spawn-at-startup "swaync"
