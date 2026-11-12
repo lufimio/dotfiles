@@ -2,7 +2,7 @@ binds {
     Mod+Return repeat=false hotkey-overlay-title="Terminal" { spawn "kitty"; }
     Mod+T repeat=false hotkey-overlay-title=null { spawn "kitty"; }
     Mod+Space repeat=false hotkey-overlay-title="Application Launcher" { spawn-sh "vicinae vicinae://toggle || pkill rofi || rofi -show drun"; }
-    Mod+Ctrl+R repeat=false hotkey-overlay-title="Navigation Menu" { spawn "kando" "-t" "niri-nav"; }
+    // Mod+Ctrl+R repeat=false hotkey-overlay-title="Navigation Menu" { spawn "kando" "-t" "niri-nav"; }
     Mod+W repeat=false hotkey-overlay-title="Web Browser" { spawn "flatpak" "run" "net.waterfox.waterfox"; }
     Mod+E repeat=false hotkey-overlay-title="File Browser" { spawn "nautilus"; }
     Mod+Shift+E repeat=false hotkey-overlay-title=null { spawn "kitty" "--" "yazi"; }
@@ -62,17 +62,22 @@ binds {
     Mod+Ctrl+End  { move-column-to-last; }
 
     Mod+Shift+Left   { move-column-left; }
-    Mod+Shift+Down   { move-window-down-or-to-workspace-down; }
-    Mod+Shift+Up     { move-window-up-or-to-workspace-up; }
     Mod+Shift+Right  { move-column-right; }
+    Mod+Shift+Up     { move-window-up-or-to-workspace-up; }
+    Mod+Shift+Down   { move-window-down-or-to-workspace-down; }
     // Mod+Shift+Down  { move-window-down; }
     // Mod+Shift+Up    { move-window-up; }
     Mod+Shift+H      { move-column-left; }
-    Mod+Shift+J      { move-window-down-or-to-workspace-down; }
-    Mod+Shift+K      { move-window-up-or-to-workspace-up; }
     Mod+Shift+L      { move-column-right; }
+    Mod+Shift+K      { move-window-up-or-to-workspace-up; }
+    Mod+Shift+J      { move-window-down-or-to-workspace-down; }
     // Mod+Shift+J     { move-window-down; }
     // Mod+Shift+K     { move-window-up; }
+
+    Mod+Ctrl+Left   { focus-column-left; }
+    Mod+Ctrl+Right  { focus-column-right; }
+    Mod+Ctrl+H      { focus-column-left; }
+    Mod+Ctrl+L      { focus-column-right; }
 
     Mod+Ctrl+Down hotkey-overlay-title=null { spawn "/home/lufimio/.config/scripts/niri-overview-bind.sh" "move-workspace-down" "focus-workspace-down"; }
     Mod+Ctrl+Up   hotkey-overlay-title=null { spawn "/home/lufimio/.config/scripts/niri-overview-bind.sh" "move-workspace-up" "focus-workspace-up"; }

@@ -1,12 +1,218 @@
-   0.026867029s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint: stale: changed "/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/src/main.rs"
-   0.026885412s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint:           (vs) "/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/debug/.fingerprint/niri-sticky-windows-99db9f1df49a704e/dep-bin-niri-sticky-windows"
-   0.026889902s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1770940388, nanos: 688630777 } < FileTime { seconds: 1770940823, nanos: 329968305 }
-   0.027038232s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint: fingerprint dirty for niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows)/Check { test: false }/TargetInner { name: "niri-sticky-windows", doc: true, ..: with_path("/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/src/main.rs", Edition2024) }
-   0.027054834s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/debug/.fingerprint/niri-sticky-windows-99db9f1df49a704e/dep-bin-niri-sticky-windows", reference_mtime: FileTime { seconds: 1770940388, nanos: 688630777 }, stale: "/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/src/main.rs", stale_mtime: FileTime { seconds: 1770940823, nanos: 329968305 } }))
-   0.030437982s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint: stale: changed "/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/src/main.rs"
-   0.030446974s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint:           (vs) "/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/debug/.fingerprint/niri-sticky-windows-d199e29c516d783e/dep-test-bin-niri-sticky-windows"
-   0.030452028s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1770940388, nanos: 688630777 } < FileTime { seconds: 1770940823, nanos: 329968305 }
-   0.030519385s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint: fingerprint dirty for niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows)/Check { test: true }/TargetInner { name: "niri-sticky-windows", doc: true, ..: with_path("/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/src/main.rs", Edition2024) }
-   0.030531367s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/debug/.fingerprint/niri-sticky-windows-d199e29c516d783e/dep-test-bin-niri-sticky-windows", reference_mtime: FileTime { seconds: 1770940388, nanos: 688630777 }, stale: "/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/src/main.rs", stale_mtime: FileTime { seconds: 1770940823, nanos: 329968305 } }))
+   0.011135290s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint: fingerprint error for niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows)/Check { test: false }/TargetInner { name: "niri-sticky-windows", doc: true, ..: with_path("/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/src/main.rs", Edition2024) }
+   0.011148180s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/debug/.fingerprint/niri-sticky-windows-c45555b175105247/bin-niri-sticky-windows`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: __libc_start_main
+  17: <unknown>
+   0.018447890s  INFO prepare_target{force=false package_id=serde v1.0.228 target="serde"}: cargo::core::compiler::fingerprint: fingerprint error for serde v1.0.228/Check { test: false }/TargetInner { ..: lib_target("serde", ["lib"], "/home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs", Edition2021) }
+   0.018460572s  INFO prepare_target{force=false package_id=serde v1.0.228 target="serde"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/debug/.fingerprint/serde-95f77c820d48a5e3/lib-serde`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: __libc_start_main
+  18: <unknown>
+   0.018720601s  INFO prepare_target{force=false package_id=serde_core v1.0.228 target="serde_core"}: cargo::core::compiler::fingerprint: fingerprint error for serde_core v1.0.228/Check { test: false }/TargetInner { ..: lib_target("serde_core", ["lib"], "/home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.228/src/lib.rs", Edition2021) }
+   0.018728259s  INFO prepare_target{force=false package_id=serde_core v1.0.228 target="serde_core"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/debug/.fingerprint/serde_core-bf1374f35ca47925/lib-serde_core`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: __libc_start_main
+  19: <unknown>
+   0.019427125s  INFO prepare_target{force=false package_id=serde_json v1.0.149 target="serde_json"}: cargo::core::compiler::fingerprint: fingerprint error for serde_json v1.0.149/Check { test: false }/TargetInner { ..: lib_target("serde_json", ["lib"], "/home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_json-1.0.149/src/lib.rs", Edition2021) }
+   0.019442127s  INFO prepare_target{force=false package_id=serde_json v1.0.149 target="serde_json"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/debug/.fingerprint/serde_json-69778cfd67729e73/lib-serde_json`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: __libc_start_main
+  18: <unknown>
+   0.019640798s  INFO prepare_target{force=false package_id=itoa v1.0.17 target="itoa"}: cargo::core::compiler::fingerprint: fingerprint error for itoa v1.0.17/Check { test: false }/TargetInner { ..: lib_target("itoa", ["lib"], "/home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/itoa-1.0.17/src/lib.rs", Edition2021) }
+   0.019649446s  INFO prepare_target{force=false package_id=itoa v1.0.17 target="itoa"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/debug/.fingerprint/itoa-6acc17bc0c27ded4/lib-itoa`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: __libc_start_main
+  19: <unknown>
+   0.019800838s  INFO prepare_target{force=false package_id=memchr v2.8.0 target="memchr"}: cargo::core::compiler::fingerprint: fingerprint error for memchr v2.8.0/Check { test: false }/TargetInner { benched: false, ..: lib_target("memchr", ["lib"], "/home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/memchr-2.8.0/src/lib.rs", Edition2021) }
+   0.019808124s  INFO prepare_target{force=false package_id=memchr v2.8.0 target="memchr"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/debug/.fingerprint/memchr-57d9aa03a7a42ffd/lib-memchr`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: __libc_start_main
+  19: <unknown>
+   0.020052341s  INFO prepare_target{force=false package_id=zmij v1.0.21 target="zmij"}: cargo::core::compiler::fingerprint: fingerprint error for zmij v1.0.21/Check { test: false }/TargetInner { ..: lib_target("zmij", ["lib"], "/home/lufimio/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zmij-1.0.21/src/lib.rs", Edition2021) }
+   0.020059703s  INFO prepare_target{force=false package_id=zmij v1.0.21 target="zmij"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/debug/.fingerprint/zmij-a3b02ae84efcdfa5/lib-zmij`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: __libc_start_main
+  19: <unknown>
+   0.020317788s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint: fingerprint error for niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows)/Check { test: true }/TargetInner { name: "niri-sticky-windows", doc: true, ..: with_path("/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/src/main.rs", Edition2024) }
+   0.020326191s  INFO prepare_target{force=false package_id=niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows) target="niri-sticky-windows"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows/target/debug/.fingerprint/niri-sticky-windows-aac2df60513d2905/test-bin-niri-sticky-windows`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: __libc_start_main
+  17: <unknown>
+    Checking memchr v2.8.0
+    Checking itoa v1.0.17
+    Checking serde_core v1.0.228
+    Checking zmij v1.0.21
+    Checking serde_json v1.0.149
+    Checking serde v1.0.228
     Checking niri-sticky-windows v0.1.0 (/home/lufimio/dotfiles/.config/scripts/niri-sticky-windows)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.13s
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.50s

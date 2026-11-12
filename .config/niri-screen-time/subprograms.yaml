@@ -1,0 +1,7 @@
+- app_ids:
+    - kitty
+  title_list:
+    - nvim
+    - NeoVim
+    - neovim
+  alias: NeoVim

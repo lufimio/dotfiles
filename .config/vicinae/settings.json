@@ -14,6 +14,7 @@
    "close_on_focus_loss": false,
    "consider_preedit": false,
    "pop_to_root_on_close": true,
+   "encrypt_sensitive_data": true,
    "escape_key_behavior": "navigate_back",
    "favicon_service": "twenty",
    "keybinding": "default",
@@ -96,6 +97,11 @@
       "files:search"
    ],
    "providers": {
+      "@Aayush9029/store.raycast.element": {
+         "preferences": {
+            "decimalPlaces": "3"
+         }
+      },
       "@AntonNiklasson/store.raycast.lorem-ipsum": {
          "preferences": {
             "action": "pasteAndCopy"
@@ -156,8 +162,22 @@
             }
          }
       },
+      "@itsmingjie/store.raycast.word-count": {
+         "entrypoints": {
+            "count-screenshot": {
+               "enabled": false
+            }
+         }
+      },
       "@lufimio/playerctl": {
          "enabled": false
+      },
+      "@lufimio/store.vicinae.gpu-screen-recorder": {
+         "entrypoints": {
+            "save-instant-replay": {
+               "alias": "clip"
+            }
+         }
       },
       "@mblode/store.raycast.cyberchef": {
          "enabled": false,
@@ -209,6 +229,15 @@
             "keybindsConfigPath": "/home/lufimio/.config/hypr/hypr/keybinds.conf"
          }
       },
+      "ai": {
+         "enabled": false,
+         "preferences": {
+            "providers": {},
+            "defaultModel": "none",
+            "instructions": "",
+            "enableTools": false
+         }
+      },
       "applications": {
          "preferences": {
             "defaultAction": "focus",
@@ -229,7 +258,7 @@
       },
       "calculator": {
          "preferences": {
-            "backend": "soulver-core",
+            "backend": "numen",
             "refreshRatesOnStartup": true
          }
       },
@@ -268,6 +297,15 @@
             "customDirs": [
                "/home/lufimio/.config/vicinae/scripts"
             ]
+         }
+      },
+      "snippets": {
+         "preferences": {
+            "enabled": true,
+            "undo": true,
+            "layout": "",
+            "prePasteDelay": "0",
+            "keyDelay": "2"
          }
       },
       "system": {

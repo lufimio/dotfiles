@@ -4,6 +4,7 @@ binds {
     Mod+Escape repeat=false hotkey-overlay-title="Dismiss Popup" { spawn "dms" "ipc" "call" "notifications" "dismiss"; }
     Mod+Shift+Slash repeat=false { spawn "dms" "ipc" "call" "keybinds" "toggle" "niri"; }
     Mod+Delete repeat=false hotkey-overlay-title="Lock Device" { spawn "loginctl" "lock-session"; }
+    Mod+Ctrl+D repeat=false hotkey-overlay-title="Toggle Do Not Disturb" { spawn "dms" "ipc" "call" "notifications" "toggleDoNotDisturb"; }
 
     Mod+Shift+N repeat=false hotkey-overlay-title="Next Song" { spawn "dms" "ipc" "call" "mpris" "next"; }
     Mod+Shift+P repeat=false hotkey-overlay-title="Pause/Play Song" { spawn "dms" "ipc" "call" "mpris" "playPause"; }

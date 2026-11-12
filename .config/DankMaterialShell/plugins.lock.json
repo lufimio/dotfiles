@@ -17,16 +17,16 @@
     "dankActions": {
       "repo": "https://github.com/AvengeMedia/dms-plugins",
       "path": "DankActions",
-      "commit": "3ad0e7845b62a9aca56f7959dd086b2a85655079"
+      "commit": "a8a508bc371e7c3f2c7862d8840b88cf5c63978f"
     },
     "dankCalendarAgenda": {
       "repo": "https://github.com/arqueon/dms-dankcalendar",
-      "commit": "a592b4954ded272303d76fe5c85663a0fad1cdaf"
+      "commit": "fe1adc39bcca56a060db72fae0f5602aa715e3e9"
     },
     "dankNotepadModule": {
       "repo": "https://github.com/AvengeMedia/dms-plugins",
       "path": "DankNotepadModule",
-      "commit": "3ad0e7845b62a9aca56f7959dd086b2a85655079"
+      "commit": "a8a508bc371e7c3f2c7862d8840b88cf5c63978f"
     },
     "dankStopwatch": {
       "repo": "https://github.com/NordicsSys/dankStopwatch",
@@ -62,11 +62,11 @@
     },
     "quickCapture": {
       "repo": "https://github.com/hthienloc/dms-quick-capture",
-      "commit": "8e923d1604fd860007f0d5a3a3088011f253f2c1"
+      "commit": "d9e4475404e29223fd68d60feadf2eab810d098e"
     },
     "screenCaptureToolbar": {
       "repo": "https://github.com/JDKamalakar/DMS-ScreenCapture_Toolbar",
-      "commit": "2b923cc95faa36876d790df6fc1ed575388e966d"
+      "commit": "332ea98c0fb2e2d26d55a0cda14c3c9b3cd28505"
     },
     "screenkey": {
       "repo": "https://github.com/hthienloc/dms-screenkey",
@@ -92,7 +92,7 @@
     },
     "worldClock": {
       "repo": "https://github.com/rochacbruno/WorldClock",
-      "commit": "f10e1f9c1ce14a819640fbea9e2787472cf3815f"
+      "commit": "92dafcd81244dc128c1efc26589c5db17b0c3c16"
     }
   }
 }
