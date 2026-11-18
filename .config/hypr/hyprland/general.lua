@@ -1,15 +1,16 @@
--- https://wiki.hypr.land/Configuring/Basics/Variables/
+-- https://wiki.hypr.land/0.57.0/configuring/core/config-options/
 
 hl.config({
 	general = {
-		gaps_in = 6,
+		-- Hyprland adds this on both sides of an internal edge: 3 + 3 = 6.
+		gaps_in = 3,
 		gaps_out = 6,
 
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
-			inactive_border = "rgba(595959aa)",
+			active_border = "rgb(ac82e9)",
+			inactive_border = "rgb(d8cab8)",
 		},
 
 		resize_on_border = false,
@@ -21,7 +22,7 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 10,
+		rounding = 15,
 		rounding_power = 2,
 
 		-- Change transparency of focused and unfocused windows
@@ -30,9 +31,11 @@ hl.config({
 
 		shadow = {
 			enabled = true,
-			range = 4,
+			-- Approximation of niri softness=10 / spread=5.
+			range = 15,
 			render_power = 3,
-			color = 0xee1a1a1a,
+			offset = { 0, 0 },
+			color = "rgba(1a1a1aee)",
 		},
 
 		blur = {
@@ -44,7 +47,20 @@ hl.config({
 	},
 
 	misc = {
-		force_default_wallpaper = 2,
-		disable_hyprland_logo = false,
+		disable_hyprland_logo = true,
+		disable_splash_rendering = true,
+		focus_on_activate = true,
 	},
+
+	binds = {
+		workspace_back_and_forth = 2, -- Per monitor, like niri.
+		movefocus_cycles_fullscreen = true,
+		window_direction_monitor_fallback = false,
+	},
+
+	group = {
+		col = { border_locked_active = "rgb(da70d6)" }, -- Manual urgent-palette fallback.
+		groupbar = { disable_when_only = true },
+	},
+	xwayland = { enabled = true },
 })

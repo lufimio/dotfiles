@@ -1,0 +1,2 @@
+-- Deliberately no stock DMS bindings: preserve the active niri shortcuts.
+-- DMS setup may regenerate this file; see PORTING.md before running setup.

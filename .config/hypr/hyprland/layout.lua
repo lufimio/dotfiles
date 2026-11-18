@@ -1,22 +1,15 @@
--- https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
--- https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
--- https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
---
-hl.config({
-	dwindle = {
-		preserve_split = true, -- You probably want this
-	},
-})
-
-hl.config({
-	master = {
-		new_status = "master",
-	},
-})
+-- https://wiki.hypr.land/0.57.0/configuring/layouts/scrolling-layout/
 
 hl.config({
 	scrolling = {
-		fullscreen_on_one_column = true,
+		-- A lone column must keep its chosen width, not automatically expand.
+		fullscreen_on_one_column = false,
 		column_width = 1.0,
+		explicit_column_widths = "0.33333, 0.5, 0.66667, 1.0",
+		focus_fit_method = 1, -- niri: center-focused-column "never".
+		follow_focus = 1,
+		wrap_focus = false,
+		wrap_swapcol = false,
+		direction = "right",
 	},
 })

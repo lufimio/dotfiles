@@ -1,53 +1,178 @@
--- see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
+-- Literal hl.bind calls let DMS 2.1's cheatsheet discover every shortcut offline.
+-- Active niri binds plus the selected shell's translated UI actions.
+local nav = require("hyprland.navigation")
+local workspaces = require("hyprland.workspaces")
+local capture = require("hyprland.capture")
+local shell = require("hyprland.shell")
+local controls = require("hyprland.controls")
 
-local mod = "SUPER" -- Sets "Windows" key as main modifier
+-- Applications.
+hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"), { description = "Terminal" })
+hl.bind("SUPER + T", hl.dsp.exec_cmd("kitty"), { description = "Terminal" })
+hl.bind("SUPER + space", hl.dsp.exec_cmd("vicinae vicinae://toggle || pkill rofi || rofi -show drun"), { description = "Application Launcher" })
+hl.bind("SUPER + W", hl.dsp.exec_cmd("flatpak run net.waterfox.waterfox"), { description = "Web Browser" })
+hl.bind("SUPER + E", hl.dsp.exec_cmd("nautilus"), { description = "File Browser" })
+hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("kitty -- yazi"), { description = "Terminal File Browser" })
+hl.bind("SUPER + V", hl.dsp.exec_cmd("vicinae 'vicinae://launch/clipboard/history?toggle=true'"), { description = "Clipboard History" })
+hl.bind("SUPER + period", hl.dsp.exec_cmd("vicinae 'vicinae://launch/core/search-emojis?toggle=true'"), { description = "Emojis" })
+hl.bind("SUPER + SHIFT + Escape", hl.dsp.exec_cmd("pkill missioncenter || missioncenter"), { description = "Task Manager" })
+hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("hyprpicker --autocopy --format=hex"), { description = "Pick HEX Color" })
+hl.bind("SUPER + CTRL + SHIFT + C", hl.dsp.exec_cmd("hyprpicker --autocopy --format=rgb"), { description = "Pick RGB Color" })
 
-hl.bind(mod .. " + Q", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mod .. " + C", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
-hl.bind(mod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mod .. " + R", hl.dsp.exec_cmd(menu))
-hl.bind(mod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+-- Windows, layout and overview.
+hl.bind("SUPER + Q", hl.dsp.window.close(), { description = "Close Window" })
+hl.bind("SUPER + SHIFT + D", hl.dsp.window.fullscreen({ mode = "maximized" }), { description = "Maximize Window to Edges" })
+hl.bind("SUPER + F11", hl.dsp.window.fullscreen({ mode = "fullscreen" }), { description = "Fullscreen Window" })
+hl.bind("SUPER + CTRL + space", hl.dsp.window.float(), { description = "Toggle Floating" })
+hl.bind("SUPER + P", nav.pin_floating, { description = "Pin Floating Window" })
+hl.bind("SUPER + backslash", hl.dsp.group.toggle(), { description = "Toggle Hyprland Group (not whole-column tabs)" })
+hl.bind("SUPER + SHIFT + F12", nav.toggle_inhibition, { description = "Toggle Shortcut Inhibitors", dont_inhibit = true })
+-- Overview shortcuts live in the separate optional scrolloverview.lua module.
+hl.bind("SUPER + minus", hl.dsp.layout("colresize -0.1"), { description = "Shrink Column 10%", repeating = true })
+hl.bind("SUPER + equal", hl.dsp.layout("colresize +0.1"), { description = "Grow Column 10%", repeating = true })
+hl.bind("SUPER + D", hl.dsp.layout("colresize +conf"), { description = "Cycle Column Width" })
+hl.bind("SUPER + 0", hl.dsp.layout("colresize 1.0"), { description = "Full-width Column" })
+hl.bind("SUPER + CTRL + SHIFT + 0", nav.reset_height, { description = "Equal-share Window Height (approximation)" })
+hl.bind("SUPER + SHIFT + minus", function() nav.resize_height(-0.1) end, { description = "Shrink Window Height 10%", repeating = true })
+hl.bind("SUPER + SHIFT + equal", function() nav.resize_height(0.1) end, { description = "Grow Window Height 10%", repeating = true })
 
--- Move focus with mainMod + arrow keys
-hl.bind(mod .. " + left",  hl.dsp.focus({ direction = "left" }))
-hl.bind(mod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mod .. " + up",    hl.dsp.focus({ direction = "up" }))
-hl.bind(mod .. " + down",  hl.dsp.focus({ direction = "down" }))
+-- Horizontal focus/movement.
+hl.bind("SUPER + Left", hl.dsp.layout("focus l"), { description = "Focus Column Left", repeating = true })
+hl.bind("SUPER + Right", hl.dsp.layout("focus r"), { description = "Focus Column Right", repeating = true })
+hl.bind("SUPER + H", hl.dsp.layout("focus l"), { description = "Focus Column Left", repeating = true })
+hl.bind("SUPER + L", hl.dsp.layout("focus r"), { description = "Focus Column Right", repeating = true })
+hl.bind("SUPER + CTRL + Left", hl.dsp.layout("focus l"), { description = "Focus Column Left", repeating = true })
+hl.bind("SUPER + CTRL + Right", hl.dsp.layout("focus r"), { description = "Focus Column Right", repeating = true })
+hl.bind("SUPER + CTRL + H", hl.dsp.layout("focus l"), { description = "Focus Column Left", repeating = true })
+hl.bind("SUPER + CTRL + L", hl.dsp.layout("focus r"), { description = "Focus Column Right", repeating = true })
+hl.bind("SUPER + SHIFT + Left", hl.dsp.layout("swapcol l"), { description = "Move Column Left", repeating = true })
+hl.bind("SUPER + SHIFT + Right", hl.dsp.layout("swapcol r"), { description = "Move Column Right", repeating = true })
+hl.bind("SUPER + SHIFT + H", hl.dsp.layout("swapcol l"), { description = "Move Column Left", repeating = true })
+hl.bind("SUPER + SHIFT + L", hl.dsp.layout("swapcol r"), { description = "Move Column Right", repeating = true })
 
--- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
-for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
-    hl.bind(mod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(mod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+-- Vertical actions fall through to workspaces at column boundaries.
+hl.bind("SUPER + Up", function() nav.vertical("up") end, { description = "Focus Window or Workspace Up", repeating = true })
+hl.bind("SUPER + Down", function() nav.vertical("down") end, { description = "Focus Window or Workspace Down", repeating = true })
+hl.bind("SUPER + K", function() nav.vertical("up") end, { description = "Focus Window or Workspace Up", repeating = true })
+hl.bind("SUPER + J", function() nav.vertical("down") end, { description = "Focus Window or Workspace Down", repeating = true })
+hl.bind("SUPER + SHIFT + Up", function() nav.vertical("up", true) end, { description = "Move Window or to Workspace Up", repeating = true })
+hl.bind("SUPER + SHIFT + Down", function() nav.vertical("down", true) end, { description = "Move Window or to Workspace Down", repeating = true })
+hl.bind("SUPER + SHIFT + K", function() nav.vertical("up", true) end, { description = "Move Window or to Workspace Up", repeating = true })
+hl.bind("SUPER + SHIFT + J", function() nav.vertical("down", true) end, { description = "Move Window or to Workspace Down", repeating = true })
+-- Native approximation of overview-dependent workspace reordering: navigate only.
+hl.bind("SUPER + CTRL + Up", function() nav.workspace("up") end, { description = "Focus Workspace Up", repeating = true })
+hl.bind("SUPER + CTRL + Down", function() nav.workspace("down") end, { description = "Focus Workspace Down", repeating = true })
+hl.bind("SUPER + CTRL + K", function() nav.workspace("up") end, { description = "Focus Workspace Up", repeating = true })
+hl.bind("SUPER + CTRL + J", function() nav.workspace("down") end, { description = "Focus Workspace Down", repeating = true })
+hl.bind("SUPER + CTRL + SHIFT + Up", function() nav.workspace("up", true) end, { description = "Move Active Window to Workspace Up", repeating = true })
+hl.bind("SUPER + CTRL + SHIFT + Down", function() nav.workspace("down", true) end, { description = "Move Active Window to Workspace Down", repeating = true })
+hl.bind("SUPER + CTRL + SHIFT + K", function() nav.workspace("up", true) end, { description = "Move Active Window to Workspace Up", repeating = true })
+hl.bind("SUPER + CTRL + SHIFT + J", function() nav.workspace("down", true) end, { description = "Move Active Window to Workspace Down", repeating = true })
+
+hl.bind("SUPER + Home", function() nav.column_edge("l") end, { description = "First Column", repeating = true })
+hl.bind("SUPER + End", function() nav.column_edge("r") end, { description = "Last Column", repeating = true })
+hl.bind("SUPER + CTRL + Home", function() nav.column_edge("l", true) end, { description = "Move Column to First", repeating = true })
+hl.bind("SUPER + CTRL + End", function() nav.column_edge("r", true) end, { description = "Move Column to Last", repeating = true })
+
+-- Per-monitor local numbers mapped to lazily allocated global IDs.
+-- Transfer the entire workspace (not just its active window/group).
+hl.bind("SUPER + ALT + SHIFT + Left", function() workspaces.move_monitor("l") end, { description = "Move Workspace to Monitor Left" })
+hl.bind("SUPER + ALT + SHIFT + Right", function() workspaces.move_monitor("r") end, { description = "Move Workspace to Monitor Right" })
+hl.bind("SUPER + ALT + SHIFT + Up", function() workspaces.move_monitor("u") end, { description = "Move Workspace to Monitor Up" })
+hl.bind("SUPER + ALT + SHIFT + Down", function() workspaces.move_monitor("d") end, { description = "Move Workspace to Monitor Down" })
+hl.bind("SUPER + ALT + SHIFT + H", function() workspaces.move_monitor("l") end, { description = "Move Workspace to Monitor Left" })
+hl.bind("SUPER + ALT + SHIFT + L", function() workspaces.move_monitor("r") end, { description = "Move Workspace to Monitor Right" })
+hl.bind("SUPER + ALT + SHIFT + K", function() workspaces.move_monitor("u") end, { description = "Move Workspace to Monitor Up" })
+hl.bind("SUPER + ALT + SHIFT + J", function() workspaces.move_monitor("d") end, { description = "Move Workspace to Monitor Down" })
+
+hl.bind("SUPER + 1", function() workspaces.number(1) end, { description = "Workspace 1 on This Monitor", repeating = true })
+hl.bind("SUPER + 2", function() workspaces.number(2) end, { description = "Workspace 2 on This Monitor", repeating = true })
+hl.bind("SUPER + 3", function() workspaces.number(3) end, { description = "Workspace 3 on This Monitor", repeating = true })
+hl.bind("SUPER + 4", function() workspaces.number(4) end, { description = "Workspace 4 on This Monitor", repeating = true })
+hl.bind("SUPER + 5", function() workspaces.number(5) end, { description = "Workspace 5 on This Monitor", repeating = true })
+hl.bind("SUPER + 6", function() workspaces.number(6) end, { description = "Workspace 6 on This Monitor", repeating = true })
+hl.bind("SUPER + 7", function() workspaces.number(7) end, { description = "Workspace 7 on This Monitor", repeating = true })
+hl.bind("SUPER + 8", function() workspaces.number(8) end, { description = "Workspace 8 on This Monitor", repeating = true })
+hl.bind("SUPER + 9", function() workspaces.number(9) end, { description = "Workspace 9 on This Monitor", repeating = true })
+-- These move the active window/group, not the entire scrolling column.
+hl.bind("SUPER + SHIFT + 1", function() workspaces.number(1, true) end, { description = "Move Active Window to Workspace 1", repeating = true })
+hl.bind("SUPER + SHIFT + 2", function() workspaces.number(2, true) end, { description = "Move Active Window to Workspace 2", repeating = true })
+hl.bind("SUPER + SHIFT + 3", function() workspaces.number(3, true) end, { description = "Move Active Window to Workspace 3", repeating = true })
+hl.bind("SUPER + SHIFT + 4", function() workspaces.number(4, true) end, { description = "Move Active Window to Workspace 4", repeating = true })
+hl.bind("SUPER + SHIFT + 5", function() workspaces.number(5, true) end, { description = "Move Active Window to Workspace 5", repeating = true })
+hl.bind("SUPER + SHIFT + 6", function() workspaces.number(6, true) end, { description = "Move Active Window to Workspace 6", repeating = true })
+hl.bind("SUPER + SHIFT + 7", function() workspaces.number(7, true) end, { description = "Move Active Window to Workspace 7", repeating = true })
+hl.bind("SUPER + SHIFT + 8", function() workspaces.number(8, true) end, { description = "Move Active Window to Workspace 8", repeating = true })
+hl.bind("SUPER + SHIFT + 9", function() workspaces.number(9, true) end, { description = "Move Active Window to Workspace 9", repeating = true })
+
+-- Wheel navigation.
+hl.bind("SUPER + mouse_down", function() nav.workspace("down") end, { description = "Focus Workspace Down" })
+hl.bind("SUPER + mouse_up", function() nav.workspace("up") end, { description = "Focus Workspace Up" })
+hl.bind("SUPER + CTRL + mouse_down", function() nav.workspace("down", true) end, { description = "Move Active Window to Workspace Down" })
+hl.bind("SUPER + CTRL + mouse_up", function() nav.workspace("up", true) end, { description = "Move Active Window to Workspace Up" })
+hl.bind("SUPER + SHIFT + mouse_down", hl.dsp.layout("focus r"), { description = "Focus Column Right" })
+hl.bind("SUPER + SHIFT + mouse_up", hl.dsp.layout("focus l"), { description = "Focus Column Left" })
+hl.bind("SUPER + CTRL + SHIFT + mouse_down", hl.dsp.layout("swapcol r"), { description = "Move Column Right" })
+hl.bind("SUPER + CTRL + SHIFT + mouse_up", hl.dsp.layout("swapcol l"), { description = "Move Column Left" })
+hl.bind("SUPER + mouse_left", hl.dsp.layout("focus l"), { description = "Focus Column Left" })
+hl.bind("SUPER + mouse_right", hl.dsp.layout("focus r"), { description = "Focus Column Right" })
+hl.bind("SUPER + CTRL + mouse_left", hl.dsp.layout("swapcol l"), { description = "Move Column Left" })
+hl.bind("SUPER + CTRL + mouse_right", hl.dsp.layout("swapcol r"), { description = "Move Column Right" })
+
+hl.bind("SUPER + Z", hl.dsp.layout("center"), { description = "Center Column" })
+hl.bind("SUPER + SHIFT + Z", nav.center_visible, { description = "Center Visible Columns (may change focus)" })
+hl.bind("SUPER + bracketleft", hl.dsp.layout("consume_or_expel prev"), { description = "Consume or Expel Left" })
+hl.bind("SUPER + bracketright", hl.dsp.layout("consume_or_expel next"), { description = "Consume or Expel Right" })
+hl.bind("SUPER + SHIFT + bracketleft", hl.dsp.layout("consume"), { description = "Consume from Next Column (native approximation)" })
+hl.bind("SUPER + SHIFT + bracketright", hl.dsp.layout("promote"), { description = "Expel Active Window into New Column" })
+
+-- Screenshots use the selected shell; capture privacy itself is compositor-owned.
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd(shell.command("screenshot_region")), { description = "Screenshot Region" })
+hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd(shell.command("screenshot_window")), { description = "Screenshot Window" })
+hl.bind("SUPER + CTRL + SHIFT + S", hl.dsp.exec_cmd(shell.command("screenshot_output")), { description = "Screenshot Focused Output" })
+hl.bind("SUPER + SHIFT + R", capture.target, { description = "Share Focused Window through Dynamic Cast" })
+hl.bind("SUPER + ALT + B", capture.privacy, { description = "Toggle Window Capture Privacy" })
+
+-- Selected-shell UI. Ctrl+D resolves the source config's duplicate binding.
+hl.bind("SUPER + CTRL + Delete", hl.dsp.exec_cmd(shell.command("power_menu")), { description = "Power Menu" })
+hl.bind("SUPER + N", hl.dsp.exec_cmd(shell.command("notifications")), { description = "Notifications" })
+hl.bind("SUPER + Escape", hl.dsp.exec_cmd(shell.command("dismiss")), { description = "Dismiss Popup" })
+if shell.command("cheatsheet") then
+	hl.bind("SUPER + SHIFT + slash", hl.dsp.exec_cmd(shell.command("cheatsheet")), { description = "Keyboard Shortcuts" })
 end
+hl.bind("SUPER + Delete", hl.dsp.exec_cmd(shell.command("lock")), { description = "Lock Device" })
+hl.bind("SUPER + CTRL + D", hl.dsp.exec_cmd(shell.command("dnd")), { description = "Toggle Do Not Disturb" })
 
--- Example special workspace (scratchpad)
-hl.bind(mod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- Crash-independent controls: same commands for hardware keys and their aliases.
+hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd(controls.next), { description = "Next Song", submap_universal = true })
+hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd(controls.play_pause), { description = "Pause/Play Song", submap_universal = true })
+hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd(controls.previous), { description = "Previous Song", submap_universal = true })
+hl.bind("SUPER + SHIFT + period", hl.dsp.exec_cmd(controls.player_volume_up), { description = "Raise Player Volume", repeating = true, submap_universal = true })
+hl.bind("SUPER + SHIFT + comma", hl.dsp.exec_cmd(controls.player_volume_down), { description = "Lower Player Volume", repeating = true, submap_universal = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(controls.volume_up), { description = "Raise Volume", repeating = true, locked = true, submap_universal = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(controls.volume_down), { description = "Lower Volume", repeating = true, locked = true, submap_universal = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(controls.mute), { description = "Mute", locked = true, submap_universal = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(controls.mic_mute), { description = "Mute Microphone", locked = true, submap_universal = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(controls.brightness_up), { description = "Raise Brightness", repeating = true, locked = true, submap_universal = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(controls.brightness_down), { description = "Lower Brightness", repeating = true, locked = true, submap_universal = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd(controls.next), { description = "Next Song", locked = true, submap_universal = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(controls.play_pause), { description = "Pause/Play Song", locked = true, submap_universal = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd(controls.play_pause), { description = "Pause/Play Song", locked = true, submap_universal = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(controls.previous), { description = "Previous Song", locked = true, submap_universal = true })
 
--- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+-- OBS / LiveSplit (non-repeating).
+hl.bind("ALT + D", hl.dsp.exec_cmd("obs-cmd audio toggle Mic/Aux"), { description = "Toggle OBS Microphone" })
+hl.bind("SHIFT + KP_End", hl.dsp.exec_cmd("obs-cmd trigger-hotkey hotkey_split"), { description = "LiveSplit Split" })
+hl.bind("SHIFT + KP_Next", hl.dsp.exec_cmd("obs-cmd trigger-hotkey hotkey_reset"), { description = "LiveSplit Reset" })
+hl.bind("SHIFT + KP_Up", hl.dsp.exec_cmd("obs-cmd trigger-hotkey hotkey_undo"), { description = "LiveSplit Undo" })
+hl.bind("SHIFT + KP_Down", hl.dsp.exec_cmd("obs-cmd trigger-hotkey hotkey_skip"), { description = "LiveSplit Skip" })
+hl.bind("SHIFT + KP_Begin", hl.dsp.exec_cmd("obs-cmd trigger-hotkey hotkey_pause"), { description = "LiveSplit Pause" })
+hl.bind("SHIFT + KP_Left", hl.dsp.exec_cmd("obs-cmd trigger-hotkey hotkey_previous_comparison"), { description = "LiveSplit Previous Comparison" })
+hl.bind("SHIFT + KP_Right", hl.dsp.exec_cmd("obs-cmd trigger-hotkey hotkey_next_comparison"), { description = "LiveSplit Next Comparison" })
+hl.bind("SHIFT + KP_Home", hl.dsp.exec_cmd("obs-cmd trigger-hotkey hotkey_toggle_timing_method"), { description = "LiveSplit Toggle Timing Method" })
 
--- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
-hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
-
--- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
-hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
-
--- Requires playerctl
-hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+-- Approved Hyprland extras, without conflicting with screenshot shortcuts.
+hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"), { description = "Toggle Scratchpad" })
+hl.bind("SUPER + ALT + S", hl.dsp.window.move({ workspace = "special:magic", follow = false }), { description = "Send to Scratchpad" })
+hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { description = "Drag Window", mouse = true })
+hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { description = "Resize Window", mouse = true })

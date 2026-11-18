@@ -1,0 +1,2 @@
+-- DMS shortcut-editor overrides are loaded after hyprland/keybinds.lua.
+-- Unbind an existing key before replacing it: Hyprland runs duplicate binds.

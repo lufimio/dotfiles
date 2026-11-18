@@ -1,0 +1,3 @@
+#!/bin/sh
+# XDPH 1.5.x custom_picker_binary entrypoint; preserve its arguments.
+exec python3 "$(dirname "$0")/dynamic_cast.py" picker "$@"
