@@ -27,3 +27,5 @@
 	suppresscc = self
 [credential]
 	helper = store
+[alias]
+	graph = log --graph --oneline --all --decorate
