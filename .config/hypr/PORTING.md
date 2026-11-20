@@ -23,6 +23,11 @@ scrolling messages. Do not replace these APIs with examples from the latest-git 
 shell's** overrides. Manual settings remain editable; selected-shell overrides
 take priority. The final urgency rule derives its palette from those final colors.
 
+Bindings are grouped by purpose under `hyprland/keybinds/`; `init.lua` loads the
+normal-mode modules and `overview.lua` is registered by ScrollOverview setup.
+See [the keybinding index](hyprland/keybinds/README.md). Literal bindings and
+requires preserve DMS's offline shortcut discovery.
+
 - Manual fallback: 15px corners, capitaine-cursors, handwritten border/shadow colors.
 - Initial DMS overrides: 16px corners, miku-cursor-linux at 24px,
   generated border colors, and `#00000070` shadow color.
@@ -59,22 +64,20 @@ as a safe live shell swap, especially while locked.
 - DMS mode loads the existing `dms/*.lua` files and DMS UI commands.
 - Noctalia mode skips all DMS overrides, uses `noctalia/windowrules.lua`, and loads
   Noctalia 5's optional generated `hypr/noctalia.lua` via its `apply_theme()` API.
-  If absent, `noctalia/colors.lua` supplies the existing **Ayu Blue** palette seeded
-  from the saved Noctalia `colors.json`. Manual monitor/layout/cursor settings remain
-  in effect: the commented niri `noctalia.kdl` include had **no actual file** to port.
+  If absent, no additional theme is applied; manual colors remain in effect.
+  Manual monitor/layout/cursor settings remain unchanged.
 - Enable Noctalia's built-in Hyprland color template in its settings if desired.
   Its hook recognizes the conditional include and must not append an unconditional
   theme include that overrides DMS. Disabling that template removes its generated
-  file; the independent seed remains usable. No template was enabled during porting.
+  file. There is no backup palette.
 - Noctalia UI actions use `noctalia msg`, not obsolete `qs -c noctalia-shell ipc`.
   Power menu, notification history, dismissal, DND, lock, and all three screenshot
   shortcuts are translated. Notification history opens Control Center's notifications
   tab; dismissal clears visible notifications (the Noctalia 5 equivalent).
-- Without the optional native HyprExpo plugin, **Super+Tab, Super+O, four-finger
-  up, and Super+Shift+? are unbound in Noctalia mode**, as requested. No window-switcher
-  or incompatible old cheatsheet plugin is substituted. With a compatible HyprExpo
-  loaded, its independent overview replaces the overview actions in either shell
-  mode; the Noctalia cheatsheet remains unbound. See [HYPREXPO.md](HYPREXPO.md).
+- The pinned ScrollOverview v4 plugin supplies **Super+Tab, Super+O** and the
+  four-finger overview gesture in either shell profile. Without it these remain
+  unbound; no shell overview or older plugin implementation is substituted.
+  The Noctalia cheatsheet remains unbound.
 - Noctalia 5 does **not** automatically migrate the old `~/.config/noctalia/settings.json`
   or Quickshell plugins. Those files were left untouched; this is a compositor
   integration port, **not a migration of the old bar/widgets/plugins to v5 TOML**.
@@ -103,7 +106,7 @@ on **every press**, rather than depending on an IPC error/timeout fallback:
 | Super+Shift+period/comma | `playerctl` player volume ±0.05 |
 
 Hardware keys remain allowed while locked. Controls and their existing aliases
-also work inside keybinding submaps, including HyprExpo. Volume/brightness repeat on hold;
+also work inside keybinding submaps, including overview. Volume/brightness repeat on hold;
 mute/playback/track toggles do not repeatedly fire on a held key. AudioPause keeps
 the original play/pause-toggle mapping. Existing xremap F6/F7/F8 mappings are
 unchanged; ordinary F1…F12 are **not** globally hijacked by Hyprland.
@@ -126,17 +129,23 @@ the selected shell; no independent locker or additional OSD daemon was enabled.
 | 6px gaps plus struts | **6px gaps only**, as requested; struts/adjacent-column peek omitted. `gaps_in = 3` accounts for Hyprland adding it on both adjoining sides |
 | Up/down within a column, then workspace | `navigation.lua` uses real `window.layout.column.windows` and `index_in_column` metadata; no geometric guessing or external polling |
 | Move window up/down, then another workspace | Same boundary helper, followed by native move; follows the moved window |
+| Super+Shift+arrows / H/J/K/L on floating windows | Native relative movement in 50 logical-pixel steps; repeatable, without scrolling-column or workspace-step actions. Tune `floating_move_step` in `hyprland/navigation.lua` |
 | First/last column; move column to endpoints | Bounded repetitions of native focus/swap-column messages; no custom column reconstruction |
 | Move a whole column to another workspace | **Active window/group only**, including numbered and wheel shortcuts |
 | Ctrl+Up/Down/J/K reorders in overview | Workspace navigation in both modes; no DMS-overview workspace reordering |
-| Center active column | Native center, Super+Z |
+| Center active column | Super+Z centers the scrolling column; on a floating window it instead uses native window centering within that monitor's reserved-area-adjusted workarea |
 | Center visible columns | Lua computes the bounds of viewport-intersecting tiled windows and pans without resizing; **may focus the center column**, as approved |
 | Reset automatic window height | Native absolute resize to approximately an equal share of the column; does not restore niri's automatic-height state |
 | ±10% window height | Relative native resize based on logical monitor workarea |
+| Super+minus/equal width resizing | Scrolling column resize for tiled windows; native horizontal resize for floating windows, in 10% logical-workarea-width steps |
+| Initial floating size | Native `size = "monitor_w*0.9 monitor_h*0.9"` rule: 90% of logical monitor dimensions on first map, without persistent resizing hooks. Explicit app sizes and the Dynamic Share helper size remain exceptions; later resizing/placement uses normal Hyprland behavior |
+| Super+backslash | Toggle focus between floating and tiled windows on the current workspace, preferring focus history; replaces the earlier group-toggle approximation |
+| Super+Shift+Up/Down/K/J | Swap the selected tiled window with its exact neighboring row in the same scrolling column first; move to the adjacent monitor-local workspace only at the top/bottom boundary. Floating windows retain their 50px nudge |
+| Drag navigation outside overview | Separate `edge-navigation` plugin: window move and external DnD drags dwell 500ms at a monitor edge; horizontal scrolling is continuous, vertical focus/workspace steps repeat after 700ms. Settings and hot-corner callbacks live in `hyprland/edge-navigation.lua`; overview retains its own edge input |
 | Consume/expel | Native messages. Notably, **v0.57.2 source** implements `consume` as pulling the first window of the next column into the active column; it is not niri-identical |
 | Column tabbed mode | Hyprland group toggle; it does **not** convert a whole stacked column into tabs |
 | Sticky windows | Super+P pins **floating windows only**; tiled windows are not silently floated |
-| Overview, Super+Tab / Super+O | Optional guarded HyprExpo native scrolling overview; without it, DMS overview or unbound in Noctalia. See `HYPREXPO.md` for differences |
+| Overview, Super+Tab / Super+O | Pinned ScrollOverview v4 in either shell profile; unbound without it. See `plugins/scrolloverview/README.md` |
 
 ### Per-monitor workspace dictionary
 
@@ -155,7 +164,7 @@ reconciled and **actual compositor IDs** are compacted into monitor clusters.
 Monitors are ordered physically left-to-right, then top-to-bottom (connector name
 breaks ties); each cluster follows its existing local-number assignments. There
 are no fixed-size reserved ranges. Named/special workspaces, including
-`dynamic-cast` and the scratchpad, are not renumbered.
+`dynamic-share-anchor` and the scratchpad, are not renumbered.
 
 The renumbering first moves changing live workspaces to free temporary positive
 IDs, then assigns their final IDs. It keeps the workspace objects, windows, layout,
@@ -207,7 +216,7 @@ The named capture workspace is deliberately outside this numbered dictionary.
   Lua fallback. The fallback honors inversion, cancellation, and the configured
   distance/cancel-ratio threshold, but does not implement native velocity forcing
   or track fingers 1:1. Defragmentation keeps native mode usable as much as possible.
-  Compatible HyprExpo uses **4-finger up/down** for interactive open/cancel.
+  ScrollOverview uses **4-finger vertical** gestures for interactive open/cancel.
   Without it, **4-finger up** discretely toggles DMS overview (unbound in Noctalia).
   Check gestures on real hardware.
 - Shadows use native range/render power, an approximation of niri's softness/spread.
@@ -240,81 +249,86 @@ The named capture workspace is deliberately outside this numbered dictionary.
 
 ## Shortcut changes and extras
 
-- **Super+Ctrl+D:** Do Not Disturb wins the duplicate assignment in niri. Super+0
-  still sets full column width; no separate maximize-column toggle was added.
+- **Super+Ctrl+D:** Do Not Disturb wins the duplicate assignment in niri.
+- **Super+F4:** cycle scrolling/dwindle; extend the list in `hyprland/layout-switcher.lua`.
+  **Super+D** cycles scrolling width or toggles dwindle split orientation.
+  **Super+0** sets full column width or resets a dwindle split to 50/50.
+- **Super+Shift+D:** native maximization fills the workarea rather than merely
+  changing scrolling-layout presentation. Fullscreen/maximized workspace rules
+  remove gaps, struts, borders and rounding while preserving the bar reservation.
+  Browser Bitwarden extension popup windows float, including when their title
+  arrives after mapping (`window.title`); normal website tabs are not matched.
 - **Super+Shift+S / Super+Ctrl+S / Super+Ctrl+Shift+S:** selected-shell region/window/focused-output
   screenshots, no cursor, saved under `~/Pictures/Screenshots`. The shell controls the
   filename/UI rather than niri's `_nirisshot.png` naming/template.
 - **Super+S / Super+Alt+S:** show the `magic` scratchpad / send a window there silently.
 - **Super+left/right mouse drag:** move/resize retained.
-- **Super+Alt+B:** toggle the focused window's `capture-private` tag. A native
-  `no_screen_share` rule excludes it from compositor-managed capture; the custom
-  mirror also blanks it explicitly. A notification confirms the toggle. It remains
+- **Super+Ctrl+P:** toggle the focused window's `capture-private` tag. A native
+  `no_screen_share` rule excludes it from compositor-managed capture; the native
+  Dynamic Share plugin also checks it before rendering/publishing. It remains
   visible locally; this is not a guarantee against applications recording themselves
   or other capture paths outside the compositor.
+- **Super+Shift+R:** niri's focused-window dynamic sharing action, now using the
+  native plugin. **Super+Ctrl+R:** focused workspace. **Super+Ctrl+Shift+R:**
+  focused monitor. The picker has no global shortcut.
+- **Super+Ctrl+BackSpace:** clear the target, retaining a black idle stream.
+  These actions also work in overview submaps. **Ctrl+Shift+R is not bound**
+  (browser refresh is unchanged). Reset/start/stop/glow have no new global binds.
 - No cursor-zoom or terminal-swallowing extras were enabled.
 
 ## Dynamic focused-window sharing
 
-This uses **Quickshell**, not wl-mirror: installed wl-mirror 0.18.5 only captures
-outputs/regions, which would risk exposing unrelated pixels after switching apps.
-No new package was installed.
+Production controls now use the **native Dynamic Share plugin**, not the old
+Quickshell mirror. See [plugins/dynamic-share/README.md](plugins/dynamic-share/README.md)
+for exact ABI requirements, editable per-target styles, and remaining parity gaps.
 
-1. In a Hyprland session, request screen sharing normally.
-2. The XDPH custom picker wrapper starts the isolated mirror and controller.
-3. In the **normal consent picker**, choose the **`dynamic-cast` workspace**.
-4. Focus a source window and press **Super+Shift+R**. Repeat on another window to
-   retarget the same maximized mirror. Nothing is captured before explicit selection.
-5. Stop sharing normally to close the mirror/controller.
+1. Request screen sharing normally in your application.
+2. In the stock consent picker, choose the **Dynamic Share (switchable window)**
+   **window** entry, even when the eventual target is a monitor or workspace.
+3. Use **Super+Shift+R** on a focused window, or the shortcuts above, to retarget
+   that same stream. The optional picker API/CLI reuses the stock XDPH graphical
+   dialog without starting another portal stream. `picker` in
+   `hyprland/dynamic-share-settings.lua` can select a custom dmenu-compatible command.
+4. Clear with **Super+Ctrl+BackSpace** to publish opaque black with your
+   configured idle text. Stop sharing normally in the application when finished.
 
-The empty named workspace is persistent because **XDPH builds its allowed source
-list before starting a custom picker**. The viewer/controller themselves run only
-on demand. Choosing another picker source or canceling also stops them. Merely
-focusing another app does not stop the mirror.
+`hyprland/capture.lua` calls the plugin directly. The central registry in
+`hyprland/plugins.lua` and `scripts/start_plugins.py` loads missing reviewed plugins
+on login. `hyprland.lua` applies `hyprland/dynamic-share-settings.lua` on reload.
+The loader does not replace
+a running plugin or reset its selected target. The owned helper is an idle
+placeholder, not a Quickshell mirror; capture is request-driven.
+Its workspace is the true special workspace `special:dynamic-share-anchor`,
+hidden by the overview's special-workspace filter. Runtime configuration lives
+under `hyprland/`, not inside the plugin directory. The unused demo is removed.
 
-The wrapper preserves consent and ordinary source selections. It removes the
-restore-token flag **only for the mirror target**, since token restoration would
-bypass the picker/startup hook. Ordinary shares retain the existing token behavior.
-Whole-workspace sharing remains available **normally through XDPH**; dynamically
-mirroring an arbitrary workspace is not implemented.
+The original niri window-target shortcut is preserved. Monitor, workspace,
+and clear shortcuts remain active; the picker shortcut was removed. Experimental
+Super+Ctrl+Alt+R/M/W/S aliases are no longer loaded. Reset, start/stop, and
+indicator toggling remain Lua/CLI/settings-only, as requested.
 
-The source is resolved by its exact Hyprland address to a Wayland toplevel, not by
-title/class/visible screen geometry. Missing/closed/private sources and the mirror
-workspace itself produce a blank view. All other apps keep their original positions.
-The captured workspace is still a real workspace: **do not put unrelated apps there**.
-Workspace capture can also include output-global panels/layers; it is not equivalent
-to capturing only the mirror surface.
+Window targets request native window content, popups and cursor. Workspace targets
+use a windows-only native scene, without shell layers. Monitor targets deliberately
+capture the entire output, subject to compositor privacy masks. Cleared, private,
+closed, hidden or locked targets become black rather than falling back to a desktop.
+Workspace indicator geometry excludes shell-reserved workarea edges; monitor
+indicators retain the full output boundary.
 
-### Reliability and maintenance
+**Accepted plugin-only limits:** all Dynamic Share consumers use one global
+target. A new/restored share can inherit that target, because the plugin has no
+reliable portal-session identity. XDPH starts the stream immediately, not after
+selection. Clear the target first if a new share must begin empty. End-to-end
+application, queued-frame privacy, sizing, cursor and local-indicator capture
+exclusion still require live validation; compilation alone is not a privacy guarantee.
 
-This is a **custom integration, not a supported Hyprland/niri feature**. It should
-not need frequent editing on these versions, but occasional maintenance after major
-Hyprland/Quickshell/XDPH updates is realistic. No zero-maintenance guarantee is possible.
+### Removed legacy code
 
-- `dynamic-cast/shell.qml`: Quickshell 0.3.2's `ScreencopyView` and Hyprland toplevel mapping.
-- `scripts/dynamic_cast.py`: XDPH 1.5's workspace-list and picker-selection format;
-  an unsupported format refuses the mirror rather than falling back to screen capture.
-- One active dynamic-mirror portal session at a time is supported. Concurrent
-  startup requests from multiple sharing applications are **not supported/tested**.
-- Lifecycle follows real portal `Start`/`Session.Close` messages, **not** Hyprland's
-  500ms no-frames event, which also fires on paused streams. This requires Python
-  PyGObject/GIO and session-bus `BecomeMonitor` permission. If denied, mirror startup
-  fails. Only lifecycle traffic is monitored; it is not logged.
-- GUI failure, portal restart, or failed source resolution never selects a desktop
-  output instead. If a share application abandons startup without closing its portal
-  session, manual cleanup may be needed.
-- Runtime socket/log: `$XDG_RUNTIME_DIR/hypr-dynamic-cast-<instance hash>/`.
-  Emergency cleanup: `python3 ~/.config/hypr/scripts/dynamic_cast.py stop`.
-- Disable the custom feature by removing `custom_picker_binary` from `xdph.conf`
-  and the capture bindings/module; ordinary portal sharing is independent.
-
-**Not yet live-tested:** off-workspace redraw, picking the persistent workspace,
-pause/resume/stop, retargeting, multi-monitor gestures, and privacy behavior on each
-capture route. Offline tests do not establish that screen sharing is production-ready.
-Test with non-sensitive content before relying on it.
-
-`xdph.conf` is read when the portal backend starts. No running portal was restarted
-while porting from the current niri session; start a fresh Hyprland session for testing.
+The Quickshell sharing implementation, custom-picker wrapper, inactive hyprexpo
+config, optional demo bindings and all test suites are removed.
+`xdph.conf` uses the stock picker. Installed native plugin rollback libraries
+remain outside the repository and are not deleted.
+Optional plugin/theme/hot-corner fallbacks are removed; core terminal, launcher,
+navigation, media controls and safe loader rollback paths remain.
 
 ## Inactive hypridle / hyprlock
 
@@ -336,45 +350,33 @@ Run from `~/.config/hypr`:
 
 ```sh
 Hyprland --verify-config -c "$PWD/hyprland.lua"
-lua tests/config.lua
-lua tests/config.lua noctalia
-lua tests/config.lua dms hyprexpo
-lua tests/config.lua noctalia hyprexpo
-lua tests/config.lua dms old-hyprexpo
-lua tests/config.lua noctalia old-hyprexpo
-lua tests/workspaces.lua
-python3 tests/test_shell.py
-python3 tests/verify_profiles.py
-python3 tests/test_dynamic_cast.py
-dbus-run-session -- python3 tests/test_dynamic_cast.py --dbus
-/usr/lib/qt6/bin/qmllint dynamic-cast/shell.qml
 dms keybinds show hyprland
+hyprctl reload config-only
+hyprctl configerrors
 ```
 
 The verifier reports `config ok` on Hyprland 0.57.2. Outside a Hyprland session it
 can also print a socket-binding warning; that is separate from config parsing.
-The Lua tests cover precedence, unique shortcuts, vertical navigation, dictionary
-allocation, logical workarea calculations, centering, pinning, and urgency tags.
-The workspace suite covers actual-ID collision cycles, rollback, rule retirement,
-event coalescing/reentrancy, monitor transfers/unplug, numeric labels, and hybrid
-gesture selection/cancellation. Timer initialization is skipped without outputs:
-Hyprland 0.57.2's config verifier crashes when cleaning timers without an event loop.
-Python tests cover the picker wire format/token handling and actual Start/Close
-monitoring on an **isolated test D-Bus**, without screen capture or session locking.
-The selector tests cover **142 DMS / 139 Noctalia** unique bindings, absence of
-Noctalia overview/cheatsheet actions, selected-only theming/rules, and startup-only
-shell selection. Python tests execute controls against fake device/player commands
-with failing shell IPC, so no real volume/brightness/playback change occurs. Startup
-tests mock all systemd operations; no real shell was stopped, started, or crashed.
-Both profiles also pass the installed Hyprland verifier. DMS's static parser does
-not evaluate loaded-plugin conditionals: it can list optional HyprExpo/submap
-bindings even when that plugin is absent. Plugin-present behavior is covered by
-mocks, not by installing or loading the plugin. See `HYPREXPO.md`.
+Test suites are intentionally not shipped. Both shell profiles can be checked
+with the installed verifier using a temporary entry-point copy that selects the
+other profile; do not switch the live shell just to validate configuration.
+Timer initialization is skipped without outputs: Hyprland 0.57.2's verifier
+crashes when cleaning timers without an event loop.
 
-**Still requires live testing:** starting each shell in a fresh Hyprland session,
-Noctalia UI actions/locking/theming, device permissions, physical function-row keys,
-and crash/restart behavior. These tests do not certify the lock screen or migrate
-Noctalia's legacy application preferences.
+Bindings remain literal declarations in `hyprland/keybinds/` for DMS discovery.
+See [README.md](README.md) for layout-aware mappings, the Lua-only OBS toggle,
+and missing-only plugin startup. `Super+F4` cycles scrolling/dwindle on numbered
+workspaces; layout choices and binding toggle state reset on config reload.
+
+Permission rules are startup-only in this Hyprland version. The explicit
+allowlist and unknown-operation prompts activate on the next login, not midway
+through an existing session. This is not an app-launch firewall or IPC sandbox.
+
+**Still requires interactive validation:** fresh-login startup of each shell,
+permission dialogs, Noctalia UI/locking/theming, physical function-row keys,
+drag/drop, multi-monitor behavior, capture privacy, and crash/restart behavior.
+Config verification does not certify the lock screen or migrate Noctalia's
+legacy application preferences.
 
 ## Sources
 

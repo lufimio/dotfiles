@@ -1,0 +1,18 @@
+-- Hardware keys and aliases use the same shell-independent commands.
+local controls = require("hyprland.controls")
+
+hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd(controls.next), { description = "Next Song", submap_universal = true })
+hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd(controls.play_pause), { description = "Pause/Play Song", submap_universal = true })
+hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd(controls.previous), { description = "Previous Song", submap_universal = true })
+hl.bind("SUPER + SHIFT + period", hl.dsp.exec_cmd(controls.player_volume_up), { description = "Raise Player Volume", repeating = true, submap_universal = true })
+hl.bind("SUPER + SHIFT + comma", hl.dsp.exec_cmd(controls.player_volume_down), { description = "Lower Player Volume", repeating = true, submap_universal = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(controls.volume_up), { description = "Raise Volume", repeating = true, locked = true, submap_universal = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(controls.volume_down), { description = "Lower Volume", repeating = true, locked = true, submap_universal = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(controls.mute), { description = "Mute", locked = true, submap_universal = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(controls.mic_mute), { description = "Mute Microphone", locked = true, submap_universal = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(controls.brightness_up), { description = "Raise Brightness", repeating = true, locked = true, submap_universal = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(controls.brightness_down), { description = "Lower Brightness", repeating = true, locked = true, submap_universal = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd(controls.next), { description = "Next Song", locked = true, submap_universal = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(controls.play_pause), { description = "Pause/Play Song", locked = true, submap_universal = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd(controls.play_pause), { description = "Pause/Play Song", locked = true, submap_universal = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(controls.previous), { description = "Previous Song", locked = true, submap_universal = true })

@@ -1,0 +1,767 @@
+diff --git a/Config.cpp b/Config.cpp
+index aafec15..c8edb5c 100644
+--- a/Config.cpp
++++ b/Config.cpp
+@@ -66,14 +66,14 @@ SDispatcher* findDispatcher(const std::string_view name) {
+         },
+         {
+             .name            = "navigate",
+-            .argPattern      = std::regex{"^(left|right|up|down)$"},
++            .argPattern      = std::regex{"^(left|right|up|down|first|last)$"},
+             .typeArgError    = "expected a string argument",
+             .invalidArgError = "expected one of: left, right, up, down",
+             .luaFunction     = [](lua_State* L) { return dispatcherFactoryLua(L, "navigate"); },
+         },
+         {
+             .name            = "window",
+-            .argPattern      = std::regex{"^(select|close)$"},
++            .argPattern      = std::regex{"^(select|close|close-selected|focus-toggle|move-left|move-right|move-up|move-down|prepare-workspace|refresh)$"},
+             .typeArgError    = "expected a string argument",
+             .invalidArgError = "expected one of: select, close",
+             .luaFunction     = [](lua_State* L) { return dispatcherFactoryLua(L, "window"); },
+@@ -408,6 +408,25 @@ static void defineConfigValues() {
+     addValue(makeShared<CIntValue>("plugin:scrolloverview:workspace_gap", "gap between overview workspaces", 0, SIntValueOptions{.min = 0}));
+     addValue(makeShared<CStringValue>("plugin:scrolloverview:layout", "overview layout", Hyprlang::STRING{"vertical"}));
+     addValue(makeShared<CBoolValue>("plugin:scrolloverview:cross_monitor_drag", "enable cross-monitor window dragging", false));
++    addValue(makeShared<CBoolValue>("plugin:scrolloverview:hide_special_workspaces", "hide special workspaces", true));
++    addValue(makeShared<CBoolValue>("plugin:scrolloverview:hide_named_workspaces", "hide named normal workspaces", false));
++    addValue(makeShared<CBoolValue>("plugin:scrolloverview:input:shift_scroll_columns", "Shift wheel and touchpad scroll columns", true));
++    addValue(makeShared<CFloatValue>("plugin:scrolloverview:input:right_drag_column_scale", "right drag column sensitivity", 0.8F, SFloatValueOptions{.min = 0.01F, .max = 10.F}));
++    addValue(makeShared<CFloatValue>("plugin:scrolloverview:input:right_drag_workspace_scale", "right drag workspace sensitivity", 0.8F, SFloatValueOptions{.min = 0.01F, .max = 10.F}));
++    addValue(makeShared<CIntValue>("plugin:scrolloverview:input:right_drag_workspace_distance", "right drag workspace distance in logical pixels", 360, SIntValueOptions{.min = 1}));
++    addValue(makeShared<CFloatValue>("plugin:scrolloverview:input:right_drag_cancel_ratio", "right drag workspace commit fraction", 0.2F, SFloatValueOptions{.min = 0.F, .max = 1.F}));
++    addValue(makeShared<CFloatValue>("plugin:scrolloverview:input:right_drag_min_speed_to_force", "right drag workspace force speed in logical pixels per update at 60 Hz", 8.F, SFloatValueOptions{.min = 0.F}));
++    addValue(makeShared<CBoolValue>("plugin:scrolloverview:input:right_drag_forever", "allow multiple workspaces per right drag", false));
++    addValue(makeShared<CBoolValue>("plugin:scrolloverview:input:right_drag_snap_to_grid", "snap columns on right drag release", true));
++    addValue(makeShared<CBoolValue>("plugin:scrolloverview:input:right_drag_snap_cursor", "warp cursor after right drag changes focused column", false));
++    addValue(makeShared<CFloatValue>("plugin:scrolloverview:input:right_drag_velocity_decay", "native column fling velocity decay", 4.F, SFloatValueOptions{.min = 0.01F}));
++    addValue(makeShared<CFloatValue>("plugin:scrolloverview:input:right_drag_max_projection", "maximum column fling in viewport widths", 2.F, SFloatValueOptions{.min = 0.F}));
++    addValue(makeShared<CFloatValue>("plugin:scrolloverview:input:right_drag_velocity_smooth", "column velocity smoothing weight", 0.35F, SFloatValueOptions{.min = 0.F, .max = 1.F}));
++    addValue(makeShared<CBoolValue>("plugin:scrolloverview:input:drag_edge_navigation", "navigate at edges during window and external drags", true));
++    addValue(makeShared<CIntValue>("plugin:scrolloverview:input:drag_edge_size", "edge navigation zone in logical pixels", 48, SIntValueOptions{.min = 1}));
++    addValue(makeShared<CFloatValue>("plugin:scrolloverview:input:drag_edge_speed", "maximum edge speed in logical pixels per second", 900.F, SFloatValueOptions{.min = 1.F}));
++    addValue(makeShared<CBoolValue>("plugin:scrolloverview:input:drag_hover_activate", "external DnD hover closes overview and focuses target", true));
++    addValue(makeShared<CIntValue>("plugin:scrolloverview:input:drag_hover_delay", "external DnD hover delay in milliseconds; zero is immediate", 600, SIntValueOptions{.min = 0}));
+     addValue(makeShared<CIntValue>("plugin:scrolloverview:input:scroll_event_delay", "minimum delay (ms) between discrete scroll steps (wheel workspace nav and trackpad focus stepping)", 200, SIntValueOptions{.min = 0}));
+     addValue(makeShared<CFloatValue>("plugin:scrolloverview:input:touchpad_scroll_factor", "overview touchpad scroll factor", 1.F,
+                                      SFloatValueOptions{.min = 0.F}));
+@@ -419,6 +438,11 @@ static void defineConfigValues() {
+                                    SIntValueOptions{.min = 0, .max = 1}));
+     addValue(makeShared<CIntValue>("plugin:scrolloverview:input:drag_threshold", "overview drag threshold", 10,
+                                    SIntValueOptions{.min = 0}));
++    addValue(makeShared<CBoolValue>("plugin:scrolloverview:input:right_drag_pan", "left drag moves windows, right drag pans, middle button is disabled", false));
++    addValue(makeShared<CFloatValue>("plugin:scrolloverview:input:column_scroll_factor", "extra touchpad sensitivity for columns only", 1.F,
++                                     SFloatValueOptions{.min = 0.1F, .max = 5.F}));
++    addValue(makeShared<CFloatValue>("plugin:scrolloverview:input:column_swipe_threshold", "net raw touchpad travel needed to advance at least one column; 0 keeps native snapping", 0.F,
++                                     SFloatValueOptions{.min = 0.F, .max = 1000.F}));
+     addValue(makeShared<CIntValue>("plugin:scrolloverview:wallpaper", "wallpaper mode", 0, SIntValueOptions{.min = 0, .max = 2}));
+     addValue(makeShared<CStringValue>("plugin:scrolloverview:wallpaper_layer", "wallpaper layer detection: auto, background, or bottom", Hyprlang::STRING{"auto"}));
+     addValue(makeShared<CBoolValue>("plugin:scrolloverview:blur", "blur the overview wallpaper", false));
+@@ -483,6 +507,18 @@ int getDragThreshold(PHLMONITOR monitor) {
+     return std::max<int>(0, getValue<int>("plugin:scrolloverview:input:drag_threshold", monitor));
+ }
+ 
++bool getRightDragPan(PHLMONITOR monitor) {
++    return getValue<bool>("plugin:scrolloverview:input:right_drag_pan", monitor);
++}
++
++float getColumnScrollFactor(PHLMONITOR monitor) {
++    return std::clamp(getValue<float>("plugin:scrolloverview:input:column_scroll_factor", monitor), 0.1F, 5.F);
++}
++
++float getColumnSwipeThreshold(PHLMONITOR monitor) {
++    return std::clamp(getValue<float>("plugin:scrolloverview:input:column_swipe_threshold", monitor), 0.F, 1000.F);
++}
++
+ float getTouchpadScrollFactor(PHLMONITOR monitor) {
+     static constexpr float OVERVIEWTOUCHPADSCROLLFACTOR = 1.5F;
+ 
+diff --git a/Config.hpp b/Config.hpp
+index 23a9a4b..b88f432 100644
+--- a/Config.hpp
++++ b/Config.hpp
+@@ -112,6 +112,9 @@ int           getScrollEventDelay(PHLMONITOR monitor);
+ bool          getLeftHanded(PHLMONITOR monitor);
+ int           getDragMode(PHLMONITOR monitor);
+ int           getDragThreshold(PHLMONITOR monitor);
++bool          getRightDragPan(PHLMONITOR monitor);
++float         getColumnScrollFactor(PHLMONITOR monitor);
++float         getColumnSwipeThreshold(PHLMONITOR monitor);
+ float         getTouchpadScrollFactor(PHLMONITOR monitor);
+ EScrollAction getVerticalScrollAction(ELayout layout, PHLMONITOR monitor);
+ EScrollAction getHorizontalScrollAction(ELayout layout, PHLMONITOR monitor);
+diff --git a/main.cpp b/main.cpp
+index 45aba8c..d492c05 100644
+--- a/main.cpp
++++ b/main.cpp
+@@ -396,7 +396,7 @@ static SDispatchResult onNavigateDispatcher(std::string arg) {
+     if (!OVERVIEW)
+         return {};
+ 
+-    if (arg != "left" && arg != "right" && arg != "up" && arg != "down")
++    if (arg != "left" && arg != "right" && arg != "up" && arg != "down" && arg != "first" && arg != "last")
+         return {.success = false, .error = "invalid arg. expected left|right|up|down"};
+ 
+     OVERVIEW->moveSelection(arg);
+@@ -404,14 +404,17 @@ static SDispatchResult onNavigateDispatcher(std::string arg) {
+ }
+ 
+ static SDispatchResult onWindowDispatcher(std::string arg) {
+-    const auto OVERVIEW = scrollOverviewAt(g_pInputManager->getMouseCoordsInternal());
++    const auto OVERVIEW = (arg == "select" || arg == "close") ?
++        scrollOverviewAt(g_pInputManager->getMouseCoordsInternal()) : dispatcherOverview();
+     if (!OVERVIEW)
+         return {};
+ 
+-    if (arg != "select" && arg != "close")
++    if (arg != "select" && arg != "close" && arg != "close-selected" && arg != "focus-toggle" && arg != "prepare-workspace" && arg != "refresh" &&
++        arg != "move-left" && arg != "move-right" && arg != "move-up" && arg != "move-down")
+         return {.success = false, .error = "invalid arg. expected select|close"};
+ 
+-    OVERVIEW->windowDispatcherAction(arg);
++    if (!OVERVIEW->windowDispatcherAction(arg) && arg == "prepare-workspace")
++        return {.success = false, .error = "finish the current drag before moving workspaces"};
+     return {};
+ }
+ 
+diff --git a/scrollOverview.cpp b/scrollOverview.cpp
+index 22dbb41..eaba6c6 100644
+--- a/scrollOverview.cpp
++++ b/scrollOverview.cpp
+@@ -37,6 +37,7 @@
+ #include <hyprland/src/layout/algorithm/tiled/scrolling/ScrollingAlgorithm.hpp>
+ #include <hyprland/src/desktop/state/GlobalWindowController.hpp>
+ #include <hyprland/src/pointer/cursor/CursorShapeOverrideController.hpp>
++#include <hyprland/src/pointer/PointerController.hpp>
+ #include <hyprland/src/desktop/state/FocusState.hpp>
+ #include <hyprland/src/desktop/view/Group.hpp>
+ #include <hyprland/src/desktop/view/window/Window.hpp>
+@@ -49,6 +50,7 @@
+ #include <hyprland/src/desktop/state/ViewState.hpp>
+ #include <hyprland/src/managers/fullscreen/FullscreenController.hpp>
+ #include <hyprland/src/protocols/LayerShell.hpp>
++#include <hyprland/src/protocols/core/DataDevice.hpp>
+ #include <hyprland/src/devices/IKeyboard.hpp>
+ #include <hyprland/src/helpers/math/Math.hpp>
+ #include <hyprland/src/helpers/time/Time.hpp>
+@@ -95,7 +97,17 @@ bool consumeOverviewMouseAxisBind(uint32_t lastInputTimeMs) {
+ }
+ 
+ static bool changeOverviewWorkspace(const PHLMONITOR& monitor, const PHLWORKSPACE& workspace) {
+-    if (!monitor || !workspace || monitor->m_activeWorkspace == workspace)
++    if (!monitor || !workspace)
++        return false;
++    if (workspace->type() == Workspace::eWorkspaceType::SPECIAL) {
++        if (monitor->m_activeSpecialWorkspace == workspace)
++            return false;
++        monitor->setSpecialWorkspace(workspace, true);
++        return true;
++    }
++    if (monitor->m_activeSpecialWorkspace)
++        monitor->setSpecialWorkspace(nullptr, true);
++    if (monitor->m_activeWorkspace == workspace)
+         return false;
+ 
+     const bool FOCUSED = Desktop::focusState()->monitor() == monitor;
+@@ -1023,6 +1035,10 @@ static void moveOverviewTargetNextToWindow(const SP<Layout::ITarget>& target, co
+ }
+ 
+ CScrollOverview::~CScrollOverview() {
++    if (dragNavigationTimer) {
++        wl_event_source_remove(dragNavigationTimer);
++        dragNavigationTimer = nullptr;
++    }
+     if (closeRemovalIdle)
+         wl_event_source_remove(closeRemovalIdle);
+     cancelWindowDrag();
+@@ -1071,6 +1087,7 @@ CScrollOverview::CScrollOverview(PHLWORKSPACE startedOn_, bool swipe_, PHLMONITO
+     applyInputConfigOverrides();
+     g_pInputManager->unconstrainMouse();
+     realtimePreviewTimer = wl_event_loop_add_timer(g_pCompositor->m_wlEventLoop, realtimePreviewTimerCallback, this);
++    dragNavigationTimer = wl_event_loop_add_timer(g_pCompositor->m_wlEventLoop, dragNavigationTimerCallback, this);
+     scheduleMinimumPreviewFrame();
+ 
+     const auto WINDOWSMOVECONFIG = Config::animationTree()->getAnimationPropertyConfig("windowsMove");
+@@ -1134,14 +1151,17 @@ CScrollOverview::CScrollOverview(PHLWORKSPACE startedOn_, bool swipe_, PHLMONITO
+             return;
+         }
+ 
+-        const bool     LEFT_HANDED           = ScrollOverview::Config::getLeftHanded(pMonitor.lock());
++        const bool     RIGHT_DRAG_PAN        = ScrollOverview::Config::getRightDragPan(pMonitor.lock());
++        const bool     LEFT_HANDED           = !RIGHT_DRAG_PAN && ScrollOverview::Config::getLeftHanded(pMonitor.lock());
+         const uint32_t MAIN_BUTTON           = LEFT_HANDED ? BTN_RIGHT : BTN_LEFT;
+-        const bool     INVERT_DRAG_MODE      = ScrollOverview::Config::getDragMode(pMonitor.lock()) == 1;
+-        const uint32_t SECONDARY_DRAG_BUTTON = BTN_MIDDLE;
++        const bool     INVERT_DRAG_MODE      = !RIGHT_DRAG_PAN && ScrollOverview::Config::getDragMode(pMonitor.lock()) == 1;
++        const uint32_t SECONDARY_DRAG_BUTTON = RIGHT_DRAG_PAN ? BTN_RIGHT : BTN_MIDDLE;
+         const float    DRAGTHRESHOLD         = ScrollOverview::Config::getDragThreshold(pMonitor.lock()) * (pMonitor ? pMonitor->m_scale : 1.F);
+         const float    DRAGTHRESHOLDSQ       = std::pow(DRAGTHRESHOLD, 2);
+ 
+         lastMousePosLocal = getOverviewMousePosLocal(pMonitor.lock());
++        if (dragNavigationTimer)
++            wl_event_source_timer_update(dragNavigationTimer, 16);
+ 
+         const auto beginScrollingPanAtPoint = [&](const Vector2D& point) {
+             auto WORKSPACE = workspaceAtOverviewPoint(point);
+@@ -1253,6 +1273,15 @@ CScrollOverview::CScrollOverview(PHLWORKSPACE startedOn_, bool swipe_, PHLMONITO
+             (!g_pointerGrabOverview && INPUTOVERVIEW.get() != this && !FORWARDEDTOPLAYERRELEASE))
+             return;
+ 
++        const bool RIGHT_DRAG_PAN = ScrollOverview::Config::getRightDragPan(pMonitor.lock());
++        if (RIGHT_DRAG_PAN && event.button == BTN_MIDDLE) {
++            // Consume both states before forwarding to layers or acquiring /
++            // releasing the pointer grab. A middle release must not interrupt
++            // an ongoing right-button pan or left-button window drag.
++            info.cancelled = true;
++            return;
++        }
++
+         if (dragCancelledAwaitingRelease && event.state != WL_POINTER_BUTTON_STATE_RELEASED) {
+             info.cancelled = true;
+             return;
+@@ -1320,11 +1349,11 @@ CScrollOverview::CScrollOverview(PHLWORKSPACE startedOn_, bool swipe_, PHLMONITO
+         releaseTopLayerPointerButtons(event.timeMs);
+         g_pInputManager->releaseAllMouseButtons();
+ 
+-        const bool     LEFT_HANDED        = ScrollOverview::Config::getLeftHanded(pMonitor.lock());
++        const bool     LEFT_HANDED        = !RIGHT_DRAG_PAN && ScrollOverview::Config::getLeftHanded(pMonitor.lock());
+         const uint32_t MAIN_BUTTON        = LEFT_HANDED ? BTN_RIGHT : BTN_LEFT;
+-        const uint32_t RESIZE_BUTTON      = LEFT_HANDED ? BTN_LEFT : BTN_RIGHT;
+-        const bool     INVERT_DRAG_MODE   = ScrollOverview::Config::getDragMode(pMonitor.lock()) == 1;
+-        const uint32_t SECONDARY_DRAG_BUTTON = BTN_MIDDLE;
++        const uint32_t RESIZE_BUTTON      = RIGHT_DRAG_PAN ? 0 : (LEFT_HANDED ? BTN_LEFT : BTN_RIGHT);
++        const bool     INVERT_DRAG_MODE   = !RIGHT_DRAG_PAN && ScrollOverview::Config::getDragMode(pMonitor.lock()) == 1;
++        const uint32_t SECONDARY_DRAG_BUTTON = RIGHT_DRAG_PAN ? BTN_RIGHT : BTN_MIDDLE;
+         const auto     clearSubmapMouseClickPending = [&]() {
+             submapMouseClickPending = false;
+             submapMouseClickButton  = 0;
+@@ -1536,7 +1565,11 @@ CScrollOverview::CScrollOverview(PHLWORKSPACE startedOn_, bool swipe_, PHLMONITO
+ 
+         info.cancelled = true;
+ 
+-        const auto ACTION = e.axis == WL_POINTER_AXIS_HORIZONTAL_SCROLL ? ScrollOverview::Config::getHorizontalScrollAction(layout, pMonitor.lock()) :
++        const auto KEYBOARD = g_pSeatManager->m_keyboard.lock();
++        const bool SHIFT = KEYBOARD && bool(KEYBOARD->getModifiers() & Input::HL_MODIFIER_SHIFT);
++        const auto ACTION = SHIFT && ScrollOverview::Config::getValue<bool>("plugin:scrolloverview:input:shift_scroll_columns", pMonitor.lock()) ?
++            ScrollOverview::Config::EScrollAction::COLUMN :
++            e.axis == WL_POINTER_AXIS_HORIZONTAL_SCROLL ? ScrollOverview::Config::getHorizontalScrollAction(layout, pMonitor.lock()) :
+                                                                           ScrollOverview::Config::getVerticalScrollAction(layout, pMonitor.lock());
+ 
+         // mouse wheel: discrete stepping, throttled by scroll_event_delay so one notch is one step
+@@ -2121,7 +2154,11 @@ void CScrollOverview::rebuildWorkspaceImages() {
+ 
+     for (const auto& w : State::workspaceState()->workspaces()) {
+         const auto WORKSPACE = w.lock();
+-        if (!valid(WORKSPACE) || WORKSPACE->m_monitor != pMonitor || WORKSPACE->type() == Workspace::eWorkspaceType::SPECIAL)
++        if (!valid(WORKSPACE) || WORKSPACE->m_monitor != pMonitor)
++            continue;
++        const bool SPECIAL = WORKSPACE->type() == Workspace::eWorkspaceType::SPECIAL;
++        if ((SPECIAL && ScrollOverview::Config::getValue<bool>("plugin:scrolloverview:hide_special_workspaces", pMonitor.lock())) ||
++            (!SPECIAL && !WORKSPACE->numberedID() && ScrollOverview::Config::getValue<bool>("plugin:scrolloverview:hide_named_workspaces", pMonitor.lock())))
+             continue;
+ 
+         if (WORKSPACE == REMOVEDWORKSPACE)
+@@ -2733,6 +2770,90 @@ void CScrollOverview::selectHoveredWorkspace() {
+ }
+ 
+ bool CScrollOverview::windowDispatcherAction(const std::string& action) {
++    if (action == "focus-toggle") {
++        if (dragActiveWindow || scrollingPanPointerDown || resizePointerDown || viewportCurrentWorkspace >= images.size())
++            return false;
++        const auto CURRENT = getOverviewWindowToShow(closeOnWindow.lock());
++        const bool FLOATING = CURRENT && CURRENT->isFloating();
++        for (const auto& ref : images[viewportCurrentWorkspace]->windows) {
++            const auto WINDOW = getOverviewWindowToShow(ref.lock());
++            if (shouldShowOverviewWindow(WINDOW) && WINDOW->isFloating() != FLOATING)
++                return selectOverviewWindow(WINDOW, viewportCurrentWorkspace, true);
++        }
++        return false;
++    }
++    if (action == "prepare-workspace") {
++        if (dragActiveWindow || dragPendingPrimary || scrollingPanPointerDown || resizePointerDown ||
++            (PROTO::data && PROTO::data->dndActive()))
++            return false;
++        syncSelectionToViewport();
++        syncFocusedSelection();
++        return true;
++    }
++    if (action == "refresh") {
++        for (const auto& overview : scrollOverviews()) {
++            auto* scene = dynamic_cast<CScrollOverview*>(overview.get());
++            if (!scene || scene->closing)
++                continue;
++            scene->rememberedSelection.clear(); // numbered selectors may have changed
++            scene->rebuildPending = true;
++            scene->damage();
++        }
++        return true;
++    }
++    if (action == "close-selected" || action.starts_with("move-")) {
++        if (dragActiveWindow || dragPendingPrimary || scrollingPanPointerDown || resizePointerDown)
++            return false;
++        const auto WINDOW = getOverviewWindowToShow(closeOnWindow.lock());
++        if (!shouldShowOverviewWindow(WINDOW))
++            return false;
++        if (action == "close-selected") {
++            WINDOW->sendClose();
++            return true;
++        }
++        const auto TARGET = WINDOW->layoutTarget();
++        if (!TARGET)
++            return false;
++        const bool NEXT = action == "move-right" || action == "move-down";
++        const bool HORIZONTAL = action == "move-left" || action == "move-right";
++        const auto ALGO = overviewScrollingAlgorithmForWorkspace(WINDOW->m_workspace);
++        if (WINDOW->isFloating()) {
++            auto box = TARGET->position();
++            box.translate(HORIZONTAL ? Vector2D{NEXT ? 50.0 : -50.0, 0.0} : Vector2D{0.0, NEXT ? 50.0 : -50.0});
++            TARGET->setPositionGlobal(box);
++        } else if (ALGO) {
++            const auto DATA = ALGO->dataFor(TARGET);
++            const auto COLUMN = DATA ? DATA->column.lock() : nullptr;
++            if (!COLUMN)
++                return false;
++            if (HORIZONTAL) {
++                const auto INDEX = ALGO->m_scrollingData->idx(COLUMN);
++                const auto OTHER = INDEX + (NEXT ? 1 : -1);
++                if (OTHER >= 0 && OTHER < sc<int64_t>(ALGO->m_scrollingData->columns.size())) {
++                    syncFocusedSelection();
++                    if (!ALGO->layoutMsg(NEXT ? "swapcol r" : "swapcol l"))
++                        return false;
++                }
++            } else if ((NEXT && COLUMN->idx(TARGET) + 1 < COLUMN->targetDatas.size()) ||
++                       (!NEXT && COLUMN->idx(TARGET) > 0)) {
++                const auto ROW = COLUMN->idx(TARGET);
++                const auto NEIGHBOR = COLUMN->targetDatas[NEXT ? ROW + 1 : ROW - 1]->target.lock();
++                if (NEIGHBOR)
++                    ALGO->swapTargets(TARGET, NEIGHBOR);
++            } else {
++                const auto INDEX = viewportCurrentWorkspace;
++                if ((NEXT && INDEX + 1 >= images.size()) || (!NEXT && INDEX == 0))
++                    return true;
++                const auto DEST = images[NEXT ? INDEX + 1 : INDEX - 1]->pWorkspace;
++                Desktop::globalWindowController()->moveWindowToWorkspace(WINDOW, DEST);
++                moveViewportWorkspace(NEXT);
++                closeOnWindow = WINDOW;
++            }
++        }
++        rebuildPending = true;
++        damage();
++        return true;
++    }
+     lastMousePosLocal = getOverviewMousePosLocal(pMonitor.lock());
+ 
+     size_t    workspaceIdx = viewportCurrentWorkspace;
+@@ -3178,6 +3299,24 @@ void CScrollOverview::clearDragPending() {
+     dragOriginalOverviewHitbox  = CBox{};
+ }
+ 
++static double overviewDragEdgeVelocity(double point, double extent, double zone, double speed) {
++    if (!std::isfinite(point) || extent <= 0 || zone <= 0 || speed <= 0)
++        return 0;
++    zone = std::min(zone, extent * 0.5);
++    if (point < zone)
++        return -speed * std::pow(std::clamp((zone - point) / zone, 0.0, 1.0), 2);
++    if (point > extent - zone)
++        return speed * std::pow(std::clamp((point - extent + zone) / zone, 0.0, 1.0), 2);
++    return 0;
++}
++
++static int overviewRightDragWorkspaceSteps(double travel, double cancel, double velocity, double forceSpeed, bool recent, bool forever) {
++    if (!std::isfinite(travel) || !std::isfinite(velocity) || travel == 0)
++        return 0;
++    const bool COMMIT = std::abs(travel) >= cancel || (recent && std::abs(velocity) > forceSpeed);
++    return COMMIT ? (forever ? std::max(1, sc<int>(std::round(std::abs(travel)))) : 1) : 0;
++}
++
+ void CScrollOverview::updateScrollingPan() {
+     const auto MONITOR = pMonitor.lock();
+     if (!MONITOR)
+@@ -3191,12 +3330,40 @@ void CScrollOverview::updateScrollingPan() {
+     }
+ 
+     const auto DELTALOCAL = lastMousePosLocal - scrollingPanLastMouseLocal;
+-    const auto SAFEFACTOR = std::max(scale->value(), 0.01F) * std::max(MONITOR->m_scale, 0.01F);
+-    const auto DELTAGLOBAL = DELTALOCAL * (1.F / SAFEFACTOR);
++    const auto DELTAGLOBAL = DELTALOCAL * (1.F / std::max(MONITOR->m_scale, 0.01F));
++    const auto NOW = Time::steadyNow();
++    const double DT = std::max(0.001, std::chrono::duration<double>(NOW - scrollingPanLastTime).count());
++    scrollingPanLastTime = NOW;
++    scrollingPanTravel += DELTAGLOBAL;
++    if (!scrollingPanAxis && scrollingPanTravel.x * scrollingPanTravel.x + scrollingPanTravel.y * scrollingPanTravel.y >= 1.0)
++        scrollingPanAxis = std::abs(scrollingPanTravel.x) >= std::abs(scrollingPanTravel.y) ? 1 : 2;
++    scrollingPanLastMouseLocal = lastMousePosLocal;
++    if (scrollingPanAxis == 2) {
++        const double SCALE = ScrollOverview::Config::getValue<float>("plugin:scrolloverview:input:right_drag_workspace_scale", MONITOR);
++        const double DISTANCE = ScrollOverview::Config::getValue<int>("plugin:scrolloverview:input:right_drag_workspace_distance", MONITOR);
++        const bool FOREVER = ScrollOverview::Config::getValue<bool>("plugin:scrolloverview:input:right_drag_forever", MONITOR);
++        const double FRACTION = std::clamp(-scrollingPanTravel.y * SCALE / DISTANCE,
++            FOREVER ? -sc<double>(images.size()) : -1.0, FOREVER ? sc<double>(images.size()) : 1.0);
++        scrollingPanVelocity = -DELTAGLOBAL.y * SCALE / DT / 60.0;
++        trackpadWorkspaceFollowing = true;
++        const double PITCH = getWorkspaceLogicalPitch(MONITOR, scale->value(), layout);
++        const auto MIN = -sc<double>(viewportCurrentWorkspace);
++        const auto MAX = sc<double>(images.size()) - 1 - viewportCurrentWorkspace;
++        viewOffset->setValueAndWarp(axisOffsetVector(std::clamp(FRACTION, MIN, MAX) * PITCH, layout));
++        damage();
++        return;
++    }
++    const double COLUMN_SCALE = ScrollOverview::Config::getValue<float>("plugin:scrolloverview:input:right_drag_column_scale", MONITOR);
+     const auto DELTA       = ALGO->m_scrollingData->controller->isPrimaryHorizontal() ? DELTAGLOBAL.x : DELTAGLOBAL.y;
++    scrollingPanVelocity = -DELTA * COLUMN_SCALE / DT / 60.0;
++    if (ALGO->primaryViewportSize() > 0) {
++        const double WEIGHT = ScrollOverview::Config::getValue<float>("plugin:scrolloverview:input:right_drag_velocity_smooth", MONITOR);
++        const double INSTANT = -DELTA * COLUMN_SCALE / ALGO->primaryViewportSize() / DT;
++        scrollingPanColumnVelocity = scrollingPanColumnVelocity * (1.0 - WEIGHT) + INSTANT * WEIGHT;
++    }
+ 
+     if (std::abs(DELTA) > 0.01F) {
+-        const double OFFSET = ALGO->m_scrollingData->controller->getOffset() - DELTA;
++        const double OFFSET = ALGO->m_scrollingData->controller->getOffset() - DELTA * COLUMN_SCALE;
+         ALGO->m_scrollingData->controller->setOffset(OFFSET);
+         ALGO->m_scrollingData->lockedCameraOffset = OFFSET;
+         ALGO->m_scrollingData->recalculate(true);
+@@ -3212,6 +3379,13 @@ void CScrollOverview::beginScrollingPan(PHLWORKSPACE workspace) {
+         return;
+ 
+     scrollingPanPointerDown    = true;
++    scrollingPanTravel = {};
++    scrollingPanAxis = 0;
++    scrollingPanVelocity = 0;
++    scrollingPanColumnVelocity = 0;
++    scrollingPanStartedOffset = ALGO->normalizedTapeOffset();
++    scrollingPanStartedColumn = ALGO->currentColumn();
++    scrollingPanLastTime = Time::steadyNow();
+     scrollingPanWorkspace      = workspace;
+     scrollingPanLastMouseLocal = lastMousePosLocal;
+     scrollingPanInitialWindow  = getOverviewWindowToShow(closeOnWindow.lock());
+@@ -3229,19 +3403,142 @@ void CScrollOverview::beginScrollingPan(PHLWORKSPACE workspace) {
+ void CScrollOverview::endScrollingPan() {
+     const auto WORKSPACE = scrollingPanWorkspace.lock();
+     const auto ALGO      = overviewScrollingAlgorithmForWorkspace(WORKSPACE);
++    if (scrollingPanAxis == 2) {
++        const double SCALE = ScrollOverview::Config::getValue<float>("plugin:scrolloverview:input:right_drag_workspace_scale", pMonitor.lock());
++        const double DISTANCE = ScrollOverview::Config::getValue<int>("plugin:scrolloverview:input:right_drag_workspace_distance", pMonitor.lock());
++        const double CANCEL = ScrollOverview::Config::getValue<float>("plugin:scrolloverview:input:right_drag_cancel_ratio", pMonitor.lock());
++        const double SPEED = ScrollOverview::Config::getValue<float>("plugin:scrolloverview:input:right_drag_min_speed_to_force", pMonitor.lock());
++        const double TRAVEL = -scrollingPanTravel.y * SCALE / DISTANCE;
++        const bool RECENT = Time::steadyNow() - scrollingPanLastTime < std::chrono::milliseconds(100);
++        const bool FOREVER = ScrollOverview::Config::getValue<bool>("plugin:scrolloverview:input:right_drag_forever", pMonitor.lock());
++        const int STEPS = std::min(sc<int>(images.size()),
++            overviewRightDragWorkspaceSteps(TRAVEL, CANCEL, scrollingPanVelocity, SPEED, RECENT, FOREVER));
++        trackpadWorkspaceFollowing = false;
++        trackpadScrollAccum = 0;
++        *viewOffset = Vector2D{};
++        for (int i = 0; i < STEPS; ++i)
++            moveViewportWorkspace(TRAVEL > 0);
++    }
+     if (ALGO) {
+         const double OFFSET = clampOverviewScrollingOffset(ALGO, ALGO->m_scrollingData->controller->getOffset());
+         ALGO->m_scrollingData->controller->setOffset(OFFSET);
+         ALGO->m_scrollingData->lockedCameraOffset.reset();
+         ALGO->m_scrollingData->recalculate();
++        if (scrollingPanAxis != 2) {
++            const auto PREVIOUS = Desktop::focusState()->window();
++            const double DECAY = ScrollOverview::Config::getValue<float>("plugin:scrolloverview:input:right_drag_velocity_decay", pMonitor.lock());
++            const double MAX = ScrollOverview::Config::getValue<float>("plugin:scrolloverview:input:right_drag_max_projection", pMonitor.lock());
++            const double PROJECTION = std::clamp(scrollingPanColumnVelocity / DECAY, -MAX, MAX);
++            if (ScrollOverview::Config::getValue<bool>("plugin:scrolloverview:input:right_drag_snap_to_grid", pMonitor.lock())) {
++                const auto LANDED = ALGO->snapToProjectedOffset(ALGO->normalizedTapeOffset() + PROJECTION);
++                if (LANDED && LANDED == scrollingPanStartedColumn.lock())
++                    ALGO->moveTapeNormalized(ALGO->normalizedTapeOffset() - scrollingPanStartedOffset);
++                else if (LANDED)
++                    ALGO->focusColumn(LANDED);
++            } else if (ALGO->primaryViewportSize() > 0) {
++                const double PROJECTED = clampOverviewScrollingOffset(ALGO,
++                    ALGO->m_scrollingData->controller->getOffset() + PROJECTION * ALGO->primaryViewportSize());
++                ALGO->m_scrollingData->controller->setOffset(PROJECTED);
++                ALGO->m_scrollingData->recalculate();
++            }
++            const auto FOCUSED = Desktop::focusState()->window();
++            if (FOCUSED && FOCUSED->m_workspace == WORKSPACE)
++                scrollingPanInitialWindow = FOCUSED;
++            if (ScrollOverview::Config::getValue<bool>("plugin:scrolloverview:input:right_drag_snap_cursor", pMonitor.lock()) &&
++                FOCUSED && FOCUSED != PREVIOUS)
++                Pointer::pointerController()->warpTo(FOCUSED->middle());
++        }
+     }
+ 
+     scrollingPanPointerDown    = false;
+     scrollingPanLastMouseLocal = Vector2D{};
+     scrollingPanWorkspace.reset();
+ 
+-    focusMostVisibleScrollingWindow(WORKSPACE);
++    if (scrollingPanAxis != 2)
++        focusMostVisibleScrollingWindow(WORKSPACE);
+     scrollingPanInitialWindow.reset();
++    scrollingPanStartedColumn.reset();
++    scrollingPanAxis = 0;
++}
++
++int CScrollOverview::dragNavigationTimerCallback(void* data) {
++    auto* overview = static_cast<CScrollOverview*>(data);
++    if (!overview || overview->closing)
++        return 0;
++    overview->updateDragNavigation();
++    return 0;
++}
++
++void CScrollOverview::updateDragNavigation() {
++    const auto MONITOR = pMonitor.lock();
++    const bool EXTERNAL = PROTO::data && PROTO::data->dndActive();
++    const bool INTERNAL = dragActiveWindow && (!g_pointerGrabOverview || g_pointerGrabOverview == this);
++    if (closing || !MONITOR || (!EXTERNAL && !INTERNAL) ||
++        scrollOverviewAt(g_pInputManager->getMouseCoordsInternal()).get() != this) {
++        if (!closing && dragNavigationLastTick != Time::steady_tp{} && trackpadWorkspaceFollowing)
++            finishWorkspaceScrollFollow();
++        dragHoverWindow.reset();
++        dragHoverSince = {};
++        dragNavigationLastTick = {};
++        return;
++    }
++    const auto NOW = Time::steadyNow();
++    const double DT = dragNavigationLastTick == Time::steady_tp{} ? 0.016 :
++        std::clamp(std::chrono::duration<double>(NOW - dragNavigationLastTick).count(), 0.0, 0.05);
++    dragNavigationLastTick = NOW;
++    lastMousePosLocal = getOverviewMousePosLocal(MONITOR);
++    const auto POINT = lastMousePosLocal * (1.F / std::max(MONITOR->m_scale, 0.01F));
++    const double ZONE = ScrollOverview::Config::getValue<int>("plugin:scrolloverview:input:drag_edge_size", MONITOR);
++    const double SPEED = ScrollOverview::Config::getValue<float>("plugin:scrolloverview:input:drag_edge_speed", MONITOR);
++    const bool EDGES = ScrollOverview::Config::getValue<bool>("plugin:scrolloverview:input:drag_edge_navigation", MONITOR);
++    const double VX = EDGES ? overviewDragEdgeVelocity(POINT.x, MONITOR->m_size.x, ZONE, SPEED) : 0;
++    const double VY = EDGES ? overviewDragEdgeVelocity(POINT.y, MONITOR->m_size.y, ZONE, SPEED) : 0;
++    if (VX != 0 && viewportCurrentWorkspace < images.size()) {
++        const auto ALGO = overviewScrollingAlgorithmForWorkspace(images[viewportCurrentWorkspace]->pWorkspace);
++        if (ALGO && ALGO->m_scrollingData && ALGO->m_scrollingData->controller) {
++            auto& data = *ALGO->m_scrollingData;
++            const auto OFFSET = clampOverviewScrollingOffset(ALGO, data.controller->getOffset() + VX * DT);
++            data.controller->setOffset(OFFSET);
++            data.recalculate(true);
++            markBlurDirty();
++        }
++    }
++    if (VY != 0 && !images.empty()) {
++        trackpadWorkspaceFollowing = true;
++        const double PITCH = getWorkspaceLogicalPitch(MONITOR, scale->value(), layout);
++        const double OFFSET = axisValue(viewOffset->value(), layout) + VY * DT;
++        viewOffset->setValueAndWarp(axisOffsetVector(std::clamp(OFFSET,
++            -sc<double>(viewportCurrentWorkspace) * PITCH,
++            (sc<double>(images.size()) - 1 - viewportCurrentWorkspace) * PITCH), layout));
++        if (std::abs(OFFSET) >= PITCH * 0.5) {
++            finishWorkspaceScrollFollow();
++            if (pMonitor->m_activeWorkspace != startedOn)
++                onWorkspaceChange();
++        }
++    } else if (trackpadWorkspaceFollowing) {
++        finishWorkspaceScrollFollow();
++    }
++    // Never auto-close during internal rearrangement, or while edge-panning.
++    const bool HOVER = EXTERNAL && !INTERNAL && VX == 0 && VY == 0 &&
++        ScrollOverview::Config::getValue<bool>("plugin:scrolloverview:input:drag_hover_activate", MONITOR);
++    size_t index = viewportCurrentWorkspace;
++    const auto WINDOW = HOVER ? windowAtOverviewCursor(&index) : PHLWINDOW{};
++    if (!WINDOW || WINDOW != dragHoverWindow.lock()) {
++        dragHoverWindow = WINDOW;
++        dragHoverSince = WINDOW ? NOW : Time::steady_tp{};
++    }
++    if (WINDOW && NOW - dragHoverSince >= std::chrono::milliseconds(
++            ScrollOverview::Config::getValue<int>("plugin:scrolloverview:input:drag_hover_delay", MONITOR))) {
++        selectOverviewWindow(WINDOW, index, true);
++        closeAll();
++        return;
++    }
++    if (INTERNAL)
++        updateWindowDrag();
++    if (VX != 0 || VY != 0)
++        damage();
++    if (dragNavigationTimer)
++        wl_event_source_timer_update(dragNavigationTimer, 16);
+ }
+ 
+ void CScrollOverview::focusMostVisibleScrollingWindow(const PHLWORKSPACE& workspace) {
+@@ -3723,27 +4020,81 @@ bool CScrollOverview::scrollStepAllowed(uint32_t timeMs) {
+     return true;
+ }
+ 
++// A deliberate short swipe should not need to cross half of a wide column.
++// Only rescue a snap back to the starting column; never add an extra step to a
++// long swipe, wrap at an edge, or count back-and-forth jitter as net travel.
++static int64_t overviewColumnSwipeTarget(int64_t initial, int64_t snapped, int64_t count, double netDelta, float threshold) {
++    if (initial < 0 || initial >= count || snapped < 0 || snapped >= count || initial != snapped ||
++        threshold <= 0.F || !std::isfinite(netDelta) || std::abs(netDelta) < threshold)
++        return snapped;
++
++    const auto adjacent = initial + (netDelta > 0.0 ? 1 : -1);
++    return adjacent >= 0 && adjacent < count ? adjacent : snapped;
++}
++
+ void CScrollOverview::trackpadSwipeLayout(const PHLWORKSPACE target, const double delta) {
+     const float SCALE = std::max<float>(scale->value(), 0.01F);
+     const auto ALGO = overviewScrollingAlgorithmForWorkspace(target);
+ 
+-    if (!ALGO) {
++    if (!ALGO || !ALGO->m_scrollingData || !ALGO->m_scrollingData->controller) {
++        trackpadTapeFollowing = false;
++        trackpadTapeRawDelta = 0.0;
++        trackpadTapeWorkspace.reset();
++        trackpadTapeInitialColumn.reset();
+         return;
+     }
+ 
+-    // fingers lifted — snap to the nearest column
++    // Fingers lifted: keep native snapping unless the low commit threshold
++    // rescues a short swipe that would otherwise return to its starting column.
+     if (delta == 0.0) {
+-        if (trackpadTapeFollowing) {
++        if (trackpadTapeFollowing && trackpadTapeWorkspace.lock() == target) {
+             trackpadTapeFollowing = false;
+-            ALGO->snapToGrid();
+-            focusMostVisibleScrollingWindow(target);
++            const auto THRESHOLD = ScrollOverview::Config::getColumnSwipeThreshold(pMonitor.lock());
++            if (THRESHOLD > 0.F) {
++                auto& data = *ALGO->m_scrollingData;
++                auto chosen = ALGO->snapToProjectedOffset(ALGO->normalizedTapeOffset());
++                const auto INDEX = overviewColumnSwipeTarget(data.idx(trackpadTapeInitialColumn.lock()), data.idx(chosen),
++                    sc<int64_t>(data.columns.size()), trackpadTapeRawDelta, THRESHOLD);
++                if (INDEX >= 0 && INDEX < sc<int64_t>(data.columns.size()) && data.columns[INDEX] != chosen &&
++                    !data.columns[INDEX]->targetDatas.empty()) {
++                    chosen = data.columns[INDEX];
++                    data.centerOrFitCol(chosen);
++                    data.recalculate();
++                }
++                // Focus the selected column explicitly: the most-visible-window
++                // heuristic can otherwise keep the old focus for narrow columns.
++                if (chosen)
++                    ALGO->focusColumn(chosen);
++                else
++                    focusMostVisibleScrollingWindow(target);
++            } else {
++                ALGO->snapToGrid();
++                focusMostVisibleScrollingWindow(target);
++            }
+             damage();
+         }
++        trackpadTapeFollowing = false;
++        trackpadTapeRawDelta = 0.0;
++        trackpadTapeWorkspace.reset();
++        trackpadTapeInitialColumn.reset();
+         return;
+     }
+ 
++    if (!trackpadTapeFollowing || trackpadTapeWorkspace.lock() != target) {
++        trackpadTapeRawDelta = 0.0;
++        trackpadTapeWorkspace = target;
++        const auto SELECTED = getOverviewWindowToShow(closeOnWindow.lock());
++        const auto SELECTEDDATA = SELECTED && SELECTED->m_workspace == target && SELECTED->layoutTarget() ?
++            ALGO->dataFor(SELECTED->layoutTarget()) : nullptr;
++        auto initial = SELECTEDDATA ? SELECTEDDATA->column.lock() : ALGO->currentColumn();
++        if (!initial)
++            initial = ALGO->getColumnAtViewportCenter();
++        trackpadTapeInitialColumn = initial;
++    }
+     trackpadTapeFollowing = true;
+-    ALGO->moveTape(sc<float>(-1 * delta * ScrollOverview::Config::getTouchpadScrollFactor(pMonitor.lock()) / SCALE));
++    trackpadTapeRawDelta += delta;
++    ALGO->moveTape(sc<float>(-1 * delta * ScrollOverview::Config::getTouchpadScrollFactor(pMonitor.lock()) *
++        ScrollOverview::Config::getColumnScrollFactor(pMonitor.lock()) / SCALE));
+     damage();
+ }
+ 
+@@ -3938,6 +4289,18 @@ size_t CScrollOverview::dragWorkspaceIndex(PHLWINDOW window) const {
+ }
+ 
+ bool CScrollOverview::moveSelection(const std::string& direction) {
++    if (direction == "first" || direction == "last") {
++        if (viewportCurrentWorkspace >= images.size())
++            return false;
++        const auto ALGO = overviewScrollingAlgorithmForWorkspace(images[viewportCurrentWorkspace]->pWorkspace);
++        if (!ALGO || ALGO->m_scrollingData->columns.empty())
++            return false;
++        ALGO->focusColumn(direction == "first" ? ALGO->m_scrollingData->columns.front() : ALGO->m_scrollingData->columns.back());
++        closeOnWindow = Desktop::focusState()->window();
++        rememberSelection(closeOnWindow.lock());
++        damage();
++        return true;
++    }
+     const bool MOVINGLEFT  = direction == "left";
+     const bool MOVINGRIGHT = direction == "right";
+     const bool MOVINGUP    = direction == "up";
+@@ -5491,7 +5854,8 @@ void CScrollOverview::onPreRender() {
+     if (closing)
+         return;
+ 
+-    if (pMonitor && pMonitor->m_activeWorkspace && pMonitor->m_activeWorkspace != startedOn) {
++    const auto ACTIVEWORKSPACE = pMonitor ? (pMonitor->m_activeSpecialWorkspace ? pMonitor->m_activeSpecialWorkspace : pMonitor->m_activeWorkspace) : PHLWORKSPACE{};
++    if (ACTIVEWORKSPACE && ACTIVEWORKSPACE != startedOn) {
+         rebuildPending = false;
+         markBlurDirty();
+         onWorkspaceChange();
+@@ -5513,7 +5877,7 @@ void CScrollOverview::onPreRender() {
+ }
+ 
+ void CScrollOverview::onWorkspaceChange() {
+-    if (!pMonitor || !pMonitor->m_activeWorkspace)
++    if (!pMonitor || (!pMonitor->m_activeWorkspace && !pMonitor->m_activeSpecialWorkspace))
+         return;
+ 
+     const auto previousActiveIdx = activeWorkspaceIndex();
+@@ -5537,7 +5901,7 @@ void CScrollOverview::onWorkspaceChange() {
+         previousWorkspaceOffsets.emplace(Workspace::selector(*image->pWorkspace), workspaceOverviewLogicalOffset(i, previousActiveIdx, PREVIOUSLOGICALPITCH));
+     }
+ 
+-    const auto NEWWORKSPACE      = pMonitor->m_activeWorkspace;
++    const auto NEWWORKSPACE      = pMonitor->m_activeSpecialWorkspace ? pMonitor->m_activeSpecialWorkspace : pMonitor->m_activeWorkspace;
+     const bool INSERTEDWORKSPACE         = std::find(previousWorkspaceKeys.begin(), previousWorkspaceKeys.end(), Workspace::selector(*NEWWORKSPACE)) == previousWorkspaceKeys.end();
+     const auto REQUESTEDREMOVEDWORKSPACE = pendingRemovedWorkspace.lock();
+     const bool SHOULDREMOVEPREVIOUSWORKSPACE = previousStartedOn && previousStartedOn != NEWWORKSPACE && previousStartedOn->type() == Workspace::eWorkspaceType::NORMAL &&
+diff --git a/scrollOverview.hpp b/scrollOverview.hpp
+index c2524e3..fcb3bcb 100644
+--- a/scrollOverview.hpp
++++ b/scrollOverview.hpp
+@@ -22,6 +22,9 @@
+ 
+ class CMonitor;
+ struct wl_event_source;
++namespace Layout::Tiled {
++    struct SColumnData;
++}
+ 
+ class CScrollOverview : public IOverview {
+   public:
+@@ -141,6 +144,8 @@ class CScrollOverview : public IOverview {
+     void      updateScrollingPan();
+     void      beginScrollingPan(PHLWORKSPACE workspace);
+     void      endScrollingPan();
++    void      updateDragNavigation();
++    static int dragNavigationTimerCallback(void* data);
+     void      focusMostVisibleScrollingWindow(const PHLWORKSPACE& workspace);
+     bool      moveScrollingColumnSelection(bool next);
+     bool      moveScrollingStackSelection(bool next);
+@@ -212,6 +217,17 @@ class CScrollOverview : public IOverview {
+     std::vector<WP<IOverview>>                    dragTransientOverviews;
+     PHLWORKSPACEREF                  scrollingPanWorkspace;
+     PHLWINDOWREF                     scrollingPanInitialWindow;
++    PHLWINDOWREF                     dragHoverWindow;
++    Time::steady_tp                  dragHoverSince = {};
++    Time::steady_tp                  dragNavigationLastTick = {};
++    Time::steady_tp                  scrollingPanLastTime = {};
++    Vector2D                         scrollingPanTravel = {};
++    double                           scrollingPanVelocity = 0;
++    double                           scrollingPanColumnVelocity = 0;
++    double                           scrollingPanStartedOffset = 0;
++    WP<Layout::Tiled::SColumnData>    scrollingPanStartedColumn;
++    int                              scrollingPanAxis = 0; // 0 undecided, 1 columns, 2 workspaces
++    wl_event_source*                 dragNavigationTimer = nullptr;
+     PHLWINDOWREF                     resizePendingWindow;
+     PHLWINDOWREF                     resizeActiveWindow;
+ 
+@@ -330,6 +346,9 @@ class CScrollOverview : public IOverview {
+     double                           trackpadScrollAccum          = 0.0;
+     bool                             trackpadWorkspaceFollowing   = false;
+     bool                             trackpadTapeFollowing        = false;
++    double                           trackpadTapeRawDelta         = 0.0;
++    PHLWORKSPACEREF                   trackpadTapeWorkspace;
++    WP<Layout::Tiled::SColumnData>    trackpadTapeInitialColumn;
+     bool                             trackpadGestureSettlePending = false;
+     double                           trackpadGestureSettleOffset  = 0.0;
+ 

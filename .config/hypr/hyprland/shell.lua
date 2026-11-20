@@ -2,7 +2,6 @@
 local M = {}
 local commands = {
 	dms = {
-		overview = "dms ipc call hypr toggleOverview",
 		power_menu = "dms ipc call powermenu toggle",
 		notifications = "dms ipc call notifications toggle",
 		dismiss = "dms ipc call notifications dismiss",

@@ -224,6 +224,9 @@
             }
          }
       },
+      "@rithvikvibhu/store.vicinae.arch-packages": {
+         "enabled": false
+      },
       "@sovereign/store.vicinae.hypr-keybinds": {
          "preferences": {
             "keybindsConfigPath": "/home/lufimio/.config/hypr/hypr/keybinds.conf"

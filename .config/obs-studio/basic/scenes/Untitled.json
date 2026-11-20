@@ -1,7 +1,7 @@
 {
     "name": "Untitled",
     "DesktopAudioDevice1": {
-        "prev_ver": 537001984,
+        "prev_ver": 553648129,
         "name": "Desktop Audio",
         "uuid": "c5934800-3037-4017-8072-9c261da3deed",
         "id": "pulse_output_capture",
@@ -23,16 +23,19 @@
         "hotkeys": {
             "libobs.mute": [],
             "libobs.unmute": [],
+            "libobs.monitor-on": [],
+            "libobs.monitor-off": [],
             "libobs.push-to-mute": [],
             "libobs.push-to-talk": []
         },
         "deinterlace_mode": 0,
         "deinterlace_field_order": 0,
         "monitoring_type": 0,
+        "monitoring_enabled": false,
         "private_settings": {}
     },
     "AuxAudioDevice1": {
-        "prev_ver": 537001984,
+        "prev_ver": 553648129,
         "name": "Mic/Aux",
         "uuid": "86efa205-60aa-4c14-8bff-d14c4f1a3f69",
         "id": "pulse_input_capture",
@@ -46,7 +49,7 @@
         "volume": 0.2692508399486542,
         "balance": 0.5,
         "enabled": true,
-        "muted": false,
+        "muted": true,
         "push-to-mute": false,
         "push-to-mute-delay": 0,
         "push-to-talk": false,
@@ -64,17 +67,20 @@
                     "key": "OBS_KEY_M"
                 }
             ],
+            "libobs.monitor-on": [],
+            "libobs.monitor-off": [],
             "libobs.push-to-mute": [],
             "libobs.push-to-talk": []
         },
         "deinterlace_mode": 0,
         "deinterlace_field_order": 0,
         "monitoring_type": 0,
+        "monitoring_enabled": false,
         "private_settings": {}
     },
     "sources": [
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Chat External",
             "uuid": "37907bf0-6d12-47a8-a5db-5a0555c86b6e",
             "id": "browser_source",
@@ -98,6 +104,8 @@
             "hotkeys": {
                 "libobs.mute": [],
                 "libobs.unmute": [],
+                "libobs.monitor-on": [],
+                "libobs.monitor-off": [],
                 "libobs.push-to-mute": [],
                 "libobs.push-to-talk": [],
                 "ObsBrowser.Refresh": []
@@ -105,17 +113,18 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "VTuber Model",
             "uuid": "df24d076-a1da-4643-8ec5-ac600242fefe",
             "id": "pipewire-screen-capture-source",
             "versioned_id": "pipewire-screen-capture-source",
             "settings": {
                 "ShowCursor": false,
-                "RestoreToken": "7dd38278-55ae-42dd-aec0-2325a5354d12"
+                "RestoreToken": "u8ZU0Foh_4RPjuwIBKkWEQ"
             },
             "mixers": 0,
             "sync": 0,
@@ -132,10 +141,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 537001984,
+                    "prev_ver": 553648129,
                     "name": "Chroma Key",
                     "uuid": "0b62668c-6f79-46f8-96b4-99e0df4ffc1b",
                     "id": "chroma_key_filter",
@@ -161,18 +171,19 @@
                     "deinterlace_mode": 0,
                     "deinterlace_field_order": 0,
                     "monitoring_type": 0,
+                    "monitoring_enabled": false,
                     "private_settings": {}
                 }
             ]
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Screen Capture (PipeWire)",
             "uuid": "ff99a1f4-ee3c-4223-aef7-38488a9bc072",
             "id": "pipewire-screen-capture-source",
             "versioned_id": "pipewire-screen-capture-source",
             "settings": {
-                "RestoreToken": "99cc6403-822b-456d-b9df-fb8d56f9b6c4"
+                "RestoreToken": "2joC9YxgwlCriyxBc6Bk9A"
             },
             "mixers": 0,
             "sync": 0,
@@ -189,10 +200,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Title",
             "uuid": "e78af5b7-7687-4da8-9b07-0b60ec9d8989",
             "id": "text_ft2_source",
@@ -218,10 +230,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Artist",
             "uuid": "29dadb0f-eed8-4028-82e0-b2758b0ab530",
             "id": "text_ft2_source",
@@ -254,10 +267,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Album",
             "uuid": "6f1ea687-68c1-4d9d-bb96-80a5cbee3232",
             "id": "text_ft2_source",
@@ -283,10 +297,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Cover",
             "uuid": "2b369c4f-db36-40d4-859a-7cf3335d3ae0",
             "id": "image_source",
@@ -309,10 +324,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Tuna progress bar",
             "uuid": "6802c92a-7f36-4a7c-889c-431138255e43",
             "id": "progress_bar",
@@ -335,10 +351,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Progress",
             "uuid": "f6a98f54-b3e4-4c54-8a3b-03eb4c29efbd",
             "id": "text_ft2_source",
@@ -362,10 +379,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Color Source",
             "uuid": "74f33f6d-50d1-4dba-8217-7bb65dbc5a49",
             "id": "color_source",
@@ -390,10 +408,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Seperator",
             "uuid": "1b3e7c37-bea2-4a6a-a6d0-d3046e35952e",
             "id": "color_source",
@@ -419,10 +438,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Game Capture",
             "uuid": "0ee7b319-8e36-43cd-b7b5-83342f25cecb",
             "id": "vkcapture-source",
@@ -446,10 +466,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "MPD",
             "uuid": "2fd66bad-3e41-44d5-9e38-99c329328ee3",
             "id": "pipewire_audio_application_capture",
@@ -463,7 +484,7 @@
             "volume": 0.008073676377534866,
             "balance": 0.5,
             "enabled": true,
-            "muted": false,
+            "muted": true,
             "push-to-mute": false,
             "push-to-mute-delay": 0,
             "push-to-talk": false,
@@ -471,16 +492,19 @@
             "hotkeys": {
                 "libobs.mute": [],
                 "libobs.unmute": [],
+                "libobs.monitor-on": [],
+                "libobs.monitor-off": [],
                 "libobs.push-to-mute": [],
                 "libobs.push-to-talk": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Games",
             "uuid": "d810b465-0152-4cd4-8761-91573faab7e6",
             "id": "pipewire_audio_application_capture",
@@ -504,7 +528,7 @@
             "volume": 0.39277055859565735,
             "balance": 0.5,
             "enabled": true,
-            "muted": false,
+            "muted": true,
             "push-to-mute": false,
             "push-to-mute-delay": 0,
             "push-to-talk": false,
@@ -512,16 +536,19 @@
             "hotkeys": {
                 "libobs.mute": [],
                 "libobs.unmute": [],
+                "libobs.monitor-on": [],
+                "libobs.monitor-off": [],
                 "libobs.push-to-mute": [],
                 "libobs.push-to-talk": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "LiveSplit One",
             "uuid": "c95a6594-2b04-4b83-a50c-0a47929ed15b",
             "id": "livesplit-one",
@@ -597,16 +624,17 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "LiveSplit One Druid",
             "uuid": "f4f0ce48-a48c-4099-817b-95aa08351358",
             "id": "pipewire-screen-capture-source",
             "versioned_id": "pipewire-screen-capture-source",
             "settings": {
-                "RestoreToken": "903dc5b6-8341-4740-a60b-66bf66901cc8"
+                "RestoreToken": "CeVzhK6lK0iaYOrE2At7WA"
             },
             "mixers": 0,
             "sync": 0,
@@ -623,10 +651,11 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Main Monitor",
             "uuid": "272c60b5-3e46-40b6-9511-3d229404b54b",
             "id": "scene",
@@ -638,7 +667,7 @@
                     {
                         "name": "Screen Capture (PipeWire)",
                         "source_uuid": "ff99a1f4-ee3c-4223-aef7-38488a9bc072",
-                        "visible": false,
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
@@ -693,7 +722,7 @@
                     {
                         "name": "Game Capture",
                         "source_uuid": "0ee7b319-8e36-43cd-b7b5-83342f25cecb",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
@@ -803,7 +832,7 @@
                     {
                         "name": "LiveSplit One Druid",
                         "source_uuid": "f4f0ce48-a48c-4099-817b-95aa08351358",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
@@ -825,7 +854,7 @@
                             "y": 0.0
                         },
                         "pos_rel": {
-                            "x": 1.1160492897033691,
+                            "x": 1.1157407760620117,
                             "y": -1.0
                         },
                         "scale": {
@@ -1664,11 +1693,12 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Vtuber",
             "uuid": "6a1062c4-7e1f-4410-9f9f-4cdf91d8fcff",
             "id": "scene",
@@ -1753,13 +1783,14 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
             "private_settings": {}
         }
     ],
     "groups": [
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Music",
             "uuid": "fc5c5b6e-1aa1-4b06-8c31-20817e3cf942",
             "id": "group",
@@ -1796,7 +1827,7 @@
                         },
                         "pos_rel": {
                             "x": 0.9928150177001953,
-                            "y": -0.9714282751083374
+                            "y": -0.9714283347129822
                         },
                         "scale": {
                             "x": 1.3109759092330933,
@@ -1851,7 +1882,7 @@
                         },
                         "pos_rel": {
                             "x": 6.3108110427856445,
-                            "y": 0.5056161284446716
+                            "y": 0.5056161880493164
                         },
                         "scale": {
                             "x": 0.24156053364276886,
@@ -1906,7 +1937,7 @@
                         },
                         "pos_rel": {
                             "x": 2.774886131286621,
-                            "y": 0.536383330821991
+                            "y": 0.5363832712173462
                         },
                         "scale": {
                             "x": 6.201560020446777,
@@ -1961,7 +1992,7 @@
                         },
                         "pos_rel": {
                             "x": 2.774074077606201,
-                            "y": 0.11375682801008224
+                            "y": 0.11375689506530762
                         },
                         "scale": {
                             "x": 0.5817989706993103,
@@ -2016,7 +2047,7 @@
                         },
                         "pos_rel": {
                             "x": 2.774886131286621,
-                            "y": -0.3445701003074646
+                            "y": -0.3445701599121094
                         },
                         "scale": {
                             "x": 0.7807426452636719,
@@ -2181,7 +2212,7 @@
                         },
                         "pos_rel": {
                             "x": 0.39259257912635803,
-                            "y": -0.11481482535600662
+                            "y": -0.11481481790542603
                         },
                         "scale": {
                             "x": 2.109375,
@@ -2244,11 +2275,12 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
             "private_settings": {}
         },
         {
-            "prev_ver": 537001984,
+            "prev_ver": 553648129,
             "name": "Audio Capture",
             "uuid": "7644469e-e64b-4424-a41d-b5e55d3891a0",
             "id": "group",
@@ -2391,6 +2423,7 @@
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
+            "monitoring_enabled": false,
             "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
             "private_settings": {}
         }
@@ -2435,7 +2468,7 @@
     "saved_projectors": [],
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -23,
+    "scaling_level": -24,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {

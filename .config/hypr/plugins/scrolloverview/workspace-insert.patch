@@ -1,0 +1,74 @@
+--- a/Config.cpp
++++ b/Config.cpp
+@@ -408,6 +408,7 @@
+     addValue(makeShared<CIntValue>("plugin:scrolloverview:workspace_gap", "gap between overview workspaces", 0, SIntValueOptions{.min = 0}));
+     addValue(makeShared<CStringValue>("plugin:scrolloverview:layout", "overview layout", Hyprlang::STRING{"vertical"}));
+     addValue(makeShared<CBoolValue>("plugin:scrolloverview:cross_monitor_drag", "enable cross-monitor window dragging", false));
++    addValue(makeShared<CBoolValue>("plugin:scrolloverview:insert_workspaces", "drop windows between numbered workspace cards to insert a workspace", false));
+     addValue(makeShared<CBoolValue>("plugin:scrolloverview:hide_special_workspaces", "hide special workspaces", true));
+     addValue(makeShared<CBoolValue>("plugin:scrolloverview:hide_named_workspaces", "hide named normal workspaces", false));
+     addValue(makeShared<CBoolValue>("plugin:scrolloverview:input:shift_scroll_columns", "Shift wheel and touchpad scroll columns", true));
+--- a/main.cpp
++++ b/main.cpp
+@@ -29,6 +29,9 @@
+ #include "OverviewGesture.hpp"
+ #include "OverviewOpen.hpp"
+ #include "Window.hpp"
++
++void registerWorkspaceInsertEvent();
++void unregisterWorkspaceInsertEvent();
+ 
+ // Methods
+ static CFunctionHook* g_pScrollRenderWorkspaceHook = nullptr;
+@@ -714,6 +717,7 @@
+     ScrollOverview::Config::registerDispatcher("window", ::onWindowDispatcher);
+     ScrollOverview::Config::registerGesture(::onRegisterOverviewGesture, ::overviewGestureKeyword);
+     ScrollOverview::Config::registerConfig();
++    registerWorkspaceInsertEvent();
+ 
+     return {"scrolloverview", "A plugin for an overview", "Vaxry, yayuuu", SCROLLOVERVIEW_VERSION};
+ }
+@@ -722,6 +726,7 @@
+     Render::IHyprRenderer::currentPass(g_pHyprRenderer->context()).removeAllOfType("CScrollOverviewPassElement");
+ 
+     g_unloading = true;
++    unregisterWorkspaceInsertEvent();
+     g_nativeDragMouseMoveHook.reset();
+     g_configReloadHook.reset();
+     if (g_pScrollChangeWorkspaceHook)
+--- a/scrollOverview.hpp
++++ b/scrollOverview.hpp
+@@ -132,6 +132,9 @@
+     void                        ensureDragDestinationOverview();
+     void                        updateWindowDrag();
+     void                        endWindowDrag();
++    std::optional<std::pair<PHLWORKSPACE, CBox>> workspaceInsertionTarget(const Vector2D& point) const;
++    void renderWorkspaceInsertionTarget();
++    bool tryInsertWorkspaceDrop();
+     void                        finishWindowDragSession(const SP<IOverview>& persistentDestination = {});
+     void                        cancelWindowDrag();
+     CBox      resizedWindowBox() const;
+--- a/scrollOverview.cpp
++++ b/scrollOverview.cpp
+@@ -3741,3 +3741,5 @@
++#include "workspace-insert.inc"
++
+ void CScrollOverview::endWindowDrag() {
+     SP<IOverview> persistentDestination;
+     auto          finishDragSession = Hyprutils::Utils::CScopeGuard([this, &persistentDestination] { finishWindowDragSession(persistentDestination); });
+@@ -3744,6 +3746,8 @@
+ 
+     ensureDragDestinationOverview();
+ 
++    if (tryInsertWorkspaceDrop())
++        return;
+     const auto WINDOW = getOverviewWindowToShow(dragActiveWindow.lock());
+     const auto TARGET = WINDOW ? WINDOW->layoutTarget() : nullptr;
+     const auto SPACE  = TARGET ? TARGET->space() : nullptr;
+@@ -6045,5 +6049,6 @@
+     }
+ 
++    renderWorkspaceInsertionTarget();
+     renderDraggedWindow(MONITOR, ACTIVEIDX, PITCH, SCALE, NOW);
+     renderPinnedFloatingWindows(MONITOR, SCALE, NOW);
+ 

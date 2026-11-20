@@ -1220,5 +1220,17 @@
   ],
   "barInsetPaddingSyncAll": true,
   "configVersion": 42,
-  "terminalPalette": "medium"
+  "terminalPalette": "medium",
+  "keybindsFloatingWindow": true,
+  "hyprlandWindowOpacity": 100,
+  "hyprlandTilingLayout": "",
+  "hyprlandGlowEnabled": false,
+  "hyprlandWobbleEnabled": false,
+  "hyprlandMotionBlurEnabled": false,
+  "hyprlandGroupbarBlur": false,
+  "blurStrength": 0,
+  "floatingWindowSyncGlobal": true,
+  "floatingWindowTransparency": 0.7,
+  "floatingWindowForegroundTransparency": 0.8,
+  "hyprlandScrollingColumnWidth": 100
 }

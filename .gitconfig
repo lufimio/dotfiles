@@ -18,6 +18,7 @@
 	process = git-lfs filter-process
 [core]
 	editor = vim
+	excludesfile = /home/lufimio/.gitignore.global
 [sendemail]
 	from = praful.adiga@gmail.com
 	smtpserver = smtp.gmail.com

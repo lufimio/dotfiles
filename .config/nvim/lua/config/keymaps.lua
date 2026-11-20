@@ -23,3 +23,5 @@ map({ "n", "v" }, "<leader>y", '"+y', { desc = "Copy to system clipboard" })
 map("n", "<leader>Y", '"+Y', { desc = "Copy to system clipboard" })
 
 map({ "n", "v" }, "<A-d>", '"_d', { desc = "Delete to null register" })
+
+require("config.autosave").setup()

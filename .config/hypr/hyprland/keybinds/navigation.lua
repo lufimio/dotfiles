@@ -1,0 +1,30 @@
+local nav = require("hyprland.navigation")
+
+-- Horizontal focus and column movement.
+hl.bind("SUPER + Left", function() nav.focus_horizontal("left") end, { description = "Focus Left", repeating = true })
+hl.bind("SUPER + Right", function() nav.focus_horizontal("right") end, { description = "Focus Right", repeating = true })
+hl.bind("SUPER + H", function() nav.focus_horizontal("left") end, { description = "Focus Left", repeating = true })
+hl.bind("SUPER + L", function() nav.focus_horizontal("right") end, { description = "Focus Right", repeating = true })
+hl.bind("SUPER + CTRL + Left", function() nav.focus_horizontal("left") end, { description = "Focus Left", repeating = true })
+hl.bind("SUPER + CTRL + Right", function() nav.focus_horizontal("right") end, { description = "Focus Right", repeating = true })
+hl.bind("SUPER + CTRL + H", function() nav.focus_horizontal("left") end, { description = "Focus Left", repeating = true })
+hl.bind("SUPER + CTRL + L", function() nav.focus_horizontal("right") end, { description = "Focus Right", repeating = true })
+hl.bind("SUPER + SHIFT + Left", function() nav.move_horizontal("left") end, { description = "Move Column or Floating Window Left", repeating = true })
+hl.bind("SUPER + SHIFT + Right", function() nav.move_horizontal("right") end, { description = "Move Column or Floating Window Right", repeating = true })
+hl.bind("SUPER + SHIFT + H", function() nav.move_horizontal("left") end, { description = "Move Column or Floating Window Left", repeating = true })
+hl.bind("SUPER + SHIFT + L", function() nav.move_horizontal("right") end, { description = "Move Column or Floating Window Right", repeating = true })
+
+-- Vertical actions stay in the stack first, then cross a workspace boundary.
+hl.bind("SUPER + Up", function() nav.vertical("up") end, { description = "Focus Window or Workspace Up", repeating = true })
+hl.bind("SUPER + Down", function() nav.vertical("down") end, { description = "Focus Window or Workspace Down", repeating = true })
+hl.bind("SUPER + K", function() nav.vertical("up") end, { description = "Focus Window or Workspace Up", repeating = true })
+hl.bind("SUPER + J", function() nav.vertical("down") end, { description = "Focus Window or Workspace Down", repeating = true })
+hl.bind("SUPER + SHIFT + Up", function() nav.vertical("up", true) end, { description = "Move Window Up (Floating or Tiled/Workspace)", repeating = true })
+hl.bind("SUPER + SHIFT + Down", function() nav.vertical("down", true) end, { description = "Move Window Down (Floating or Tiled/Workspace)", repeating = true })
+hl.bind("SUPER + SHIFT + K", function() nav.vertical("up", true) end, { description = "Move Window Up (Floating or Tiled/Workspace)", repeating = true })
+hl.bind("SUPER + SHIFT + J", function() nav.vertical("down", true) end, { description = "Move Window Down (Floating or Tiled/Workspace)", repeating = true })
+
+hl.bind("SUPER + Home", function() nav.column_edge("l") end, { description = "First Column", repeating = true })
+hl.bind("SUPER + End", function() nav.column_edge("r") end, { description = "Last Column", repeating = true })
+hl.bind("SUPER + CTRL + Home", function() nav.column_edge("l", true) end, { description = "Move Column to First", repeating = true })
+hl.bind("SUPER + CTRL + End", function() nav.column_edge("r", true) end, { description = "Move Column to Last", repeating = true })

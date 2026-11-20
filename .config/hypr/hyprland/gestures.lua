@@ -33,13 +33,19 @@ function M.workspace_fallback(callback)
 			total, absolute, samples = total + delta, absolute + math.abs(delta), samples + 1
 		end,
 		finish = function(event)
-			if event.cancelled or origin ~= hl.get_active_workspace() or math.abs(total) < 2 then return end
+			if event.cancelled or origin ~= hl.get_active_workspace() or math.abs(total) < 2 then
+				return
+			end
 			local threshold = (hl.get_config("gestures.workspace_swipe_distance") or 360)
 				* (hl.get_config("gestures.workspace_swipe_cancel_ratio") or 0.2)
 			local force = hl.get_config("gestures.workspace_swipe_min_speed_to_force") or 8
-			if math.abs(total) < threshold and not (force > 0 and samples > 0 and absolute / samples >= force) then return end
+			if math.abs(total) < threshold and not (force > 0 and samples > 0 and absolute / samples >= force) then
+				return
+			end
 			local inverted = hl.get_config("gestures.workspace_swipe_invert")
-			if inverted == nil then inverted = true end
+			if inverted == nil then
+				inverted = true
+			end
 			local delta = inverted and -total or total
 			callback(delta < 0 and "up" or "down")
 		end,

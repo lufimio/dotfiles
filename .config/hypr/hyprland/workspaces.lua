@@ -4,6 +4,7 @@ local M = {}
 local gestures = require("hyprland.gestures")
 local mapping, rule_pool, gesture_modes = {}, {}, {}
 local syncing, suspended, pending = false, false, nil
+local overview_edit = false -- Scoped only to explicit, plugin-preflighted actions.
 local LIMIT = 2147483647
 local cache = (os.getenv("XDG_CACHE_HOME") or (os.getenv("HOME") .. "/.cache")) .. "/hypr-niri-workspaces.tsv"
 
@@ -30,6 +31,7 @@ local function numbered(workspace)
 end
 
 local function overview_owns_input()
+	if overview_edit then return false end
 	-- Overview plugins clear drag ownership before leaving their submap. Never change
 	-- IDs while its scrolling scene can still accept a positional drop.
 	local submap = hl.get_current_submap()
@@ -103,10 +105,78 @@ local function disable_rules()
 	end
 end
 
-local function install_rules()
+local function occupied_slots()
+	local occupied = {}
+	for _, window in ipairs(hl.get_windows()) do
+		local workspace = window.workspace
+		if window.mapped and numbered(workspace) and workspace.monitor then
+			local name = workspace.monitor.name
+			local number = local_number(name, workspace.id)
+			if number then
+				occupied[name] = occupied[name] or {}
+				occupied[name][number] = true
+			end
+		end
+	end
+	return occupied
+end
+
+-- First stop retaining empty interior workspaces; Hyprland removes them once
+-- inactive and no longer animating. Compact their dictionary slots only after
+-- native removal, so no live workspace is destroyed or renumbered out of its way.
+local function prune_empty_interior()
+	for name, occupied in pairs(occupied_slots()) do
+		local first, last = LIMIT, 0
+		for number in pairs(occupied) do
+			first, last = math.min(first, number), math.max(last, number)
+		end
+		local slots, compacted, removed = {}, {}, 0
+		for number in pairs(mapping[name]) do slots[#slots + 1] = number end
+		table.sort(slots)
+		for _, number in ipairs(slots) do
+			local id = mapping[name][number]
+			if number > first and number < last and not occupied[number] and not hl.get_workspace(id) then
+				removed = removed + 1
+			else
+				compacted[number - removed] = id
+			end
+		end
+		mapping[name] = compacted
+	end
+end
+
+-- Keep empty destinations only outside the occupied run, not between occupied
+-- workspaces. Never expand from an empty workspace (no infinite tail).
+local function reserve_empty_neighbors()
+	local neighbors = {}
+	local used = used_ids()
+	for name, numbers in pairs(occupied_slots()) do
+		neighbors[name] = {}
+		local first, last = LIMIT, 0
+		for number in pairs(numbers) do
+			first, last = math.min(first, number), math.max(last, number)
+		end
+		for _, adjacent in ipairs({ first - 1, last + 1 }) do
+			if adjacent >= 1 and adjacent <= LIMIT then
+				neighbors[name][adjacent] = true
+				if not mapping[name][adjacent] then
+					local id = free_id(used)
+					mapping[name][adjacent], used[id] = id, true
+				end
+			end
+		end
+	end
+	return neighbors
+end
+
+local function install_rules(neighbors)
 	local desired = {}
 	for name, numbers in pairs(mapping) do
-		for _, id in pairs(numbers) do desired[id .. "\t" .. name] = { id = id, monitor = name } end
+		for number, id in pairs(numbers) do
+			local persistent = neighbors[name] and neighbors[name][number] == true or false
+			local key = id .. "\t" .. name .. "\t" .. tostring(persistent)
+			desired[key] = { id = id, monitor = name, persistent = persistent }
+		end
 	end
 	for key, rule in pairs(rule_pool) do
 		if not desired[key] and rule.handle:is_enabled() then rule.handle:set_enabled(false) end
@@ -114,7 +184,9 @@ local function install_rules()
 	for key, spec in pairs(desired) do
 		local rule = rule_pool[key]
 		if not rule then
-			rule_pool[key] = { handle = hl.workspace_rule({ workspace = tostring(spec.id), monitor = spec.monitor }) }
+			rule_pool[key] = { handle = hl.workspace_rule({
+				workspace = tostring(spec.id), monitor = spec.monitor, persistent = spec.persistent,
+			}) }
 		elseif not rule.handle:is_enabled() then
 			rule.handle:set_enabled(true)
 		end
@@ -157,6 +229,8 @@ local function defragment(monitors)
 	-- Two phases: vacate all changing live IDs, then assign targets. No ID swaps,
 	-- focus changes, window moves, workspace recreation, or custom display names.
 	disable_rules()
+	local layouts = package.loaded["hyprland.layout-switcher"]
+	if layouts then layouts.suspend() end
 	local journal = {}
 	local ok, failure = pcall(function()
 		for _, entry in ipairs(entries) do
@@ -261,8 +335,13 @@ function M.sync()
 	if syncing or overview_owns_input() then return end
 	syncing = true
 	local ok, failure = pcall(function()
-		defragment(reconcile())
-		install_rules()
+		local monitors = reconcile()
+		prune_empty_interior()
+		local neighbors = reserve_empty_neighbors()
+		defragment(monitors)
+		install_rules(neighbors)
+		local layouts = package.loaded["hyprland.layout-switcher"]
+		if layouts then layouts.refresh() end
 		update_gestures()
 	end)
 	syncing = false
@@ -320,6 +399,115 @@ function M.move_monitor(direction)
 	schedule()
 end
 
+-- The plugin must refuse this transaction while it owns a positional drag.
+-- Do not relax the ordinary navigation/event guards while overview is open.
+local function with_overview_edit(action, ...)
+	if hl.get_current_submap() ~= "scrolloverview" then return end
+	local api = hl.plugin.scrolloverview
+	local prepare = api.window("prepare-workspace")
+	if prepare then hl.dispatch(prepare) end -- Custom events are not bind invocations.
+	overview_edit = true
+	local ok, result = pcall(action, ...)
+	overview_edit = false
+	local refresh = api.window("refresh")
+	if refresh then hl.dispatch(refresh) end
+	if not ok then error(result) end
+	return result
+end
+
+function M.overview_move(direction)
+	if direction ~= "left" and direction ~= "right" and direction ~= "up" and direction ~= "down" then return end
+	return with_overview_edit(function()
+		M.sync()
+		local workspace = hl.get_active_special_workspace() or hl.get_active_workspace()
+		if not numbered(workspace) or not workspace.monitor then return end
+		if direction == "left" or direction == "right" then
+			M.move_monitor(direction == "left" and "l" or "r")
+			M.sync()
+			hl.dispatch(hl.dsp.focus({ workspace = workspace.id }))
+			return workspace.monitor and workspace.monitor.name
+		end
+		local name = workspace.monitor.name
+		local number = local_number(name, workspace.id)
+		if not number then return end
+		local slots = {}
+		for slot in pairs(mapping[name]) do slots[#slots + 1] = slot end
+		table.sort(slots)
+		for i, slot in ipairs(slots) do
+			if slot == number then
+				local other = slots[i + (direction == "up" and -1 or 1)]
+				if not other then return end
+				mapping[name][number], mapping[name][other] = mapping[name][other], mapping[name][number]
+				M.sync()
+				return name
+			end
+		end
+	end)
+end
+
+function M.overview_number(number, move)
+	return with_overview_edit(M.number, number, move)
+end
+
+-- Native overview gap-drop event: its positional drag is already finished.
+-- Insert before the supplied right-hand card; retain every existing workspace
+-- identity, including empty slots and per-workspace layout choices.
+function M.overview_insert(window, before)
+	return with_overview_edit(function()
+		if not window or not window.mapped or not numbered(before) or not before.monitor
+			or not numbered(window.workspace) or window.workspace.monitor ~= before.monitor then return end
+		M.sync()
+		local name = before.monitor.name
+		local position = local_number(name, before.id)
+		if not position then return end
+		local previous, shifted = {}, {}
+		for number, id in pairs(mapping[name]) do
+			previous[number] = id
+			assert(number < LIMIT or number < position, "no room to insert another workspace")
+			shifted[number >= position and number + 1 or number] = id
+		end
+		local id = free_id(used_ids())
+		shifted[position] = id
+		mapping[name] = shifted
+		-- Do not renumber before the move succeeds, so rollback can restore the
+		-- exact dictionary without reversing any compositor identity changes.
+		local ok, failure = pcall(function()
+			install_rules(reserve_empty_neighbors())
+			local result = hl.dispatch(hl.dsp.window.move({ window = window, workspace = id, follow = false }))
+			assert(not result or result.success ~= false, "could not move the dropped window")
+			assert(window.workspace and window.workspace.id == id, "dropped window did not reach the new workspace")
+		end)
+		if not ok then
+			mapping[name] = previous
+			install_rules(reserve_empty_neighbors())
+			error(failure)
+		end
+		M.sync()
+		return window.workspace
+	end)
+end
+
+-- Called only by the native plugin's file/window-drag edge event. It switches
+-- workspaces without cursor warping and preserves the native drag owner.
+function M.drag_edge_step(direction, monitor_name)
+	if overview_owns_input() or (direction ~= "up" and direction ~= "down") then return end
+	local api = hl.plugin.edge_navigation
+	if not api or type(api.focus_workspace) ~= "function" then return end
+	M.sync()
+	local workspace = hl.get_active_special_workspace() or hl.get_active_workspace()
+	if not numbered(workspace) or not workspace.monitor or workspace.monitor.name ~= monitor_name then return end
+	local number = local_number(monitor_name, workspace.id)
+	if not number then return end
+	local next_number = number + (direction == "up" and -1 or 1)
+	if next_number < 1 then return end
+	if not mapping[monitor_name][next_number] then
+		mapping[monitor_name][next_number] = free_id(used_ids())
+		M.sync()
+	end
+	api.focus_workspace(mapping[monitor_name][next_number], monitor_name)
+	schedule()
+end
+
 local function save()
 	-- Only on unload/shutdown, never in a keybind. The XDG cache directory exists.
 	local file = io.open(cache .. ".tmp", "w")
@@ -333,7 +521,7 @@ end
 
 for _, event in ipairs({ "config.reloaded", "config.props_refreshed", "hyprland.start", "workspace.created", "workspace.removed",
 	"workspace.active", "workspace.move_to_monitor", "monitor.added", "monitor.removed", "monitor.layout_changed", "monitor.focused",
-	"keybinds.submap" }) do
+	"keybinds.submap", "window.open", "window.close", "window.move_to_workspace" }) do
 	hl.on(event, schedule)
 end
 hl.on("config.unload", save)

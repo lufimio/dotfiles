@@ -10,11 +10,12 @@ require("hyprland.input")
 require("hyprland.cursor")
 require("hyprland.animation")
 require("hyprland.rules")
-require("hyprland.keybinds")
-require("hyprland.scrolloverview") -- Optional yayuuu overview; old hyprexpo.lua is inactive.
-require("hyprland.hotcorners")
-require("hyprland.autostart")
+require("hyprland.keybinds.init")
+require("hyprland.scrolloverview")
+require("hyprland.dynamic-share-settings")
+require("hyprland.edge-navigation")
 require("hyprland.permissions")
+require("hyprland.autostart")
 
 -- Only the selected shell's overrides load, always after manual configuration.
 if shell == "dms" then
@@ -29,20 +30,18 @@ if shell == "dms" then
 	require("dms.windowrules")
 else
 	-- Keep the literal require for Noctalia 5's template hook: it must NOT
-	-- append an unconditional theme include after the DMS branch. Split loading
-	-- from application so its undo hook cannot delete this line. If the generated
-	-- file is absent/disabled, the separate seed remains available.
+	-- append an unconditional theme include after the DMS branch.
 	local ok, theme = pcall(function()
 		return require("noctalia")
 	end)
-	if not ok or type(theme) ~= "table" or type(theme.apply_theme) ~= "function" then
-		theme = require("noctalia.colors")
+	if ok and type(theme) == "table" and type(theme.apply_theme) == "function" then
+		theme.apply_theme()
 	end
-	theme.apply_theme()
 	require("noctalia.windowrules")
 end
 
 require("hyprland.struts") -- OPTIONAL: comment out this line to disable niri-like edge padding.
+require("hyprland.maximize")
 
 -- Derived urgent styling reads the selected shell's final palette.
 require("hyprland.urgency").theme()
