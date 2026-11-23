@@ -8,9 +8,6 @@ hl.window_rule({
 	no_focus = true,
 })
 
--- niri enables window background blur explicitly for terminals, not every app.
-hl.window_rule({ name = "default-no-window-blur", match = { class = ".*" }, no_blur = true })
-
 hl.window_rule({
 	name = "terminal-blur",
 	match = { class = "^(com\\.mitchellh\\.ghostty|kitty)$" },
