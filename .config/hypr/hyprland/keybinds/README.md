@@ -6,7 +6,7 @@ for their purpose; keep `hl.bind` calls literal so DMS can list them.
 | File | Purpose |
 | --- | --- |
 | `applications.lua` | Terminal, launcher, browser, file manager, desktop tools |
-| `windows.lua` | Close, fullscreen, floating, pinning, focus layer, inhibitors |
+| `windows.lua` | Close, minimize/restore/collection, fullscreen, floating, pinning, focus layer, inhibitors |
 | `layout.lua` | Layout cycle, sizes, centering, consuming/expelling columns |
 | `navigation.lua` | Arrows/HJKL, stack movement, first/last column |
 | `workspaces.lua` | Local numbers, workspace movement, monitor transfers, scratchpad |

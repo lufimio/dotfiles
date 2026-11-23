@@ -1,0 +1,108 @@
+# ==============================
+# Font Configuration
+# ==============================
+font-family = "FiraCode Nerd Font Mono"
+font-size = 10.5
+
+# ==============================
+# Cursor Configuration
+# ==============================
+cursor-style = bar
+shell-integration = detect
+shell-integration-features = true
+cursor-click-to-move = true
+
+# ==============================
+# Window Configuration
+# ==============================
+window-padding-x = 12
+window-padding-y = 12
+window-padding-color = extend
+
+background-opacity = 0.95
+background-blur = 12
+
+# ==============================
+# Scrollback
+# ==============================
+# Ghostty uses bytes, not lines.
+# Approx. 8 MiB for scrollback.
+scrollback-limit = 8388608
+
+# ==============================
+# Terminal Features
+# ==============================
+clipboard-trim-trailing-spaces = true
+selection-clear-on-copy = true
+clipboard-paste-protection = true
+link-previews = true
+
+# Disable terminal bell effects
+# bell-features = no-system,no-attention,no-title,no-border
+
+# ==============================
+# Command Notifications
+# ==============================
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = no-bell,notify
+notify-on-command-finish-after = 30s
+
+# ==============================
+# Keybindings
+# ==============================
+
+# Paste
+keybind = ctrl+v=paste_from_clipboard
+
+# Change font size
+keybind = ctrl+shift+equal=increase_font_size:1
+keybind = ctrl+shift+minus=decrease_font_size:1
+keybind = ctrl+shift+zero=reset_font_size
+
+# Move one word left / right
+keybind = ctrl+left=esc:b
+keybind = ctrl+right=esc:f
+
+# Delete one word left / right
+keybind = ctrl+backspace=text:\x1b\x7f
+keybind = ctrl+delete=esc:d
+
+# Scroll through terminal history
+keybind = shift+page_up=scroll_page_up
+keybind = shift+page_down=scroll_page_down
+
+# Select by character
+keybind = shift+left=text:\x1b[1;2D
+keybind = shift+right=text:\x1b[1;2C
+
+# Select by word
+keybind = ctrl+shift+left=text:\x1b[1;6D
+keybind = ctrl+shift+right=text:\x1b[1;6C
+
+# Select to beginning / end of line
+keybind = shift+home=text:\x1b[1;2H
+keybind = shift+end=text:\x1b[1;2F
+
+# Select to beginning / end of entire input
+keybind = ctrl+shift+home=text:\x1b[1;6H
+keybind = ctrl+shift+end=text:\x1b[1;6F
+
+# ==============================
+# Tabs
+# ==============================
+gtk-wide-tabs = true
+gtk-tabs-location = top
+gtk-toolbar-style = flat
+
+gtk-custom-css = ~/.config/ghostty/style.css
+
+# ==============================
+# Working Directory
+# ==============================
+split-inherit-working-directory = true
+
+# ==============================
+# Theme
+# ==============================
+window-theme = ghostty
+theme = ~/.config/ghostty/themes/dankcolors

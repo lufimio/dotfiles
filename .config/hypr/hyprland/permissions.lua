@@ -16,8 +16,10 @@ for _, binary in ipairs({
 }) do
 	allow(binary, "screencopy")
 end
+
 allow("/usr/lib/xdg-desktop-portal-hyprland", "cursorpos")
 allow("/usr/bin/obs", "cursorpos")
+
 for _, plugin in ipairs(require("hyprland.plugins").required) do
 	allow(plugin.path, "plugin")
 end
@@ -33,12 +35,12 @@ for _, keyboard in ipairs({
 	"hp-wmi-hotkeys",
 	"xremap",
 	"vicinae-snippet-virtual-keyboard",
+	"wh-ch720n-(avrcp)",
 }) do
 	allow(keyboard, "keyboard")
 end
-for _, permission in ipairs({ "screencopy", "cursorpos", "plugin", "keyboard", "input-capture" }) do
-	hl.permission({ binary = ".*", type = permission, mode = "ask" })
-end
+
+hl.permission({ binary = ".*", type = "keyboard", mode = "ask" })
 
 -- Do not enable halfway through an existing session without its startup rules.
 -- The instance-specific environment marker survives config reloads.

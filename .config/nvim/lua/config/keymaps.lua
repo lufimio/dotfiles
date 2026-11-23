@@ -4,7 +4,6 @@ local unmap = vim.keymap.del
 unmap("n", "<leader>L")
 
 map("i", "<CR>", "<CR><C-g>u")
-map("n", "<C-p>", Snacks.picker.git_files)
 
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

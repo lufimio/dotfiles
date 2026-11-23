@@ -58,6 +58,14 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
 
+[[ -n "${terminfo[khome]}" ]] && bindkey "${terminfo[khome]}" beginning-of-line
+[[ -n "${terminfo[kend]}" ]] && bindkey "${terminfo[kend]}" end-of-line
+
+# Highlight selected text
+zle_highlight+=(region:standout)
+
+zinit light jirutka/zsh-shift-select
+
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history

@@ -47,7 +47,8 @@
     "enabled": true,
     "stdout": true,
     "swapCaptureKeys": false,
-    "videoFormat": "mp4"
+    "videoFormat": "mp4",
+    "captureMode": "interactive"
   },
   "dankCalendarAgenda": {
     "enabled": true

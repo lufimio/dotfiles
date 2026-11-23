@@ -48,6 +48,21 @@ hyprctl repl 'return require("hyprland.keybinds.recording").set_enabled(false)'
 hyprctl repl 'return require("hyprland.keybinds.recording").set_enabled(true)'
 ```
 
+## Minimized windows
+
+- **Super+M:** restore the most recently minimized window; if none remain,
+  minimize the focused window.
+- **Super+Shift+M:** always minimize the focused window.
+- **Super+Alt+M:** focus the named `minimized` workspace containing the collection.
+
+This is workspace-backed minimization, not a native protocol minimize flag.
+Restore order and return workspaces survive config reloads. Live workspace
+references track renumbering; if an original workspace has been removed, restore
+uses the current regular workspace (or a regular workspace when viewing the
+collection). Pinning is temporarily disabled and fullscreen state cleared while
+minimized, then restored. Floating/tiled state is left to the native move.
+Tab groups follow Hyprland's native group-move behavior.
+
 ## Permissions
 
 `hyprland/permissions.lua` allows only reviewed capture tools, the required plugin

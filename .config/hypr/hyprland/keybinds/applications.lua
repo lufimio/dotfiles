@@ -1,10 +1,10 @@
 -- Applications and desktop tools.
-hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"), { description = "Terminal" })
-hl.bind("SUPER + T", hl.dsp.exec_cmd("kitty"), { description = "Terminal" })
+hl.bind("SUPER + Return", hl.dsp.exec_cmd("ghostty"), { description = "Terminal" })
+hl.bind("SUPER + T", hl.dsp.exec_cmd("ghostty"), { description = "Terminal" })
 hl.bind("SUPER + space", hl.dsp.exec_cmd("vicinae vicinae://toggle || pkill rofi || rofi -show drun"), { description = "Application Launcher" })
 hl.bind("SUPER + W", hl.dsp.exec_cmd("flatpak run net.waterfox.waterfox"), { description = "Web Browser" })
 hl.bind("SUPER + E", hl.dsp.exec_cmd("nautilus"), { description = "File Browser" })
-hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("kitty -- yazi"), { description = "Terminal File Browser" })
+hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("ghostty -e yazi"), { description = "Terminal File Browser" })
 hl.bind("SUPER + V", hl.dsp.exec_cmd("vicinae 'vicinae://launch/clipboard/history?toggle=true'"), { description = "Clipboard History" })
 hl.bind("SUPER + period", hl.dsp.exec_cmd("vicinae 'vicinae://launch/core/search-emojis?toggle=true'"), { description = "Emojis" })
 hl.bind("SUPER + SHIFT + Escape", hl.dsp.exec_cmd("pkill missioncenter || missioncenter"), { description = "Task Manager" })

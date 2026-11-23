@@ -1,6 +1,10 @@
 local nav = require("hyprland.navigation")
+local minimize = require("hyprland.minimize")
 
 hl.bind("SUPER + Q", hl.dsp.window.close(), { description = "Close Window" })
+hl.bind("SUPER + M", minimize.toggle, { description = "Minimize Window or Restore Most Recently Minimized" })
+hl.bind("SUPER + SHIFT + M", minimize.minimize, { description = "Minimize Focused Window" })
+hl.bind("SUPER + ALT + M", minimize.show, { description = "Show Minimized Windows Workspace" })
 hl.bind("SUPER + SHIFT + D", hl.dsp.window.fullscreen({ mode = "maximized", layout_aware = false }), { description = "Maximize Window to Edges" })
 hl.bind("SUPER + F11", hl.dsp.window.fullscreen({ mode = "fullscreen" }), { description = "Fullscreen Window" })
 hl.bind("SUPER + CTRL + space", hl.dsp.window.float(), { description = "Toggle Floating" })
